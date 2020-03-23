@@ -1,74 +1,76 @@
 #navigationbar {
-    background-color: #e3f2fd;
-  }
-  
-  .navbar-brand {
-    margin-right: 50px;
-  }
-  
-  /* Menu icon */
-  .togglemenu {
-    background-repeat: no-repeat;
-    background-size: 40%;
-    background-position: center;
-    cursor: pointer;
-    size: 5%;
-    padding-right: 25px;
-  }
-  
-  /* Side menu */
-  
-  .menu {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 50px;
-    height: 94%;
-    padding: 0 5px;
-    background-color: #79bac1;
-    z-index: 1000;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .menu ul {
-    padding: 15px 0 0 0;
-    overflow: hidden;
-    visibility: hidden;
-  }
-  
-  .menu ul li {
-    line-height: 60px;
-    list-style: none;
-  }
-  
-  .menu ul li span {
-    display: block;
-    height: 60px;
-    padding: 0 10px;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #fff;
-    font-family: arial;
-    font-size: 16px;
-    white-space: nowrap;
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .menu ul li a {
-    display: block;
-    height: 60px;
-    padding: 0 10px;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: #fff;
-    font-family: arial;
-    font-size: 16px;
-    white-space: nowrap;
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .menu ul li a:hover {
-    background-color: #222;
-  }
+  background-color: #e3f2fd;
+  height: 55px;
+}
+
+.navbar-brand {
+  margin-right: 50px;
+}
+
+/* Menu icon */
+.togglemenu {
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position: center;
+  cursor: pointer;
+  size: 5%;
+  padding-right: 25px;
+}
+
+/* Side menu */
+
+.menu {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 55px;
+  width: 50px;
+  height: 94.1vh;
+  padding: 0 5px;
+  background-color: #79bac1;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu ul {
+  padding: 15px 0 0 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.menu ul li {
+  line-height: 60px;
+  list-style: none;
+}
+
+.menu ul li span {
+  display: block;
+  height: 60px;
+  padding: 0 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: arial;
+  font-size: 16px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu ul li a {
+  display: block;
+  height: 60px;
+  padding: 0 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: arial;
+  font-size: 16px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu ul li a:hover {
+  background-color: #222;
+}
