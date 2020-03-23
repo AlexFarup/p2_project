@@ -7,8 +7,6 @@ app.get('/',(req, res) =>{
     app.use(express.static(__dirname + '/style.css'));
 });
 
-
-
 app.listen(3000, () => {
     console.log('Server is up and running at port 3000');
 });
