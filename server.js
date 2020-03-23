@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-app.use('/css',express.static(__dirname +'/css'));
+app.use('/CSS',express.static(__dirname +'/CSS'));
 
 // Adds index.html as a frontpage, when opening server
 app.get('/',(req, res) =>{
