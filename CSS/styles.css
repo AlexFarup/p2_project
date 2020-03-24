@@ -74,3 +74,16 @@
 .menu ul li a:hover {
   background-color: #222;
 }
+
+
+
+
+
+/*------------------------------------------OPGAVER index.html------------------------------------------*/
+
+
+/* Højre side */
+.container-right {
+  padding-left: 50%; 
+  text-align: center;
+}
