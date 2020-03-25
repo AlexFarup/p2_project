@@ -92,18 +92,19 @@
 .container-right {
   margin: 2rem 0;
   position: fixed;
-  padding-left: 50%; 
+  left: 50%;
   text-align: center;
 }
 
 .opgave-button {
   margin-bottom: 2rem;
+  width: 40rem;
 } 
 
 .smiley {
-  width: 10%;
-  position: relative;
-  left: 18rem;
+  width: 30px;
+  height: 30px;
+  float: right;
 }
 
 .uopgave {
