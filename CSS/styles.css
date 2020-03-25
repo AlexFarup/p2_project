@@ -81,6 +81,45 @@
 
 /*------------------------------------------OPGAVER index.html------------------------------------------*/
 
+/* Venstre side */
+
+.container-left {
+  margin: 2rem 0;
+  position: absolute;
+  height: 70%;
+  width: 50%;
+  right: 50%;
+}
+
+.center {
+  text-align: center;
+}
+
+.subject-button {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.matbox {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background-color: rgb(59, 52, 233);
+}
+
+.danbox {
+  text-align: center;
+  margin-bottom: 2rem;
+  background-color: rgb(223, 58, 58);
+}
+
+.hisbox {
+  text-align: center;
+  margin-bottom: 2rem;
+  background-color: rgb(58, 223, 86);
+}
+
+/* Højre side */
 .opgavebtn {
   width: 70%;
   text-align: left;
@@ -88,10 +127,10 @@
   padding: 0.5rem 0.5rem 1rem;
 }
 
-/* Højre side */
 .container-right {
   margin: 2rem 0;
-  padding-left: 50%; 
+  position: fixed;
+  left: 50%;
   text-align: center;
 }
 
