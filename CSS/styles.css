@@ -91,6 +91,7 @@
 /* Højre side */
 .container-right {
   margin: 2rem 0;
+  position: fixed;
   padding-left: 50%; 
   text-align: center;
 }
