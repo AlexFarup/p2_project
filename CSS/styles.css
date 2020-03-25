@@ -82,6 +82,7 @@
 /*------------------------------------------OPGAVER index.html------------------------------------------*/
 
 /* Venstre side */
+<<<<<<< Updated upstream
 
 .container-left {
   margin: 2rem 0;
@@ -93,6 +94,11 @@
 
 .center {
   text-align: center;
+=======
+.container-left {
+  padding-right: 50%;
+  background-color: white;
+>>>>>>> Stashed changes
 }
 
 .subject-button {
@@ -104,22 +110,41 @@
   text-align: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
+<<<<<<< Updated upstream
   background-color: rgb(59, 52, 233);
+=======
+  background-color: #453adf;
+  outline-color: black;
+>>>>>>> Stashed changes
 }
 
 .danbox {
   text-align: center;
   margin-bottom: 2rem;
+<<<<<<< Updated upstream
   background-color: rgb(223, 58, 58);
+=======
+  background-color: #df3a3a;
+  outline-color: black;
+>>>>>>> Stashed changes
 }
 
 .hisbox {
   text-align: center;
   margin-bottom: 2rem;
+<<<<<<< Updated upstream
   background-color: rgb(58, 223, 86);
 }
 
 /* Højre side */
+=======
+  background-color: #3adf56;
+  outline-color: black;
+}
+
+/* En random */
+
+>>>>>>> Stashed changes
 .opgavebtn {
   width: 70%;
   text-align: left;
