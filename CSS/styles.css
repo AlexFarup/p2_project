@@ -150,7 +150,99 @@
   float: right;
 }
 
+/* Khalid */
 
 .raekke {
   width: 35%
 }
+
+.opgave-x-box {
+  position: relative;
+  right: 200px;
+  width: 47%;
+  height: 50px; 
+  margin-left: 240px;
+  background-color: #79bac1;
+  border-radius: 15px;
+  padding: 10px 5px 15px;
+}
+
+.beskrivelse-box {
+  position: relative;
+  right: 200px;
+  bottom: 2px;
+  width: 47%;
+  height: 166px;
+  margin-top: 30px;
+  margin-left: 240px;
+  background-color: #79bac1;
+  border-radius: 15px;
+  padding: 10px 5px 15px;
+}
+.besvarelse-box {
+  position: relative;
+  right: 200px;
+  width: 47%;
+  height: 166px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 240px;
+  background-color: #79bac1;
+  border-radius: 15px;
+}
+
+.b-box {
+  text-align: left;
+  width: 65%;
+  height: 65%;
+  margin: 30px 150px 100px 200px;
+  background-color: #ffffff;
+  border-style: solid;
+  border-radius: 15px;
+}
+
+.side-box {
+  position: relative;
+  display: inline;
+  background-color: #79bac1;
+  border-radius: 15px;
+  left: 53%;
+  top: 49px;
+  margin-left: 10px;
+  padding: 10px 25px;
+}
+.timer-box {
+  position: relative;
+  display: inline-flex;
+  width: 8%;
+  background-color: #79bac1;
+  border-radius: 15px;
+  left: 53%;
+  top: 49px;
+  padding: 10px 25px;
+}
+
+.hint-side{
+  position: absolute;
+  background-color: #79bac1;
+  border-style: solid;
+  display: inline-flex;
+  left: 1600px;
+  bottom: 620px;
+  position: relative;
+  width: 15%;
+  height: 525px;
+  border-radius: 15px;
+}
+
+.hint-button{
+  width: 65%;
+  height: 10%;
+  position: relative;
+  right: 175px;
+  margin: 30px 150px 100px 200px;
+  background-color: #ffffff;
+  border-style: solid;
+  border-radius: 15px;
+}
+
