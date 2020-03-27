@@ -78,6 +78,87 @@
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+/*------------------------------------------OPGAVER index.html------------------------------------------*/
+
+/* Venstre side */
+
+.container-left {
+  margin: 2rem 0;
+  position: absolute;
+  height: 70%;
+  width: 50%;
+  right: 50%;
+}
+
+.center {
+  text-align: center;
+}
+
+.subject-button {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.matbox {
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.danbox {
+  text-align: center;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.hisbox {
+  text-align: center;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.td {
+  width: 30%;
+}
+
+
+/* Højre side */
+.opgavebtn {
+  width: 70%;
+  text-align: left;
+  margin: 0.5rem 0 0.5rem;
+  padding: 0.5rem 0.5rem 1rem;
+}
+
+.container-right {
+  margin: 2rem 0;
+  position: absolute;
+  left: 50%;
+  text-align: center;
+}
+
+.opgave-button {
+  margin-bottom: 2rem;
+  width: 40rem;
+} 
+
+.smiley {
+  width: 7%;
+  height: 7%;
+  float: right;
+}
+
+
+.raekke {
+  width: 35%
+}
+
+/*------------------------------------------OPGAVER opgaver.html------------------------------------------*/
+
+>>>>>>> master
 .opgave-x-box {
   position: relative;
   right: 200px;
@@ -145,13 +226,12 @@
 }
 
 .hint-side{
-  position: absolute;
+  top: 12%;
   background-color: #79bac1;
   border-style: solid;
   display: inline-flex;
-  left: 1600px;
-  bottom: 620px;
-  position: relative;
+  left: 85%;
+  position: absolute;
   width: 15%;
   height: 525px;
   border-radius: 15px;
@@ -160,14 +240,13 @@
 .hint-button{
   width: 65%;
   height: 10%;
-  position: relative;
-  right: 175px;
-  margin: 30px 150px 100px 200px;
+  margin: 5% 5%;
   background-color: #ffffff;
-  border-style: solid;
   border-radius: 15px;
+  border: solid;
 }
 
+<<<<<<< HEAD
 =======
 
 
@@ -201,4 +280,6 @@
   background-color: #79bac1;
   outline-color: black;
 }
+>>>>>>> master
+=======
 >>>>>>> master

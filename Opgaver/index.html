@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>Document</title>
+    <title>Opgave/Fag</title>
     <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu&display=swap"
@@ -25,9 +25,10 @@
     <!-- Personal CSS -->
     <link rel="stylesheet" href="https://alexfarup.github.io/p2_project/CSS/styles.css" type="text/CSS" />
 
-    <!-- Optional JavaScript -->
+    <!-- Optional JavaScript --> 
 
     <script defer src="https://alexfarup.github.io/p2_project/main.js"></script>
+    <script defer src="https://alexfarup.github.io/p2_project/Opgaver/opgaver.js"></script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
@@ -98,10 +99,15 @@
     <aside class="menu">
       <ul>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <li><span>Project</span></li>
         <li><a href="opgave.html">Opgaver</a></li>
 =======
         <li><a href="../index.html">Project</a></li>
+        <li><span>Opgaver</span></li>
+>>>>>>> master
+=======
+        <li><a href="https://alexfarup.github.io/p2_project/index.html">Project</a></li>
         <li><span>Opgaver</span></li>
 >>>>>>> master
         <li><a href="#">Hjælpemidler</a></li>
@@ -112,6 +118,44 @@
     <!-- Det hvide rum-->
     <div class="container-white">
       <!--- Alex -->
+      <!--Venstre side-->
+      <div class="container-left">
+        <div>
+
+          <div class="subject button">
+            <h2 class="center">Vælg Fag</h2>
+
+              <table align="center">
+
+                <tr>
+                  <td class="td">  
+                    <div class="btn btn-primary matbox">
+                      <h4>MATEMATIK</h4>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="td">
+                    <div class="btn btn-danger danbox">
+                      <h4>DANSK</h4>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="td">
+                    <div class="btn btn-success hisbox">
+                      <h4>HISTORIE</h4>
+                    </div>
+                  </td>
+                </tr>
+
+              </table>
+          </div>
+
+        </div>
+      </div>
 
       <!---Cecilie -->
       <!-- Højre side -->
@@ -120,35 +164,54 @@
 
           <div class="opgave-button">
             <h2>Ubesvaret opgaver</h2>
-            <a href="https://alexfarup.github.io/p2_project/Opgaver/opgave.html">
-              <div class="btn btn-info opgavebtn uopgave">
-                Opgavesæt <img src="https://alexfarup.github.io/p2_project/Images/sad.png" class="smiley" /> <br />
-                Dato
-              </div>
-            </a>
+            <table align="center">
+              <tr>
+                <td>
+                  <a href="../Opgaver/opgave.html">
+                    <div class="btn btn-outline-dark opgavebtn uopgave">
+                      Opgavesæt <img src="https://alexfarup.github.io/p2_project/Images/sad.png" class="smiley" /> <br />
+                      Dato
+                    </div>
+                  </a>
+                </td>
+              </tr>
+            </table>
           </div>
 
-          <div class="opgave-button">
-            <h2>Besvaret opgaver</h2>
-            <div class="btn btn-dark opgavebtn" href="#">
-              Opgavesæt <img src="https://alexfarup.github.io/p2_project/Images/happy.png" class="smiley" /> <br />
-              Dato
-            </div>
+          <h2>Besvaret opgaver</h2>
+          <table align="center">
+            <tr>
+              <td>
+                <div class="btn btn-dark opgavebtn" href="#">
+                  Opgavesæt <img src="https://alexfarup.github.io/p2_project/Images/happy.png" class="smiley" /> <br />
+                  Dato
+                </div>
+              </td>
+            </tr>
 
-            <div class="btn btn-dark opgavebtn" href="#">
-              Opgavesæt <img src="https://alexfarup.github.io/p2_project/Images/happy.png" class="smiley" /> <br />
-              Dato
-            </div>
+            <tr>
+              <td>
+                <div class="btn btn-dark opgavebtn" href="#">
+                  Opgavesæt <img src="https://alexfarup.github.io/p2_project/Images/happy.png" class="smiley" /> <br />
+                  Dato
+                </div>
+              </td>
+            </tr>
 
-            <div class="btn btn-dark opgavebtn" href="#">
-              Opgavesæt <img src="https://alexfarup.github.io/p2_project/Images/happy.png" class="smiley" /> <br />
-              Dato
-            </div>
-          </div>
+            <tr>
+              <td>
+                <div class="btn btn-dark opgavebtn" href="#">
+                  Opgavesæt <img src="https://alexfarup.github.io/p2_project/Images/happy.png" class="smiley" /> <br />
+                  Dato
+                </div>    
+              </td>
+            </tr>
+          </table>
         </div>
 
       </div>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </body>
 </html>
