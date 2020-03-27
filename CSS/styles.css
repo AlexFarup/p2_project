@@ -77,10 +77,52 @@
 
 
 
-
-
 /*------------------------------------------OPGAVER index.html------------------------------------------*/
 
+/* Venstre side */
+
+.container-left {
+  margin: 2rem 0;
+  position: absolute;
+  height: 70%;
+  width: 50%;
+  right: 50%;
+}
+
+.center {
+  text-align: center;
+}
+
+.subject-button {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.matbox {
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.danbox {
+  text-align: center;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.hisbox {
+  text-align: center;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.td {
+  width: 30%;
+}
+
+
+/* Højre side */
 .opgavebtn {
   width: 70%;
   text-align: left;
@@ -88,24 +130,118 @@
   padding: 0.5rem 0.5rem 1rem;
 }
 
-/* Højre side */
 .container-right {
   margin: 2rem 0;
-  padding-left: 50%; 
+  position: absolute;
+  left: 50%;
   text-align: center;
 }
 
 .opgave-button {
   margin-bottom: 2rem;
+  width: 40rem;
 } 
 
 .smiley {
-  width: 10%;
-  position: relative;
-  left: 18rem;
+  width: 7%;
+  height: 7%;
+  float: right;
 }
 
-.uopgave {
-  background-color: #79bac1;
-  outline-color: black;
+
+.raekke {
+  width: 35%
 }
+
+/*------------------------------------------OPGAVER opgaver.html------------------------------------------*/
+
+.opgave-x-box {
+  position: relative;
+  right: 200px;
+  width: 47%;
+  height: 50px; 
+  margin-left: 240px;
+  background-color: #79bac1;
+  border-radius: 15px;
+  padding: 10px 5px 15px;
+}
+
+.beskrivelse-box {
+  position: relative;
+  right: 200px;
+  bottom: 2px;
+  width: 47%;
+  height: 166px;
+  margin-top: 30px;
+  margin-left: 240px;
+  background-color: #79bac1;
+  border-radius: 15px;
+  padding: 10px 5px 15px;
+}
+.besvarelse-box {
+  position: relative;
+  right: 200px;
+  width: 47%;
+  height: 166px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 240px;
+  background-color: #79bac1;
+  border-radius: 15px;
+}
+
+.b-box {
+  text-align: left;
+  width: 65%;
+  height: 65%;
+  margin: 30px 150px 100px 200px;
+  background-color: #ffffff;
+  border-style: solid;
+  border-radius: 15px;
+}
+
+.side-box {
+  position: relative;
+  display: inline;
+  background-color: #79bac1;
+  border-radius: 15px;
+  left: 53%;
+  top: 49px;
+  margin-left: 10px;
+  padding: 10px 25px;
+}
+.timer-box {
+  position: relative;
+  display: inline-flex;
+  width: 8%;
+  background-color: #79bac1;
+  border-radius: 15px;
+  left: 53%;
+  top: 49px;
+  padding: 10px 25px;
+}
+
+.hint-side{
+  position: absolute;
+  background-color: #79bac1;
+  border-style: solid;
+  display: inline-flex;
+  left: 1600px;
+  bottom: 620px;
+  position: relative;
+  width: 15%;
+  height: 525px;
+  border-radius: 15px;
+}
+
+.hint-button{
+  width: 65%;
+  height: 10%;
+  position: relative;
+  right: 175px;
+  margin: 30px 150px 100px 200px;
+  background-color: #ffffff;
+  border-style: solid;
+  border-radius: 15px;
+}
+
