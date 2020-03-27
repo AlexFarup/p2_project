@@ -24,7 +24,7 @@
   left: 0;
   bottom: 0;
   top: 55px;
-  width: 50px;
+  width: 60px;
   height: 94.1vh;
   padding: 0 5px;
   background-color: #79bac1;
@@ -77,6 +77,7 @@
 
 
 
+<<<<<<< HEAD
 .opgave-x-box {
   position: relative;
   right: 200px;
@@ -167,3 +168,37 @@
   border-radius: 15px;
 }
 
+=======
+
+
+/*------------------------------------------OPGAVER index.html------------------------------------------*/
+
+.opgavebtn {
+  width: 70%;
+  text-align: left;
+  margin: 0.5rem 0 0.5rem;
+  padding: 0.5rem 0.5rem 1rem;
+}
+
+/* Højre side */
+.container-right {
+  margin: 2rem 0;
+  padding-left: 50%; 
+  text-align: center;
+}
+
+.opgave-button {
+  margin-bottom: 2rem;
+} 
+
+.smiley {
+  width: 10%;
+  position: relative;
+  left: 18rem;
+}
+
+.uopgave {
+  background-color: #79bac1;
+  outline-color: black;
+}
+>>>>>>> master
