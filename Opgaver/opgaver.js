@@ -3,6 +3,8 @@ $('.container-right').hide();
 
 
 //Shows the hidden concent, when selectec button is clicked
-$('body').click( () => { 
+$('.matbox').click( () => { 
     $('.container-right').fadeIn();
 });
+
+    
