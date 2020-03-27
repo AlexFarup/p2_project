@@ -136,12 +136,13 @@
 
 .opgave-button {
   margin-bottom: 2rem;
+  width: 40rem;
 } 
 
 .smiley {
-  width: 10%;
-  position: relative;
-  left: 18rem;
+  width: 7%;
+  height: 7%;
+  float: right;
 }
 
 .uopgave {
