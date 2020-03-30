@@ -242,3 +242,206 @@
   border: solid;
 }
 
+/*---------------OVERSIGT----------------*/
+
+.kontaktinfoBox {
+  margin-top: 0.5%;
+  margin-left: 12%;
+  margin-right: 20%;
+  border: 2px;
+  border-color: black;
+  border-style: solid;
+padding: 0.5%;
+}
+
+.KontaktinfoTekst1 {
+  padding-top: 1%;
+  padding-left: 1%;
+  font-weight: bold;
+  display: inline;
+}
+
+.KontaktinfoTekst2 {
+  padding-top: 1%;
+  padding-left: 1%;
+ display: inline;
+}
+
+.KontaktinfoTekst3 {
+  padding-top: 1%;
+  padding-left: 3%;
+  font-weight: bold;
+  display: inline;
+}
+
+.vertical { 
+  border-left: 4px solid black; 
+  height: 5%; 
+  position:absolute; 
+  left: 45%; 
+  top: 15.5%;
+} 
+
+
+.kontaktinfoBox2 {
+margin-top: 2%;
+  margin-left: 12%;
+  margin-right: 59%;
+  border: 2px;
+  border-color: black;
+  border-style: solid;
+padding: 0.5%;
+}
+
+.grafogkarakterBox {
+  
+    margin-left: 12%;
+    margin-right: 12%;
+    
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+  padding: 1%;
+  padding-bottom: 8%;
+  padding-top: 2%;
+ 
+  
+ 
+  }
+
+  .grafBox {
+margin-left: 12%;
+margin-right: 12%;
+text-align: center;
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+  
+  
+  }
+
+  .sebesvarelserBox {
+    margin-top: 0.1%;
+    margin-left: 12%;
+    margin-right:12%;
+        border: 2px;
+        border-color: black;
+        border-style: solid;
+      padding: 1%;
+      padding-top: 2%;
+      padding-bottom: 2%;
+   
+   
+      
+      }
+
+      .KarakterSkrift {
+        padding-top: 1%;
+        padding-left: 1%;
+        font-weight: bold;
+        display: inline;
+        
+      }
+      
+.additionBox{
+  margin-left: 2%;
+  border: 2px;
+  border-color: black;
+  border-style: solid;
+  display: inline;
+  padding: 1%;
+  font-weight: bold;
+}
+
+.subtraktionBox{
+  margin-left: 1%;
+  border: 2px;
+  border-color: black;
+  border-style: solid;
+  display: inline;
+  padding: 1%;
+  font-weight: bold;
+}
+
+.multiplikationBox{
+  margin-left: 1%;
+  border: 2px;
+  border-color: black;
+  border-style: solid;
+  display: inline;
+  padding: 1%;
+  font-weight: bold;
+}
+
+.divisionBox{
+  margin-left: 1%;
+  border: 2px;
+  border-color: black;
+  border-style: solid;
+  display: inline;
+  padding: 1%;
+  font-weight: bold;
+}
+
+
+
+.kontaktinfoBox3 {
+  margin-top: 3%;
+    margin-left: 20%;
+    margin-right: 30%;
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+  padding: 0.5%;
+font-size: 150%;
+  }
+
+  .grafBoxlærer {
+    margin-left: 12%;
+    margin-right: 12%;
+    text-align: right;
+        border: 2px;
+        border-color: black;
+        border-style: solid;
+        
+      }
+
+      .grafLærer{
+margin-top: -30%;
+padding-bottom: 5%;
+      }
+
+      .klasseopdeling{
+        padding: 1%;
+   font-size: 200%;
+     margin-top: 10%;
+        margin-left: 12%;
+        margin-right: 65%;
+      text-align: left;
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+      }
+
+      .klasseopdeling1{
+        padding: 1%;
+   font-size: 150%;
+        margin-left: 12%;
+        margin-right: 65%;
+      text-align: left;
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+      }
+
+      .lærerListe {
+        margin-top: 2%;
+          margin-left: 12%;
+          margin-right: 12%;
+          border: 2px;
+          border-color: black;
+          border-style: solid;
+  padding-left: 1%;
+      font-size: 150%;
+
+        }
