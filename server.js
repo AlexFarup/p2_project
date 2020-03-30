@@ -1,20 +1,20 @@
 const express = require('express');
-const mysql = require('mysql');
+// const mysql = require('mysql');
 
 const app = express();
 
 //Connection to MySQL database
-const connection = mysql.createConnection( {
-    host: 'localhost',
-    user: 'p2-projekt@hotmail.com',
-    password: 'gruppe_B2-4',
-    database: 'database name'
-});
+// const connection = mysql.createConnection( {
+//     host: 'localhost',
+//     user: 'p2-projekt@hotmail.com',
+//     password: 'gruppe_B2-4',
+//     database: 'database name'
+// });
 
-connection.connect((err) => {
-    if (err) throw err;
-    console.log('Connected!');
-});
+// connection.connect((err) => {
+//     if (err) throw err;
+//     console.log('Connected!');
+// });
 
 // Adds index.html as a frontpage, when opening server
 app.get('/',(req, res) =>{
