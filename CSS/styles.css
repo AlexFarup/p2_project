@@ -223,12 +223,12 @@
 }
 
 .hint-side{
-  top: 12%;
   background-color: #79bac1;
   border-style: solid;
   display: inline-flex;
-  left: 85%;
   position: absolute;
+  left: 85%;
+  top: 12%;
   width: 15%;
   height: 525px;
   border-radius: 15px;
