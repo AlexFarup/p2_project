@@ -23,11 +23,12 @@
     />
 
     <!-- Personal CSS -->
-    <link rel="stylesheet" href="https://alexfarup.github.io/p2_project/CSS/styles.css" type="text/CSS"  />
+    <link rel="stylesheet" href="/CSS/styles.css" type="text/CSS"  />
 
     <!-- Optional JavaScript -->
 
-    <script defer src="https://alexfarup.github.io/p2_project/main.js"></script>
+    <script defer src="/main.js"></script>
+    <script defer src="/opgaver.js"></script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
@@ -57,7 +58,7 @@
     <nav class="navbar fixed navbar-expand-lg navbar-light" id="navigationbar">
       <a class="togglemenu" href="#">
         <img
-          src="https://alexfarup.github.io/p2_project/Images/hmbicon.png"
+          src="/Images/hmbicon.png"
           width="30"
           height="30"
           alt=""
@@ -99,25 +100,50 @@
 
     <aside class="menu">
       <ul>
-        <li> <a href="https://alexfarup.github.io/p2_project/index.html">Project</a></li>
-        <li><span>Opgaver</span></li>
+        <li><span>Gruppe B2-4</span></li>
+        <li><a href="../Opgaver/opgaver.html">Opgaver</a></li>
         <li><a href="#">Hjælpemidler</a></li>
-        <li><a href="#">Profil</a></li>
+        <li><a href="../oversigt/Oversigt.html">Oversigt</a></li>
       </ul>
     </aside>
 
 
     <div class="b-box">
-      <button class="side-box">sidebox</button>
-      <div class = "timer-box">timer</div>
-      <div class="opgave-x-box">Opgave x</div>
-      <div class="beskrivelse-box">beskrivelse</div>
-      <div class="besvarelse-box"><h2>besvarelse</h2></div>
+      <table>
+        <tr>
+          <th>
+            <div class="opgave-x-box"> <p class="tekst">Opgave-x</p></div>
+          </th>
+          <th>
+            <div class = "timer-box"> <p class="tekst">Timer</p></div>
+          </th>
+          <th>
+            <button class="side-box"> <p class="tekst">Sidebox</p></button>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <div class="beskrivelse-box"> <p class="tekst">beskrivelse</p></div><div class="besvarelse-box">
+              <p class="tekst">Angiv dit svar</p>
+              <form class="svar" action="" method="post">
+                <input type="text" name="besvarelse">
+                <input type="submit" value="Send dit svar">
+              </form>
+            </div>
+          </th>
+        </tr>
+      </table>
+      
+      
+      
+      
+    </div>
+
+    <div class = "hint-side">
+      <button class="hint-button">hint button</button>
     </div>
   </body>
 
-  <div class = "hint-side">
-    <button class="hint-button">hint button</button>
-  </div>
+ 
 
 </html>
