@@ -8,6 +8,8 @@ var sassMiddleware = require('node-sass-middleware');
 var oversigtRouter = require('./routes/oversigt');
 var opgaverRouter = require('./routes/opgaver');
 var indexRouter = require('./routes/index');
+var oversigt_opgaverRouter = require('./routes/oversigt_opgaver');
+var laerer_oversigtRouter = require('./routes/laerer_oversigt');
 
 var app = express();
 
@@ -25,11 +27,15 @@ app.use(sassMiddleware({
   indentedSyntax: true, // true = .sass and false = .scss
   sourceMap: true
 }));
+
+//Gets Css and images
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/oversigt', oversigtRouter);
 app.use('/opgaver', opgaverRouter);
 app.use('/index', indexRouter);
+app.use('/oversigt_opgaver', oversigt_opgaverRouter);
+app.use('/laerer_oversigt', laerer_oversigtRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -48,8 +54,6 @@ app.use(function(err, req, res, next) {
 });
 
 
-
-
 module.exports = {
   app:app,
-}
+};

@@ -1,11 +1,16 @@
 
+
 .fagknapper{
-  margin: 3%;
-
+  margin: 50%;
 }
-
 
 .opgavesætknapper{
-  padding: 10%;
+  padding: 50%;
 }
+
+.centered-text {
+  margin-top: 13%;
+
+}
+
 /*# sourceMappingURL=style.css.map */
