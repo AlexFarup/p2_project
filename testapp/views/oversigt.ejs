@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Band Template</title>
+    <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+    <!-- Bulma Version 0.8.x-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="/public/stylesheet/css/style.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
+</head>
+
+<body>
+    <!-- nav bar -->
+    <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+           <p>Aalborg universitet</p>
+          </a>
+      
+          <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+      
+    
+
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item">
+              Hjem
+            </a>
+      
+            <a class="navbar-item">
+              Opgaver
+            </a>
+      
+            <a class="navbar-item">
+                Hjælpemidler
+              </a>
+
+              <a class="navbar-item">
+               Oversigt
+              </a>  
+           
+
+          </div>
+      
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="buttons">
+                <a class="button is-primary">
+                  <strong>Intranet</strong>
+                </a>
+                <a class="button is-light">
+                  Log in
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+<!--Oversigts body-->
+
+<section class="hero ">
+    <div class="hero-body">
+        <div class="container has-text-centered is-centered">
+
+            
+            <div class="columns is-gapless is-multiline is-mobile">
+                <br>
+                
+                <p class=" column has-text-centered ">
+                    <a class="button is-medium  column has-text-black ">
+                        <b> 7.a Matematik </b> /m Ditte Damborg 
+                    </a>
+                </p>
+                <p class="column has-text-centered ">
+                    <a class="button is-medium  column has-text-black ">
+                        <b> Lærer Email: </b> lilleneger@hotmail.com
+                    </a>
+                </p>
+              
+            </div>
+            <div class="columns is-gapless is-multiline is-mobile">
+                <br>
+                
+                <p class=" column has-text-centered ">
+                    <a class="button is-medium  column has-text-black ">
+                     <b> Navn: </b> Ditte Damborg
+                    </a>
+                </p>
+                <p class="column has-text-centered ">
+                    <a class="button is-medium column has-text-black ">
+                        <b> Email: </b> storneger@live.dk
+                    </a>
+                </p>
+                <p class="column has-text-centered ">
+                    <a class="button is-medium column has-text-black ">
+                        <b> Tlf: </b> 88888888
+                    </a>
+                </p>
+                <p class="column has-text-centered ">
+                    <a class="button is-medium column has-text-black ">
+                        <b> Forældre </b>  <%= fblink %>
+                    </a>
+                </p>
+              
+                
+            </div>
+
+
+
+
+
+
+
+            <div class="columns">
+                <div class="column is-6">
+                    <figure class="image">
+                        <img src="http://localhost:3000/images/testgraph.png" alt="Description">
+                    </figure>
+                </div>
+                <div class="column is-6">
+                    <figure class="image">
+                        <img src="http://localhost:3000/images/testgraph.png" alt="Description">
+                    </figure>
+                </div>
+            </div>
+
+
+                <div class="columns is-gapless is-multiline is-mobile">
+                    <br>
+                    <p class="column has-text-centered ">
+                        <a class="button is-medium is-danger ">
+                          Gennemsnitskarakter: 7/10
+                        </a>
+                    </p>
+
+
+                    <p class="column has-text-centered ">
+                        <a class="button is-medium is-warning ">
+                           Se alle besvarelser
+                        </a>
+                    </p>
+
+
+                    <p class=" column has-text-centered ">
+                        <a class="button is-medium is-info column ">
+                           Addition
+                        </a>
+                    </p>
+                    <p class="column has-text-centered ">
+                        <a class="button is-medium is-info column">
+                            Subtraktion
+                        </a>
+                    </p>
+                    <p class="column has-text-centered ">
+                        <a class="button is-medium is-info column ">
+                           Multiplikation
+                        </a>
+                    </p>
+                    <p class="column has-text-centered ">
+                        <a class="button is-medium is-info column ">
+                            Division
+                        </a>
+                    </p>
+                </div>
+        </div>
+    </div>
+
+ 
+</section>
+<script src="../js/bulma.js"></script>
+
+
+</body>
