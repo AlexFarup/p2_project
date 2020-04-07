@@ -7,6 +7,7 @@ var sassMiddleware = require('node-sass-middleware');
 
 var oversigtRouter = require('./routes/oversigt');
 var opgaverRouter = require('./routes/opgaver');
+var indexRouter = require('./routes/index');
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/oversigt', oversigtRouter);
 app.use('/opgaver', opgaverRouter);
+app.use('/index', indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -3,9 +3,6 @@ var router = express.Router();
 var db = require('../services/database').opgavedb;
 
 
-
-
-
 /* GET home page. */
 router.get('/:opgavenummer', function(req, res, next) {
   var opgavenummer = req.params.opgavenummer;
@@ -22,18 +19,15 @@ router.get('/:opgavenummer', function(req, res, next) {
   con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-    con.query(`SELECT * FROM \`Opgaver\` WHERE \`Opgave_ID\` = ${opgavenummer}`, function (err, result, fields) {
+    con.query(`SELECT * FROM \`Elev\` WHERE \`Elev_ID\` = ${opgavenummer}`, function (err, result, fields) {
         if (err) throw err;
         console.log(result[0]);
-        res.render('opgaver', { 
-            title: 'Opgaversæt', 
-            opgavebeskrivelse: result[0].Opgave,
-            opgave_ID: result[0].Opgave_ID,
-            });
+        res.render('index', {  
+            elev_ID: result[0].elev_ID,
+            navn: result[0].Navn,
+        });
       });  
-
   });
-
 
 });
 

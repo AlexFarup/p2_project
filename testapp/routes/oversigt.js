@@ -15,22 +15,21 @@ router.get('/:opgavenummer', function(req, res, next) {
     host: "localhost",
     user: "root",
     password: "",
-    database: "test1",
+    database: "Allan",
     port: "3306"
   });
   
   con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-    con.query(`SELECT * FROM \`test2\` WHERE \`ID\` = ${opgavenummer}`, function (err, result, fields) {
+    con.query(`SELECT * FROM \`Opgaver\` WHERE \`Opgave_ID\` = ${opgavenummer}`, function (err, result, fields) {
         if (err) throw err;
         console.log(result[0]);
         res.render('oversigt', { 
             title: 'Opgaversæt', 
             opgavebeskrivelse: db[opgavenummer].Opgave,
             name: result[0].Name,
-            fblink: result[0].fbLink
-             });
+            });
       });  
 
   });
