@@ -16,25 +16,38 @@ router.get('/:opgavenummer', function(req, res, next) {
     user: "root",
     password: "",
     database: "Allan",
-    port: "3306"
+    port: "3306",
+    multipleStatements: true,
   });
-  
+
+
   con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-    con.query(`SELECT * FROM \`Opgaver\` WHERE \`Opgave_ID\` = ${opgavenummer}`, function (err, result, fields) {
-        if (err) throw err;
-        console.log(result[0]);
-        res.render('oversigt', { 
-            title: 'Opgaversæt', 
-            opgavebeskrivelse: db[opgavenummer].Opgave,
-            name: result[0].Name,
-            });
-      });  
-
+    con.query(`SELECT * FROM \`Elev\` INNER JOIN \`Laerer\` ON (\`Elev_klasse_ID\` = \`Elev_Laerer_ID\`)  WHERE \`Elev_ID\` = ${opgavenummer}`, function (err, result, fields) {
+      if (err) throw err;
+      console.log(result[0]);
+      res.render('oversigt', {  
+          elev_ID: result[0].Elev_ID,
+          elev_navn: result[0].Elev_navn,
+          elev_efternavn: result[0].Elev_efternavn,
+          elev_email: result[0].Elev_email,
+          laerer_navn: result[0].Laerer_navn,
+          laerer_efternavn: result[0].Laerer_efternavn,
+          laerer_telefonnummer: result[0].Laerer_telefonnummer,
+          laerer_email: result[0].Laerer_email,
+      });
+    });
   });
-
-
 });
 
 module.exports = router;
+
+
+
+//con.query(`SELECT * FROM \`Elev\` INNER JOIN \`Laerer\` ON (\`Klasse_ID\` = \`Laerer_ID\`)  WHERE \`Elev_ID\` = ${opgavenummer}`, function (err, result, fields) {
+
+ 
+
+//`SELECT \`Elev_ID\`, \`Elev_navn\`, \`Elev_efternavn\`, \`Elev_username\`, \`Elev_password\`, \`Elev_email\`, \`Elev_klasse_ID, \`Elev_laerer_ID\`, \`Klasse_ID\`, \`Klasse_Navn\`, \`Laerer_ID\`, \`Laerer_navn\`, \`Laerer_efternavn\`, \`Laerer_password\`, \`Laerer_username\`, \`Laerer_email\`, \`Laerer_telefonnummer\` FROM ((\`Elev\` INNER JOIN \`Klasse\` ON \`Elev.Elev_Klasse_ID\` = \`Klasse.Klasse_ID\`) INNER JOIN \`Laerer\` ON \`Elev.Elev_laerer_ID\` = \`Laerer.Laerer_ID\`) WHERE \`Elev_ID\` = ${opgavenummer}`, function (err, result, fields
+
