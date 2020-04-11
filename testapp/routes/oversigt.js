@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../services/database').opgavedb;
+var environment = require('../enviroment').environment;
 
 
 
@@ -12,11 +12,11 @@ router.get('/:opgavenummer', function(req, res, next) {
   var mysql = require('mysql');
 
   var con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "Allan",
-    port: "3306",
+    host: environment.host,
+    user: environment.user,
+    password: environment.password,
+    database: environment.database,
+    port: environment.port,
     multipleStatements: true,
   });
 
