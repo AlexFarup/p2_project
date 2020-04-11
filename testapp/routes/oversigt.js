@@ -24,7 +24,16 @@ router.get('/:opgavenummer', function(req, res, next) {
   con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-    con.query(`SELECT * FROM \`Elev\` INNER JOIN \`Laerer\` ON (\`Elev_klasse_ID\` = \`Elev_laerer_ID\`)  WHERE \`Elev_ID\` = ${opgavenummer}`, function (err, result, fields) {
+    con.query(`SELECT *
+    FROM \`Elev\` AS elev
+        INNER JOIN
+            \`Laerer\` AS laerer
+            ON elev.Elev_laerer_ID = laerer.Laerer_ID
+        INNER JOIN
+            \`Klasse\` AS klasse
+            ON elev.Elev_klasse_ID = klasse.Klasse_ID
+        WHERE
+            elev.Elev_ID = ${opgavenummer}`, function (err, result, fields) {
       if (err) throw err;
       console.log(result[0]);
       res.render('oversigt', {  
@@ -36,6 +45,7 @@ router.get('/:opgavenummer', function(req, res, next) {
           laerer_efternavn: result[0].Laerer_efternavn,
           laerer_telefonnummer: result[0].Laerer_telefonnummer,
           laerer_email: result[0].Laerer_email,
+          klasse_navn: result[0].Navn
       });
     });
   });
