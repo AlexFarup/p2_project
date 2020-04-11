@@ -11,7 +11,7 @@ router.get('/:opgavenummer', function(req, res, next) {
   var con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "",
+    password: "p2gruppe",
     database: "Allan",
     port: "3306"
   });
