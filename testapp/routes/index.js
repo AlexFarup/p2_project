@@ -23,9 +23,9 @@ router.get('/:opgavenummer', function(req, res, next) {
         if (err) throw err;
         console.log(result[0]);
         res.render('index', {  
-            elev_ID: result[0].elev_ID,
-            navn: result[0].Navn,
-            elev_efternavn: result[0].Efternavn
+            elev_ID: result[0].Elev_ID,
+            navn: result[0].Elev_navn,
+            elev_efternavn: result[0].Elev_efternavn
         });
     });  
   });

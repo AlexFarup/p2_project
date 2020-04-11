@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var sassMiddleware = require('node-sass-middleware');
+//var sassMiddleware = require('node-sass-middleware');
 
 var oversigtRouter = require('./routes/oversigt');
 var opgaverRouter = require('./routes/opgaver');
@@ -21,12 +21,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(sassMiddleware({
+/*app.use(sassMiddleware({
   src: path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
   indentedSyntax: true, // true = .sass and false = .scss
   sourceMap: true
-}));
+})); */
 
 //Gets Css and images
 app.use(express.static(path.join(__dirname, 'public')));
