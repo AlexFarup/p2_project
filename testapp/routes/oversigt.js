@@ -24,7 +24,7 @@ router.get('/:opgavenummer', function(req, res, next) {
   con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-    con.query(`SELECT * FROM \`Elev\` INNER JOIN \`Laerer\` ON (\`Elev_klasse_ID\` = \`Elev_Laerer_ID\`)  WHERE \`Elev_ID\` = ${opgavenummer}`, function (err, result, fields) {
+    con.query(`SELECT * FROM \`Elev\` INNER JOIN \`Laerer\` ON (\`Elev_klasse_ID\` = \`Elev_laerer_ID\`)  WHERE \`Elev_ID\` = ${opgavenummer}`, function (err, result, fields) {
       if (err) throw err;
       console.log(result[0]);
       res.render('oversigt', {  
