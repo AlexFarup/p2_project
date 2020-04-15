@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Band Template</title>
+    <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+    <!-- Bulma Version 0.8.x-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="/public/stylesheet/css/style.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
+</head>
+
+<body>
+    <!-- nav bar -->
+    <%- include('navbar')  %>
+
+<!--Oversigts body-->
+
+<section class="hero ">
+    <div class="hero-body">
+        <div class="container has-text-centered is-centered">
+
+            
+            <div class="columns is-gapless is-multiline is-mobile">
+                <br>
+                
+                <p class=" column has-text-centered ">
+                    <a class="button is-medium  column has-text-black ">
+                        <b> <%= klasse_navn %> Matematik </b> /m <%= laerer_navn %> <%= laerer_efternavn %>
+                    </a>
+                </p>
+                <p class="column has-text-centered ">
+                    <a class="button is-medium  column has-text-black ">
+                        <b> Lærer Email: </b> <%= laerer_email %> 
+                    </a>
+                </p>
+              
+            </div>
+            <div class="columns is-gapless is-multiline is-mobile">
+                <br>
+                
+                <p class=" column has-text-centered ">
+                    <a class="button is-medium  column has-text-black ">
+                     <b> Navn: </b> <%= elev_navn %> <%= elev_efternavn %>
+                    </a>
+                </p>
+                <p class="column has-text-centered ">
+                    <a class="button is-medium column has-text-black ">
+                        <b> Email:</b> <%= elev_email %>  
+                    </a>
+                </p>
+                <p class="column has-text-centered ">
+                    <a class="button is-medium column has-text-black ">
+                        <b> Tlf: </b> <%= laerer_telefonnummer %> 
+                    </a>
+                </p>
+                <p class="column has-text-centered ">
+                    <a class="button is-medium column has-text-black ">
+                        <b> Forældre: </b> Viggo og Tanja
+                    </a>
+                </p>
+                
+            </div>
+
+
+            <div class="columns">
+                <div class="column is-6">
+                    <figure class="image">
+                        <img src="/images/testgraph.png" alt="Description">
+                    </figure>
+                </div>
+                <div class="column is-6">
+                    <figure class="image">
+                        <img src="/images/testgraph.png" alt="Description">
+                    </figure>
+                </div>
+            </div>
+
+
+                <div class="columns is-gapless is-multiline is-mobile">
+                    <br>
+                    <p class="column has-text-centered ">
+                        <a class="button is-medium is-danger ">
+                          Gennemsnitskarakter: 7/10
+                        </a>
+                    </p>
+
+
+                    <p class="column has-text-centered ">
+                        <a class="button is-medium is-warning ">
+                           Se alle besvarelser
+                        </a>
+                    </p>
+
+
+                    <p class=" column has-text-centered ">
+                        <a class="button is-medium is-info column ">
+                           Addition
+                        </a>
+                    </p>
+                    <p class="column has-text-centered ">
+                        <a class="button is-medium is-info column">
+                            Subtraktion
+                        </a>
+                    </p>
+                    <p class="column has-text-centered ">
+                        <a class="button is-medium is-info column ">
+                           Multiplikation
+                        </a>
+                    </p>
+                    <p class="column has-text-centered ">
+                        <a class="button is-medium is-info column ">
+                            Division
+                        </a>
+                    </p>
+                </div>
+        </div>
+    </div>
+
+ 
+</section>
+<script src="../js/bulma.js"></script>
+
+
+</body>
