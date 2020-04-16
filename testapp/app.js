@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var bodyParser = require('body-parser');
+
 //var sassMiddleware = require('node-sass-middleware');
 
 var oversigtRouter = require('./routes/oversigt');
@@ -52,32 +52,6 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
-});
-
-
-
-
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
-
-app.get('/opgaver', function (req, res) {
-  res.render('opgaver', { qs: req.query });
-});
-
-app.post('/opgaver/sendA', urlencodedParser, function (req, res) {
-  console.log(req.body);
-  var svar = req.body.svar;
-
-  con.connect(function (err) {
-      if (err) throw err;
-      console.log("connected");
-
-      var sql = `INSERT INTO \`Besvarelser\`(\`Besvarelse_ID\`, \`Tid\`, \`svar\`, \`Elev_ID\`)`; VALUES ('svar','[svar]','[svar]','[svar]');
-      con.query(sql, function (err) {
-          if (err) throw err;
-          console.log("One record inserted");
-      });
-  });
-  res.render('opgaver', { data: req.body });
 });
 
 
