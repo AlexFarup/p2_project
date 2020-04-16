@@ -33,12 +33,24 @@ router.get('/:opgavenummer', function(req, res, next) {
 
   });
 
-
-
-
-
-
-
 });
+
+app.post('/sendA', function (req, res) {
+  console.log(req.body);
+  var svar = req.body.svar;
+
+  con.connect(function (err) {
+      if (err) throw err;
+      console.log("connected");
+
+      var sql = `INSERT INTO \`Besvarelser\`(\`Besvarelse_ID\`, \`Tid\`, \`svar\`, \`Elev_ID\`)`; VALUES ('svar','[svar]','[svar]','[svar]');
+      con.query(sql, function (err) {
+          if (err) throw err;
+          console.log("One record inserted");
+      });
+  });
+  res.render('opgaver', { data: req.body });
+});
+
 
 module.exports = router;
