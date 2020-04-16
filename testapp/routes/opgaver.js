@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var environment = require('../enviroment').environment;
-var bodyParser = require('body-parser');
+
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
@@ -35,13 +35,8 @@ router.get('/:opgavenummer', function(req, res, next) {
 
   });
 
- 
 
-app.get('/opgaver', function (req, res) {
-  res.render('opgaver', { qs: req.query });
-});
-
-app.post('/opgaver/sendA', urlencodedParser, function (req, res) {
+app.post('/sendA', urlencodedParser, function (req, res) {
   console.log(req.body);
   var svar = req.body.svar;
 
