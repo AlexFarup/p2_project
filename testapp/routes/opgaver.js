@@ -34,24 +34,21 @@ router.get('/:opgavenummer', function(req, res, next) {
 
   });
 
-  app.post('/:opgavenummer', urlencodedParser, function (req, res) {
-    console.log(req.body);
-    var svar = req.body.svar;
+  router.post('/sendanswer', function(req, res, next) {
     
+    var svar     = req.body.svar;
+  
+    
+   var sql = `INSERT INTO Besvarelser (svar ) VALUES ('${svar}' )`;
+   db.query(sql,function (err, data) {
+      if (err) throw err;
+           console.log("record inserted");
+       });
+   res.redirect('/user');
 
-    con.connect(function (err) {
-        if (err) throw err;
-        console.log("connected");
 
-        var sql = "INSERT INTO 'Besvarelser' (svar) VALUES ('svar')";
-        con.query(sql, function (err) {
-            if (err) throw err;
-            console.log("One record inserted");
-        });
-    });
+
   });
-
-
 
 
 
