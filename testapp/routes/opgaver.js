@@ -26,7 +26,7 @@ router.get('/:opgavenummer', function(req, res, next) {
         res.render('opgaver', {  
             opgavebeskrivelse: result[0].Opgave,
             opgave_ID: result[0].Opgave_ID,
-            pi: result[0].Forventet_svar,
+            
             });
       });  
 
