@@ -62,7 +62,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
           console.log("One record inserted");
       });
   });
-  res.render(`opgaver/${opgavenummer}`, { data: req.body });
+  res.redirect(`opgaver/${opgavenummer}`);
 });
 
 
