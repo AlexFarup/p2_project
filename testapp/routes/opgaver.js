@@ -59,7 +59,6 @@ router.post('/sendA', function (req, res) {
           console.log("One record inserted");
       });
   });
-  res.render('opgaver', { data: req.body });
 });
 
 
