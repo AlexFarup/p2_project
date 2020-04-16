@@ -40,7 +40,7 @@ router.get('/:opgavenummer', function(req, res, next) {
     var svar     = req.body.svar;
   
     
-   var sql = `INSERT INTO Besvarelser (svar ) VALUES ('${svar}' )`;
+   var sql = `INSERT INTO \`Besvarelser\`(\`Besvarelse_ID\`, \`Tid\`, \`svar\`, \`Hint\`, \`Score\`, \`Elev_ID\`, \`Besvaret\`) VALUES ([svar],[svar,[svar],[svar],[svar],[svar],[svar])`;
    db.query(sql,function (err, data) {
       if (err) throw err;
            console.log("record inserted");
