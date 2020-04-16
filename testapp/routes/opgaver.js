@@ -36,10 +36,13 @@ router.get('/:opgavenummer', function(req, res, next) {
 });
 
 
-router.post('/sendA', function (req, res) {
+router.post('/sendA/:opgavenummer', function (req, res) {
   console.log(req.body);
   var svar = req.body.svar;
+  var opgavenummer = req.params.opgavenummer;
   var mysql = require('mysql');
+
+  
   var con = mysql.createConnection({
     host: environment.host,
     user: environment.user,
@@ -59,6 +62,7 @@ router.post('/sendA', function (req, res) {
           console.log("One record inserted");
       });
   });
+  res.render(`opgaver/${opgavenummer}`, { data: req.body });
 });
 
 
