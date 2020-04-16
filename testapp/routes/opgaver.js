@@ -33,7 +33,19 @@ router.get('/:opgavenummer', function(req, res, next) {
   });
 
 
+  router.post('/sendA', function(req, res, next) {
+    
+    var svar     = req.body.svar;
+    
+    
+  var sql = `INSERT INTO \`Besvarelser\`(\`Besvarelse_ID\`, \`Tid\`, \`svar\`, \`Elev_ID\`)`; VALUES `([svar],[svar],[svar],[svar)`;
+   db.query(sql,function (err, data) {
+      if (err) throw err;
+           console.log("record inserted");
+       });
+   res.redirect('/opgaver/:opgavenummer');
 
+  });
 
 
 });
