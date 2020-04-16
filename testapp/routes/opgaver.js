@@ -1,12 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var environment = require('../enviroment').environment;
-var bodyParser = require('body-parser');
 
-var app = express();
-app.set('view engine', 'ejs');
 
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+
+
 
 /* GET home page. */
 router.get('/:opgavenummer', function(req, res, next) {
@@ -36,27 +35,6 @@ router.get('/:opgavenummer', function(req, res, next) {
 
   });
 
-
-  app.get('/opgaver', function (req, res) {
-    res.render('opgaver', { qs: req.query });
-});
-
-app.post('/sendA', urlencodedParser, function (req, res) {
-    console.log(req.body);
-    var svar = req.body.svar;
- 
-    con.connect(function (err) {
-        if (err) throw err;
-        console.log("connected");
-
-        var sql = `INSERT INTO \`Besvarelser\`(\`Besvarelse_ID\`, \`Tid\`, \`svar\`, \`Elev_ID\`)`; VALUES ('svar','[svar]','[svar]','[svar]');
-        con.query(sql, function (err) {
-            if (err) throw err;
-            console.log("One record inserted");
-        });
-    });
-    res.render('opgaver', { data: req.body });
-});
 
 
 });
