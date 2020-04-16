@@ -25,10 +25,10 @@ router.get('/:opgavenummer', function(req, res, next) {
     con.query(`SELECT * FROM \`Opgaver\` WHERE \`Opgave_ID\` = ${opgavenummer}`, function (err, result, fields) {
         if (err) throw err;
         console.log(result[0]);
-        res.render('opgaver', { 
-            title: 'Opgaversæt', 
+        res.render('opgaver', {  
             opgavebeskrivelse: result[0].Opgave,
             opgave_ID: result[0].Opgave_ID,
+            svgrad: result[0].Sværhedsgrad
             });
       });  
 
