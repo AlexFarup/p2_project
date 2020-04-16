@@ -63,7 +63,7 @@ app.get('/opgaver', function (req, res) {
   res.render('opgaver', { qs: req.query });
 });
 
-app.post('/sendA', urlencodedParser, function (req, res) {
+app.post('/opgaver/sendA', urlencodedParser, function (req, res) {
   console.log(req.body);
   var svar = req.body.svar;
 
