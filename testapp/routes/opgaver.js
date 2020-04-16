@@ -37,7 +37,7 @@ router.get('/:opgavenummer', function(req, res, next) {
     res.render('opgaver', { qs: req.query });
 });
 
-app.post('/sendA', urlencodedParser, function (req, res) {
+app.post('/opgaver/sendA', urlencodedParser, function (req, res) {
     console.log(req.body);
     var svar = req.body.svar;
  
