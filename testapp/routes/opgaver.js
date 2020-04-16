@@ -28,7 +28,7 @@ router.get('/:opgavenummer', function(req, res, next) {
         res.render('opgaver', {  
             opgavebeskrivelse: result[0].Opgave,
             opgave_ID: result[0].Opgave_ID,
-            svgrad: result[0].Sværhedsgrad
+            svgrad: result[0].Type_ID
             });
       });  
 
