@@ -40,6 +40,15 @@ router.post('/sendA', function (req, res) {
   console.log(req.body);
   var svar = req.body.svar;
 
+  var con = mysql.createConnection({
+    host: environment.host,
+    user: environment.user,
+    password: environment.password,
+    database: environment.database,
+    port: environment.port
+  });
+
+
   con.connect(function (err) {
       if (err) throw err;
       console.log("connected");
