@@ -37,7 +37,7 @@ router.get('/:opgavenummer', function(req, res, next) {
     res.render('opgaver', { qs: req.query });
 });
 
-app.post('/opgaver/sendA', urlencodedParser, function (req, res) {
+app.post('/sendA', urlencodedParser, function (req, res) {
     console.log(req.body);
     var svar = req.body.svar;
  
@@ -45,7 +45,7 @@ app.post('/opgaver/sendA', urlencodedParser, function (req, res) {
         if (err) throw err;
         console.log("connected");
 
-        var sql = `INSERT INTO \`Besvarelser\`(\`Besvarelse_ID\`, \`Tid\`, \`svar\`, \`Elev_ID\`)`; VALUES ([svar],[svar],[svar],[svar]);
+        var sql = `INSERT INTO \`Besvarelser\`(\`Besvarelse_ID\`, \`Tid\`, \`svar\`, \`Elev_ID\`)`; VALUES ('[svar]','[svar]','[svar]','[svar]');
         con.query(sql, function (err) {
             if (err) throw err;
             console.log("One record inserted");
