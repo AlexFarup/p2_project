@@ -3,6 +3,9 @@ var router = express.Router();
 var environment = require('../enviroment').environment;
 var bodyParser = require('body-parser');
 
+var app = express();
+app.set('view engine', 'ejs');
+
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 /* GET home page. */
@@ -46,7 +49,7 @@ app.post('/sendA', urlencodedParser, function (req, res) {
         if (err) throw err;
         console.log("connected");
 
-        var sql = `INSERT INTO \`Besvarelser\`(\`Besvarelse_ID\`, \`Tid\`, \`svar\`, \`Elev_ID\`)`; VALUES ('[svar]','[svar]','[svar]','[svar]');
+        var sql = `INSERT INTO \`Besvarelser\`(\`Besvarelse_ID\`, \`Tid\`, \`svar\`, \`Elev_ID\`)`; VALUES ('svar','[svar]','[svar]','[svar]');
         con.query(sql, function (err) {
             if (err) throw err;
             console.log("One record inserted");
