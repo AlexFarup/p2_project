@@ -3,7 +3,7 @@ var router = express.Router();
 var environment = require('../enviroment').environment;
 
 
-
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 
 /* GET home page. */
@@ -33,6 +33,27 @@ router.get('/:opgavenummer', function(req, res, next) {
       });  
 
   });
+
+  app.post('/sendanswer', urlencodedParser, function (req, res) {
+    console.log(req.body);
+    var svar = req.body.svar;
+    
+
+    con.connect(function (err) {
+        if (err) throw err;
+        console.log("connected");
+
+        var sql = "INSERT INTO 'Besvarelser' (svar) VALUES ('svar')";
+        con.query(sql, function (err) {
+            if (err) throw err;
+            console.log("One record inserted");
+        });
+    });
+  });
+
+
+
+
 
 
 });
