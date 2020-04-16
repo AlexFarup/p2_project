@@ -3,7 +3,7 @@ var router = express.Router();
 var environment = require('../enviroment').environment;
 
 
-
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 
 /* GET home page. */
@@ -33,6 +33,25 @@ router.get('/:opgavenummer', function(req, res, next) {
       });  
 
   });
+
+  router.post('/sendanswer', function(req, res, next) {
+    
+    const userDetails=req.body;
+    var svar     = req.body.svar;
+  
+    
+   var sql = `INSERT INTO \`Besvarelser\`(\`Besvarelse_ID\`, \`Tid\`, \`svar\`, \`Hint\`, \`Score\`, \`Elev_ID\`, \`Besvaret\`) VALUES ([svar],[svar,[svar],[svar],[svar],[svar],[svar])`;
+   db.query(sql,function (err, data) {
+      if (err) throw err;
+           console.log("record inserted");
+       });
+   res.redirect('/opgaver');
+
+
+
+  });
+
+
 
 
 });
