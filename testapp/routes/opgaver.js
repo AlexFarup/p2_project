@@ -44,7 +44,7 @@ router.get('/:opgavenummer', function(req, res, next) {
       if (err) throw err;
            console.log("record inserted");
        });
-   res.redirect('/user');
+   res.redirect('/:opgavenummer');
 
 
 
