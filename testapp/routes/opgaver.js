@@ -36,6 +36,7 @@ router.get('/:opgavenummer', function(req, res, next) {
 
   router.post('/sendanswer', function(req, res, next) {
     
+    const userDetails=req.body;
     var svar     = req.body.svar;
   
     
