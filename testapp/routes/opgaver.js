@@ -3,8 +3,6 @@ var router = express.Router();
 var environment = require('../enviroment').environment;
 
 
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
-
 
 
 /* GET home page. */
