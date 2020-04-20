@@ -28,16 +28,19 @@
                         <h1>Opgavenummer <%= opgave_ID %> </h1>
                 <div class="content" >
                         <p>Opgave beskrivelse</p>
-                        <p><%= opgavebeskrivelse %></p> 
-                        
+                        <p><%= opgavebeskrivelse %> </p> 
+                    
                     <div class="content">
                         <div class="field columns is-centered" style="padding: 2rem ">
-                            <div class="control">
-                                <form method="POST" action="/sendanswer">
-                              <input class="input is-primary" type="text" placeholder="Indtast dit svar" name="svar">
-                            </div>
-                            <button class="button is-primary is-hovered" type="submit"> Indsend Svar</button>
-                        </form>
+                    
+                    <div class="control">
+                            <form method="POST" action=<%= "/opgaver/sendA/" + opgave_ID %>>
+                                <input class="input is-primary" type="text" placeholder="Indtast dit svar" name="svar">
+                        </div>
+                                <button class="button is-primary is-hovered" type="submit"> Indsend Svar</button>
+                            </form>
+
+
                         </div>
                           
                     </div>
@@ -47,9 +50,12 @@
 
                    <div class="columns is-mobile">
                     <div class="column is-half is-offset-one-quarter is-size-2"><p>TIME 120 sekunder</p></div>
-                    <div class="column is-4 is-offset-two-quarter is-size-2">  <button class="button is-primary">Tilbage</button>  <button class="button is-primary">Næste</button>   </div>
-                  </div>
+                    <div class="column is-4 is-offset-two-quarter is-size-2"> 
 
+                    <form method="GET" action=<%= "/opgaver/" + (opgave_ID - 1) %>> <button type="submit" class="button is-primary">Tilbage</button> </form>  
+                    <form method="GET" action=<%= "/opgaver/" + (opgave_ID + 1) %>> <button type="submit" class="button is-primary">Næste</button> </form> 
+                   
+                  </div>
 
          </div>
      </div>
