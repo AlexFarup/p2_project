@@ -67,16 +67,83 @@
 
 
             <div class="columns">
-                <div class="column is-6">
-                    <figure class="image">
-                        <img src="/images/testgraph.png" alt="Description">
-                    </figure>
-                </div>
-                <div class="column is-6">
-                    <figure class="image">
-                        <img src="/images/testgraph.png" alt="Description">
-                    </figure>
-                </div>
+                <div class="container">
+                    <canvas id="myChart"></canvas>  
+                  </div>
+                
+                  <script>
+                      let myChart = document.getElementById('myChart').getContext('2d');
+                
+                        Chart.defaults.global.defaultFontFamily = 'Lato';
+                        Chart.defaults.global.defaultFontSize = 18;
+                        Chart.defaults.global.defaultFontColor = '#777';
+                
+                      let studentChart = new Chart(myChart, {
+                          type:'bar',
+                          data: {
+                            labels:['Addition','Subtraktion','Division','Mulitiplikation'],
+                            datasets:[{
+                                label:'Rigtige Svar',
+                                data:[
+                                    100,
+                                    80,
+                                    60,
+                                    40,
+                                    0
+                                ],
+                                backgroundColor:'green',
+                                borderWidth:1,
+                                borderColor:'#777',
+                                hoverBorderWidth:3,
+                                hoverBorderColor:'#000'
+                            },
+                            {
+                                label:'Forkerte Svar',
+                                data:[
+                                    40,
+                                    60,
+                                    80,
+                                    100,
+                                    0
+                                ],
+                                backgroundColor:'Red',
+                                borderWidth:1,
+                                borderColor:'#777',
+                                hoverBorderWidth:3,
+                                hoverBorderColor:'#000'
+                
+                            }]
+                
+                          },
+                          options: {
+                            title:{
+                              display:true,
+                              text:'Oversigt over X´s matematiske færdigheder',
+                              fontSize:25
+                            },
+                            legend:{
+                              position:'right',
+                              labels:{
+                                  fontColor:'#000'
+                              }
+                            },
+                            layout:{
+                                padding:{
+                                    left:50,
+                                    right:0,
+                                    bottom:0,
+                                    top:0
+                                }
+                            },
+                            tooltips:{
+                              enabled:true
+                            }
+                          }
+                      });
+                  </script>
+
+
+
             </div>
 
 
