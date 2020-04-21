@@ -32,6 +32,9 @@ router.get('/:opgavenummer', function(req, res, next) {
         INNER JOIN
             \`Klasse\` AS klasse
             ON elev.Elev_klasse_ID = klasse.Klasse_ID
+        INNER JOIN
+            \`Besvarelser\` AS besvarelser
+            ON elev.Elev_ID = besvarelser.Elev_ID   
         WHERE
             elev.Elev_ID = ${opgavenummer}`, function (err, result, fields) {
       if (err) throw err;
