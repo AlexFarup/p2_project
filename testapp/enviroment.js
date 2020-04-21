@@ -1,7 +1,7 @@
 var environmentObj = {
     host: "localhost",
     user: "root",
-    password: "p2gruppe",
+    password: "",
     database: "Allan",
     port: "3306"
 };
