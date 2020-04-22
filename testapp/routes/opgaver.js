@@ -34,19 +34,7 @@ router.get('/:opgavenummer', function(req, res, next) {
 
   });
 
-  con.query(`SELECT *
-  FROM \`Opgaver\` AS opgaver
-      INNER JOIN
-          \`Besvarelser\` AS besvarelser
-          ON opgaver.Opgave_ID = besvarelser.Besvarelse_ID   
-      WHERE
-          opgaver.Opgave_ID = ${opgavenummer}`, function (err, result, fields) {
-    if (err) throw err;
-    console.log(result[0]);
-    res.render('oversigt', {  
-   
-    });
-  });
+  
 
 
 
