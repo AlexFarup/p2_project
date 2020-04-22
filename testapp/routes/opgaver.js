@@ -25,7 +25,7 @@ router.get('/:opgavenummer', function(req, res, next) {
     con.query(`SELECT * FROM \`Opgaver\` AS opgaver
     INNER JOIN
     \`Besvarelser\` AS besvarelser
-    ON opgaver.opg_bes_ID = besvarelser.Besvarelse_ID 
+    ON opgaver.opg_Bes_ID = besvarelser.Besvarelse_ID 
 
     WHERE \`Opgave_ID\` = ${opgavenummer}`, function (err, result, fields) {
         if (err) throw err;
