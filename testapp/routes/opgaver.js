@@ -31,7 +31,7 @@ router.get('/:opgavenummer', function(req, res, next) {
         \`Opgaver\` AS opgaver
           ON besvarelser.Besvarelse_ID = opgaver.Opgave_ID    
         WHERE
-            elev.Elev_ID = ${opgavenummer}`, function (err, result, fields) {
+            Opgave_ID  = ${opgavenummer}`, function (err, result, fields) {
         if (err) throw err;
         console.log(result[0]);
         res.render('opgaver', {  
