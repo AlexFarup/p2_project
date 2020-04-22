@@ -52,22 +52,6 @@ router.post('/sendA/:opgavenummer', function (req, res) {
     multipleStatements: true
   });
 
-  con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-  `SELECT * FROM \`Opgaver\` AS opgaver
-  INNER JOIN
-  \`Besvarelser\` AS besvarelser
-  ON opgaver.opg_Bes_ID = besvarelser.Besvarelse_ID 
-
-  WHERE \`Opgave_ID\` = ${opgavenummer}`, function (err, result, fields) {
-    if (err) throw err;
-    console.log(result[0]);
-    res.render('opgaver', {  
-
-    });
-  };
-});
 
 
   con.connect(function (err) {
