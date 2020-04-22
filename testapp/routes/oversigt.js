@@ -34,7 +34,7 @@ router.get('/:opgavenummer', function(req, res, next) {
             ON elev.Elev_klasse_ID = klasse.Klasse_ID
         INNER JOIN
             \`Besvarelser\` AS besvarelser
-            ON elev.Elev_ID = besvarelser.Besv_Elev_ID   
+            ON elev.Elev_ID = besvarelser.Besvarelse_ID   
         INNER JOIN
         \`Opgaver\` AS opgaver
           ON besvarelser.Besvarelse_ID = opgaver.Opgave_ID    
