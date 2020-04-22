@@ -54,7 +54,48 @@ router.get('/:opgavenummer', function(req, res, next) {
 });
 
 
+router.post('/sendA/:opgavenummer', function (req, res) {
+  console.log(req.body);
+  var svar = req.body.svar;
+  var opgavenummer = req.params.opgavenummer;
+  var mysql = require('mysql');
 
+  
+  var con = mysql.createConnection({
+    host: environment.host,
+    user: environment.user,
+    password: environment.password,
+    database: environment.database,
+    port: environment.port
+  });
+
+
+  con.connect(function (err) {
+      if (err) throw err;
+      console.log("connected");
+
+      var sql = `INSERT INTO \`Besvarelser\` (\`Besvarelse_ID\`, \`Best_Tid\`, \`Besv_Svar\`, \`Besv_Elev_ID\`) VALUES (${opgavenummer}, '0', ${svar}, '1')`;
+      con.query(sql, function (err) {
+          if (err) throw err;
+          console.log("One record inserted");
+      });
+  });
+  res.redirect(`back`);
+
+  function compare(besvarelse_svar, forventet_svar) {
+    if (besvarelse_svar == forventet_svar) {
+      `INSERT INTO \`Besvarelser\` (\`Besvarelse_ID\`, \`Besv_Tid\`, \`Besv_Svar\`, \`Besv_Hint\`, \`Besv_Score\`, \`Besv_Elev_ID\`, \`Best_Besvaret\`) VALUES (${opgavenummer}, '0', ${svar}, '0' '1' '1' '1')`
+    }
+    if (besvarelse_svar > forventet_svar) {
+      `INSERT INTO \`Besvarelser\` (\`Besvarelse_ID\`, \`Besv_Tid\`, \`Besv_Svar\`, \`Besv_Hint\`, \`Besv_Score\`, \`Besv_Elev_ID\`, \`Best_Besvaret\`) VALUES (${opgavenummer}, '0', ${svar}, '0' '0' '1' '1')`
+    }
+    else
+    `INSERT INTO \`Besvarelser\` (\`Besvarelse_ID\`, \`Besv_Tid\`, \`Besv_Svar\`, \`Besv_Hint\`, \`Besv_Score\`, \`Besv_Elev_ID\`, \`Best_Besvaret\`) VALUES (${opgavenummer}, '0', ${svar}, '0' '0' '1' '1')`
+  }
+
+
+
+});
 
 
 module.exports = router;
