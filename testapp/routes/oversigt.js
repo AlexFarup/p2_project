@@ -43,7 +43,7 @@ router.get('/:opgavenummer', function(req, res, next) {
       if (err) throw err;
       console.log(result[0]);
       res.render('oversigt', {  
-          elev_ID: result[0].Elev_ID,
+          elev_ID: elev.Elev_ID,
           elev_navn: result[0].Elev_navn,
           elev_efternavn: result[0].Elev_efternavn,
           elev_email: result[0].Elev_email,
