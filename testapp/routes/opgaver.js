@@ -50,7 +50,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
     user: environment.user,
     password: environment.password,
     database: environment.database,
-    port: environment.port
+    port: environment.port,
     multipleStatements: true
   });
 
@@ -68,7 +68,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
      
       });
     });
-  });
+ 
 
 
 
