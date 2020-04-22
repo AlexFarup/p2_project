@@ -23,13 +23,10 @@ router.get('/:opgavenummer', function(req, res, next) {
     if (err) throw err;
     console.log("Connected!");
     con.query(`SELECT *
-    FROM \`Elev\` AS elev
+    FROM \`Opgaver\` AS opgaver
         INNER JOIN
             \`Besvarelser\` AS besvarelser
-            ON elev.Elev_ID = besvarelser.Besv_Elev_ID   
-        INNER JOIN
-        \`Opgaver\` AS opgaver
-          ON besvarelser.Besvarelse_ID = opgaver.Opgave_ID    
+            ON opgaver.Opgave_ID = besvarelser.Besv_Elev_ID     
         WHERE
             Opgave_ID  = ${opgavenummer}`, function (err, result, fields) {
         if (err) throw err;
