@@ -53,6 +53,28 @@ router.post('/sendA/:opgavenummer', function (req, res) {
     port: environment.port
   });
 
+  con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+    con.query(`SELECT *
+    FROM \`Opgaver\` AS opgaver
+        INNER JOIN
+            \`Besvarelser\` AS besvarelser
+            ON opgaver.Opgave_ID = besvarelser.Besvarelse_ID   
+           
+        WHERE
+            opgaver.Opgave_ID = ${opgavenummer}`, function (err, result, fields) {
+      if (err) throw err;
+      console.log(result[0]);
+      res.render('oversigt', {  
+     
+      });
+    });
+  });
+
+
+
+
 
   con.connect(function (err) {
       if (err) throw err;
