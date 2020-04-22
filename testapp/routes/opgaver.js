@@ -53,9 +53,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
     port: environment.port
   });
 
-  con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
+  
     con.query(`SELECT *
     FROM \`Opgaver\` AS opgaver
         INNER JOIN
