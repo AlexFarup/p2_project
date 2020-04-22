@@ -33,7 +33,7 @@ router.get('/:opgavenummer', function(req, res, next) {
       });  
   });
 });
-con.end();
+con.connect.end();
 
 
 router.post('/sendA/:opgavenummer', function (req, res) {
