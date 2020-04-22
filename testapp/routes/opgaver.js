@@ -56,7 +56,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
       if (err) throw err;
       console.log("connected");
 
-      var sql = `INSERT INTO \`Besvarelser\` (\`Besvarelse_ID\`, \`Besv_Tid\`, \`Besv_Svar\`, \`Besv_Elev_ID\`) VALUES (${opgavenummer}, '0', ${svar}, '1')`;
+      var sql = `INSERT INTO \`Besvarelser\` (\`Besvarelse_ID\`, \`Besv_Tid\`, \`Besv_Svar\`, \`Besv_Hint\`, \`Besv_Score\`, \`Besv_Elev_ID\` \`Besv_Besvaret\`, ) VALUES (${opgavenummer}, '0', ${svar}, '0' '0' '0' '0')`;
       con.query(sql, function (err) {
           if (err) throw err;
           console.log("One record inserted");
