@@ -25,7 +25,7 @@ router.get('/:opgavenummer', function(req, res, next) {
         if (err) throw err;
         console.log(result[0]);
         res.render('opgaver', {  
-            opgavebeskrivelse: result[0].opg.Opgave,
+            opgavebeskrivelse: result[0].opg_Opgave,
             opgave_ID: result[0].Opgave_ID,
             
             });
