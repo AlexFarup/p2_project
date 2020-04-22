@@ -51,7 +51,7 @@ router.get('/:opgavenummer', function(req, res, next) {
           laerer_efternavn: result[0].Laerer_efternavn,
           laerer_telefonnummer: result[0].Laerer_telefonnummer,
           laerer_email: result[0].Laerer_email,
-          klasse_navn: result[0].Navn,
+          klasse_navn: result[0].Navn
       });
     });
   });
