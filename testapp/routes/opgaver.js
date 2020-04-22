@@ -51,6 +51,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
     password: environment.password,
     database: environment.database,
     port: environment.port
+    multipleStatements: true
   });
 
   
