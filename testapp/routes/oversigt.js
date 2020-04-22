@@ -52,8 +52,6 @@ router.get('/:opgavenummer', function(req, res, next) {
           laerer_telefonnummer: result[0].Laerer_telefonnummer,
           laerer_email: result[0].Laerer_email,
           klasse_navn: result[0].Navn,
-          besvarelse_svar: result[0].Besv_Svar,
-          forventet_svar: result[0].opg_Forv_svar
       });
     });
   });
@@ -87,17 +85,6 @@ router.post('/sendA/:opgavenummer', function (req, res) {
       });
   });
   res.redirect(`back`);
-
-  function compare(besvarelse_svar, forventet_svar) {
-    if (besvarelse_svar == forventet_svar) {
-      `INSERT INTO \`Besvarelser\` (\`Besvarelse_ID\`, \`Besv_Tid\`, \`Besv_Svar\`, \`Besv_Hint\`, \`Besv_Score\`, \`Besv_Elev_ID\`, \`Best_Besvaret\`) VALUES (${opgavenummer}, '0', ${svar}, '0' '1' '1' '1')`
-    }
-    if (besvarelse_svar > forventet_svar) {
-      `INSERT INTO \`Besvarelser\` (\`Besvarelse_ID\`, \`Besv_Tid\`, \`Besv_Svar\`, \`Besv_Hint\`, \`Besv_Score\`, \`Besv_Elev_ID\`, \`Best_Besvaret\`) VALUES (${opgavenummer}, '0', ${svar}, '0' '0' '1' '1')`
-    }
-    else
-    `INSERT INTO \`Besvarelser\` (\`Besvarelse_ID\`, \`Besv_Tid\`, \`Besv_Svar\`, \`Besv_Hint\`, \`Besv_Score\`, \`Besv_Elev_ID\`, \`Best_Besvaret\`) VALUES (${opgavenummer}, '0', ${svar}, '0' '0' '1' '1')`
-  }
 
 });
 
