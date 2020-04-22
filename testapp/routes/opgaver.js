@@ -22,7 +22,13 @@ router.get('/:opgavenummer', function(req, res, next) {
   con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-    con.query(`SELECT * FROM \`Opgaver\` WHERE \`Opgave_ID\` = ${opgavenummer}`, function (err, result, fields) {
+    con.query(`SELECT *
+    FROM \`Opgaver\` AS opgaver
+        INNER JOIN
+            \`Besvarelser\` AS besvarelser
+            ON opgaver.Opgave_ID = besvarelser.Besvarelse_ID   
+        WHERE
+            opgaver.Opgave_ID = ${opgavenummer}`, function (err, result, fields) {
         if (err) throw err;
         console.log(result[0]);
         res.render('opgaver', {  
@@ -52,28 +58,6 @@ router.post('/sendA/:opgavenummer', function (req, res) {
     database: environment.database,
     port: environment.port
   });
-
-  con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-    con.query(`SELECT *
-    FROM \`Opgaver\` AS opgaver
-        INNER JOIN
-            \`Besvarelser\` AS besvarelser
-            ON opgaver.Opgave_ID = besvarelser.Besvarelse_ID   
-           
-        WHERE
-            opgaver.Opgave_ID = ${opgavenummer}`, function (err, result, fields) {
-      if (err) throw err;
-      console.log(result[0]);
-      res.render('oversigt', {  
-     
-      });
-    });
-  });
-
-
-
 
 
   con.connect(function (err) {
