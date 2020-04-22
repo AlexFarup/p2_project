@@ -32,9 +32,8 @@ router.get('/:opgavenummer', function(req, res, next) {
             });
       });  
   });
-  con.end();
 });
-
+con.end();
 
 
 router.post('/sendA/:opgavenummer', function (req, res) {
