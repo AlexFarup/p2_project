@@ -32,7 +32,7 @@ router.get('/:opgavenummer', function(req, res, next) {
             });
       });  
   });
-  connection.end();
+  con.end();
 });
 
 
