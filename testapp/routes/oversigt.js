@@ -58,42 +58,6 @@ router.get('/:opgavenummer', function(req, res, next) {
 });
 
 
-router.post('/sendB/:opgavenummer', function (req, res) {
-  console.log(req.body);
-  var svar = req.body.svar;
-  var opgavenummer = req.params.opgavenummer;
-  var mysql = require('mysql');
-
-  
-  var con = mysql.createConnection({
-    host: environment.host,
-    user: environment.user,
-    password: environment.password,
-    database: environment.database,
-    port: environment.port,
-    multipleStatements: true
-  });
-
-
-
-  con.connect(function (err) {
-      if (err) throw err;
-      console.log("connected");
-
-      var sql = `INSERT INTO \`Besvarelser\` (\`Besvarelse_ID\`, \`Besv_Tid\`, \`Besv_Svar\`, \`Besv_Hint\`, \`Besv_Score\`, \`Besv_Elev_ID\`, \`Besv_Besvaret\` ) VALUES (${opgavenummer}, '0', ${svar}, '0', '0', '1', '0')`;
-      con.query(sql, function (err) {
-          if (err) throw err;
-          console.log("One record inserted");
-      });
-  });
-  res.redirect(`back`);
-
-});
-
-
-
-
-
 
 
 module.exports = router;
