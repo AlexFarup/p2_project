@@ -52,6 +52,7 @@ router.get('/:opgavenummer', function(req, res, next) {
           laerer_telefonnummer: result[0].Laerer_telefonnummer,
           laerer_email: result[0].Laerer_email,
           klasse_navn: result[0].Navn,
+          opgave_ID: result[0].Opgave_ID,
           besvarelse_svar: result[0].Besv_Svar,
           forventet_svar: result[0].opg_Forv_svar
       });
