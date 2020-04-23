@@ -64,16 +64,14 @@ router.post('/sendA/:opgavenummer', function (req, res) {
   con.connect(function (err) {
       if (err) throw err;
       console.log("connected");
-
+      let sql = 0;
       function compare(besvarelse_svar, forventet_svar) {
         if (besvarelse_svar == forventet_svar) {
-          let sql = `UPDATE \`Besvarelser\` (\`Besvarelse_ID\`, \`Besv_Tid\`, \`Besv_Svar\`, \`Besv_Hint\`, \`Besv_Score\`, \`Besv_Elev_ID\`, \`Besv_Besvaret\` ) VALUES (${opgavenummer}, '0', ${svar}, '0', '1', '1', '1')`;
+        sql = `UPDATE \`Besvarelser\` (\`Besvarelse_ID\`, \`Besv_Tid\`, \`Besv_Svar\`, \`Besv_Hint\`, \`Besv_Score\`, \`Besv_Elev_ID\`, \`Besv_Besvaret\` ) VALUES (${opgavenummer}, '0', ${svar}, '0', '1', '1', '1')`;
         }
         else
-        let sql = `UPDATE \`Besvarelser\` (\`Besvarelse_ID\`, \`Besv_Tid\`, \`Besv_Svar\`, \`Besv_Hint\`, \`Besv_Score\`, \`Besv_Elev_ID\`, \`Besv_Besvaret\` ) VALUES (${opgavenummer}, '0', ${svar}, '0', '0', '1', '1')`;
+        sql = `UPDATE \`Besvarelser\` (\`Besvarelse_ID\`, \`Besv_Tid\`, \`Besv_Svar\`, \`Besv_Hint\`, \`Besv_Score\`, \`Besv_Elev_ID\`, \`Besv_Besvaret\` ) VALUES (${opgavenummer}, '0', ${svar}, '0', '0', '1', '1')`;
       }
-
-
       con.query(sql, function (err) {
           if (err) throw err;
           console.log("One record inserted");
