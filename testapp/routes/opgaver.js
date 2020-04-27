@@ -71,11 +71,8 @@ router.post('/sendA/:opgavenummer', function (req, res) {
       if (`${svar}` == forventet_svar) {
         var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 1 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
       }
-      if (`${svar}` != 0) {
-        var sql = `UPDATE \`Besvarelser\` SET \`Besv_Svar\` = \`${svar}\` WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
-      }
       else  {
-        var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 0 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+        var sql = `UPDATE \`Besvarelser\` SET \`Besv_Svar\` = \`${svar}\` WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
       }
 
       con.query(sql, function (err) {
