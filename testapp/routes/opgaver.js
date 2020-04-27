@@ -69,9 +69,14 @@ router.post('/sendA/:opgavenummer', function (req, res) {
       console.log("connected");
   
      
-  
+      var sql = `UPDATE \`Besvarelser\` SET \`Besv_Svar\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
 
-
+      if (a == forventet_svar) {
+        var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 1 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+      }
+     else  {
+        var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 0 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+      }
   
 
       
@@ -81,12 +86,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
 
 
 
-          if (a == forventet_svar) {
-            var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 1 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
-          }
-         else  {
-            var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 0 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
-          }
+      
 
           
       });  
