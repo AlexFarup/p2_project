@@ -49,7 +49,8 @@ router.post('/sendA/:opgavenummer', function (req, res) {
   var svar = req.body.svar;
   var opgavenummer = req.params.opgavenummer;
   var mysql = require('mysql');
-
+  let a = $svar;
+  let b = forventet_svar;
   
   var con = mysql.createConnection({
     host: environment.host,
@@ -67,6 +68,18 @@ router.post('/sendA/:opgavenummer', function (req, res) {
       console.log("connected");
      
       var sql = `UPDATE \`Besvarelser\` SET \`Besv_Svar\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+      
+      function compare(a, b) {
+        if (a == b) {
+          var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+        }
+        if (besvarelse_svar > forventet_svar) {
+          var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = ${opgavenummer} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+        }
+      }
+
+
+
       con.query(sql, function (err) {
           if (err) throw err;
           console.log("One record inserted");
@@ -74,18 +87,10 @@ router.post('/sendA/:opgavenummer', function (req, res) {
   });
   res.redirect(`back`);
 
-let a = $svar;
-let b = forventet_svar;
 
 
-  function compare(a, b) {
-    if (a == b) {
-      var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
-    }
-    if (besvarelse_svar > forventet_svar) {
-      var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = ${opgavenummer} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
-    }
-  }
+
+ 
 
 
   
