@@ -35,7 +35,8 @@ router.get('/:opgavenummer', function(req, res, next) {
         res.render('opgaver', {  
             opgavebeskrivelse: result[0].opg_Opgave,
             opgave_ID: result[0].Opgave_ID,
-            
+            besvarelse_svar: result[0].Besv_Svar,
+          forventet_svar: result[0].opg_Forv_svar
             });
       });  
   });
@@ -59,19 +60,40 @@ router.post('/sendA/:opgavenummer', function (req, res) {
     multipleStatements: true
   });
 
-
-
-  con.connect(function (err) {
+  function compare(besvarelse_svar, forventet_svar) {
+    if (besvarelse_svar == forventet_svar) {
+      con.connect(function (err) {
+        if (err) throw err;
+        console.log("connected");
+       
+  
+        var sql = `UPDATE \`Besvarelser\` SET \`Besv_Svar\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+        con.query(sql, function (err) {
+            if (err) throw err;
+            console.log("One record inserted");
+        });
+    });
+    res.redirect(`back`);
+    }
+    else
+    con.connect(function (err) {
       if (err) throw err;
       console.log("connected");
      
-      var sql = `UPDATE \`Besvarelser\` SET \`Besv_Svar\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+
+      var sql = `UPDATE \`Besvarelser\` SET \`Besv_Svar\` = 2 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
       con.query(sql, function (err) {
           if (err) throw err;
           console.log("One record inserted");
       });
   });
   res.redirect(`back`);
+
+
+  
+  }
+
+ 
 
 });
 
