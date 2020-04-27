@@ -73,7 +73,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
 
 
   
-
+function compare(a, forventet_svar){
       
       con.query(sql, function (err) {
           if (err) throw err;
@@ -87,10 +87,12 @@ router.post('/sendA/:opgavenummer', function (req, res) {
          else  {
             var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 0 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
           }
-
+        
           
       });  
-      
+    
+    }
+
   });
   res.redirect(`back`);
 
