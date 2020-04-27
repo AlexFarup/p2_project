@@ -49,8 +49,8 @@ router.post('/sendA/:opgavenummer', function (req, res) {
   var svar = req.body.svar;
   var opgavenummer = req.params.opgavenummer;
   var mysql = require('mysql');
-  let a = `${svar}`;
-  let forventet_svar;
+  let a = 4;
+  let forventet_svar = 4;
   
   
   var con = mysql.createConnection({
@@ -88,7 +88,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
             var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 0 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
           }
 
-          
+
       });  
       
   });
