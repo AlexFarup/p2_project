@@ -65,36 +65,22 @@ router.post('/sendA/:opgavenummer', function (req, res) {
   con.connect(function (err) {
       if (err) throw err;
       console.log("connected");
-
-
-      var a = $svar;
-      var b = forventet_svar;
-
-      function compare(a, b) {
-        if (a == b) {
-          var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = \`1\` WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
-          con.query(sql, function (err) {
-              if (err) throw err;
-              console.log("One record inserted");
-        });
-        
-        if (a != b){
-          var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = \`0\` WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
-          con.query(sql, function (err) {
-              if (err) throw err;
-              console.log("One record inserted");
-          });
-        }
-      }
-      }
+     
+      var sql = `UPDATE \`Besvarelser\` SET \`Besv_Svar\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+      con.query(sql, function (err) {
+          if (err) throw err;
+          console.log("One record inserted");
+      });  
+  });
+  res.redirect(`back`);
 
 
 
 
 
-
+  
 });
 
-});
+
 
 module.exports = router;
