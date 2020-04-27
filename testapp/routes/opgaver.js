@@ -50,7 +50,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
   var opgavenummer = req.params.opgavenummer;
   var mysql = require('mysql');
   let a = `$svar`;
-  let forventet_svar = forventet_svar;
+  let forventet_svar;
   
   
   var con = mysql.createConnection({
