@@ -60,43 +60,41 @@ router.post('/sendA/:opgavenummer', function (req, res) {
     multipleStatements: true
   });
 
-  function compare(besvarelse_svar, forventet_svar) {
-    if (besvarelse_svar == forventet_svar) {
-      con.connect(function (err) {
-        if (err) throw err;
-        console.log("connected");
-       
-  
-        var sql = `UPDATE \`Besvarelser\` SET \`Besv_Svar\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
-        con.query(sql, function (err) {
-            if (err) throw err;
-            console.log("One record inserted");
-        });
-    });
-    res.redirect(`back`);
-    }
-    else
-    con.connect(function (err) {
+ 
+
+  con.connect(function (err) {
       if (err) throw err;
       console.log("connected");
      
-
-      var sql = `UPDATE \`Besvarelser\` SET \`Besv_Svar\` = 3 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+   
+      var sql = `UPDATE \`Besvarelser\` SET \`Besv_Svar\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
       con.query(sql, function (err) {
           if (err) throw err;
           console.log("One record inserted");
       });
-  });
+
+      function compare(besvarelse_svar, forventet_svar) {
+
+        if (besvarelse_svar == forventet_svar) {
+          var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 1 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+          con.query(sql, function (err) {
+              if (err) throw err;
+              console.log("One record inserted");
+        });
+        
+         if(besvarelse_svar != forventet_svar){
+          var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 0 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+          con.query(sql, function (err) {
+              if (err) throw err;
+              console.log("One record inserted");
+          });
+        }
+      }
   res.redirect(`back`);
+}
 
-
-  
-  }
-
- 
 
 });
-
-
+});
 
 module.exports = router;
