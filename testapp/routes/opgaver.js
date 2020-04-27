@@ -75,7 +75,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
   
 
       
-      con.connect(sql, function (err) {
+      con.query(sql, function (err) {
           if (err) throw err;
           console.log("One record inserted");
 
