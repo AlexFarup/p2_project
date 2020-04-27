@@ -73,7 +73,13 @@ router.post('/sendA/:opgavenummer', function (req, res) {
 
 
   
-     
+
+      
+      con.query(sql, function (err) {
+          if (err) throw err;
+          console.log("One record inserted");
+
+
 
           if (a == forventet_svar) {
             var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 1 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
@@ -82,7 +88,8 @@ router.post('/sendA/:opgavenummer', function (req, res) {
             var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 0 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
           }
 
-      
+
+      });  
       
 
   });
