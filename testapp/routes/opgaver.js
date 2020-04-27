@@ -74,8 +74,18 @@ router.post('/sendA/:opgavenummer', function (req, res) {
   });
   res.redirect(`back`);
 
+let a = $svar;
+let b = forventet_svar;
 
 
+  function compare(a, b) {
+    if (a == b) {
+      var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+    }
+    if (besvarelse_svar > forventet_svar) {
+      var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = ${opgavenummer} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+    }
+  }
 
 
   
