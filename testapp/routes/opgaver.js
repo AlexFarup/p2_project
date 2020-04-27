@@ -81,7 +81,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
       console.log("connected");
      
 
-      var sql = `UPDATE \`Besvarelser\` SET \`Besv_Svar\` = 2 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+      var sql = `UPDATE \`Besvarelser\` SET \`Besv_Svar\` = 3 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
       con.query(sql, function (err) {
           if (err) throw err;
           console.log("One record inserted");
