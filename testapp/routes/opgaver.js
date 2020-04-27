@@ -49,7 +49,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
   var svar = req.body.svar;
   var opgavenummer = req.params.opgavenummer;
   var mysql = require('mysql');
-
+ 
   
  
   
@@ -71,7 +71,10 @@ router.post('/sendA/:opgavenummer', function (req, res) {
 
       var sql = `UPDATE \`Besvarelser\` SET \`Besv_Svar\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
 
-     
+      con.query(sql, function (err) {
+          if (err) throw err;
+          console.log("One record inserted");
+      });  
   });
   res.redirect(`back`);
 });
