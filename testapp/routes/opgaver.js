@@ -71,12 +71,27 @@ router.post('/sendA/:opgavenummer', function (req, res) {
       con.query(sql, function (err) {
           if (err) throw err;
           console.log("One record inserted");
-      });
-
-      
+      });  
   });
   res.redirect(`back`);
 
+function compare(besvarelse_svar, forventet_svar) {
+  if (besvarelse_svar == forventet_svar) {
+    var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = \`1\` WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+    con.query(sql, function (err) {
+        if (err) throw err;
+        console.log("One record inserted");
+  });
+  
+  if (besvarelse_svar != forventet_svar){
+    var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = \`0\` WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+    con.query(sql, function (err) {
+        if (err) throw err;
+        console.log("One record inserted");
+    });
+  }
+}
+}
 });
 
 
