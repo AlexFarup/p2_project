@@ -75,18 +75,16 @@ router.post('/sendA/:opgavenummer', function (req, res) {
   });
   res.redirect(`back`);
 
-  var a = besvarelse_svar;
-  var b = forventet_svar;
 
-function compare(a, b) {
-  if (a == b) {
+function compare(besvarelse_svar, forventet_svar) {
+  if (besvarelse_svar == forventet_svar) {
     var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = \`1\` WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
     con.query(sql, function (err) {
         if (err) throw err;
         console.log("One record inserted");
   });
   
-  if (a != b){
+  if (besvarelse_svar != forventet_svar){
     var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = \`0\` WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
     con.query(sql, function (err) {
         if (err) throw err;
