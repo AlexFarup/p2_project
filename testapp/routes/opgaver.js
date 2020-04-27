@@ -49,10 +49,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
   var svar = req.body.svar;
   var opgavenummer = req.params.opgavenummer;
   var mysql = require('mysql');
- 
-  
- 
-  
+ let forventet_svar = 4;
   
   var con = mysql.createConnection({
     host: environment.host,
@@ -69,7 +66,14 @@ router.post('/sendA/:opgavenummer', function (req, res) {
       if (err) throw err;
       console.log("connected");
 
-      var sql = `UPDATE \`Besvarelser\` SET \`Besv_Svar\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+     
+
+      if (`${svar}` == forventet_svar) {
+        var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 1 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+      }
+      else  {
+        var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 0 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+      }
 
       con.query(sql, function (err) {
           if (err) throw err;
