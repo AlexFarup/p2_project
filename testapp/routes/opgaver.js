@@ -49,8 +49,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
   var svar = req.body.svar;
   var opgavenummer = req.params.opgavenummer;
   var mysql = require('mysql');
-  let a = `${svar}`;
-  let forventet_svar;
+ 
   
   
   var con = mysql.createConnection({
@@ -67,37 +66,18 @@ router.post('/sendA/:opgavenummer', function (req, res) {
   con.connect(function (err) {
       if (err) throw err;
       console.log("connected");
-  
-     
       var sql = `UPDATE \`Besvarelser\` SET \`Besv_Svar\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
 
-
-  
-function compare(a, forventet_svar){
-      
       con.query(sql, function (err) {
           if (err) throw err;
           console.log("One record inserted");
-
-
-
-          if (a == forventet_svar) {
-            var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 1 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
-          }
-         else  {
-            var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 0 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
-          }
-        
-          
       });  
-    
-    }
-
   });
   res.redirect(`back`);
-
-  
 });
+
+
+
 
 
 
