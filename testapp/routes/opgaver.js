@@ -39,7 +39,6 @@ router.get('/:opgavenummer', function(req, res, next) {
           forventet_svar: result[0].opg_Forv_svar
             });
       }); 
-      return forventet_svar; 
   });
 });
 
