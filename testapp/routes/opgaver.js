@@ -1,9 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var environment = require('../enviroment').environment;
-let besvaret = [];
-let elev = [];
-let opgave = [];
+
 
 
 
@@ -20,6 +18,7 @@ router.get('/:opgavenummer', function(req, res, next) {
     database: environment.database,
     port: environment.port,
     multipleStatements: true
+    
   });
 
   
@@ -631,7 +630,7 @@ function svaerhedsGrad() {
     }
 
     
-    kmeans.push(`UPDATE \`Opaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgaven]} WHERE \`Besvarelse_ID\` = ${opgavenummer}`);
+    kmeans.push(`UPDATE \`Opaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgaven]} WHERE \`Opgave_ID\` = ${opgavenummer}`);
 
   }
   
