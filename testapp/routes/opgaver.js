@@ -38,7 +38,8 @@ router.get('/:opgavenummer', function(req, res, next) {
             besvarelse_svar: result[0].Besv_Svar,
           forventet_svar: result[0].opg_Forv_svar
             });
-      });  
+      }); 
+      return forventet_svar; 
   });
 });
 
@@ -49,7 +50,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
   var svar = req.body.svar;
   var opgavenummer = req.params.opgavenummer;
   var mysql = require('mysql');
- let forventet_svar = result[0].opg_Forv_svar;
+ let forventet_svar;
   
   var con = mysql.createConnection({
     host: environment.host,
