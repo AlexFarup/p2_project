@@ -625,7 +625,7 @@ function svaerhedsGrad() {
     }
 
     
-    kmeans.push(`UPDATE \`Opaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgaven]} WHERE \`Besvarelse_ID\` = 1`);
+    kmeans.push(`UPDATE \`Opaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgaven]} WHERE \`Besvarelse_ID\` = ${opgaven}`);
 
   }
   
