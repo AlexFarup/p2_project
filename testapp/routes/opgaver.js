@@ -72,7 +72,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
       } */
       main();
 
-      var sql = (`UPDATE \`Opgaver\` SET \`opg_svaerhedsgrad\` = \`${samlingSvaerhedsGrader[opgavenummer]}\` WHERE \`opg_Bes_ID\` = ${opgavenummer}`);
+      var sql = (`UPDATE \`Opgaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgavenummer]} WHERE \`opg_Bes_ID\` = ${opgavenummer}`);
        
       con.query(sql, function (err) {
         if (err) throw err;
