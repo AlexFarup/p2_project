@@ -366,7 +366,6 @@ function svaerhedsGrad() {
 
   for(var opgaven = 0; opgaven < data.length; opgaven++) {
     var count = 0;
-    samlingSvaerhedsGrader.length = 0;
 
     // Første cluster --------------
     if(mindsteAfstand[opgaven] === 0) {
@@ -630,6 +629,7 @@ function svaerhedsGrad() {
     }
     
   }
+  samlingSvaerhedsGrader.length = 0;
 }
 
 
