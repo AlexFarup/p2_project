@@ -632,7 +632,6 @@ function svaerhedsGrad() {
   return samlingSvaerhedsGrader;
 }
 
-console.log(samlingSvaerhedsGrader);
 
 
 
