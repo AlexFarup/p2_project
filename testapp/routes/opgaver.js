@@ -622,16 +622,8 @@ router.post('/sendA/:opgavenummer', function (req, res) {
       
         return kmeans;
       }
-
-
-
-
-
-      
-      con.query(sql, function (err) {
-          if (err) throw err;
-          console.log("One record inserted");
-      });  
+   
+   
   });
   res.redirect(`back`);
 });
