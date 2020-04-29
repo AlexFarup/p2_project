@@ -72,7 +72,6 @@ router.post('/sendA/:opgavenummer', function (req, res) {
         var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 0, \`Besv_Svar\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
       } */
 
-      samlingSvaerhedsGrader.length = 0;
       main();
 
       var sql = `UPDATE \`Opgaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgavenummer]} WHERE \`opg_Bes_ID\` = ${opgavenummer}`;
@@ -136,6 +135,7 @@ var samlingSvaerhedsGrader = [];
   
   
 function main() {
+  samlingSvaerhedsGrader.length = 0;
   dataExtremer = skafDataExtremer();
   dataRaekkevidde = skafDataRaekkevidde(dataExtremer);
   kPlaceringer = initialiseringK();
