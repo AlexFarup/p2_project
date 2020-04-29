@@ -89,7 +89,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
 
 
 var data = [
-  [100, 50, 2], // opgave 1
+  [100, 50, 15], // opgave 1
 
   [100, 32, 15], // opgave 2
 
