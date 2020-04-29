@@ -615,15 +615,23 @@ router.post('/sendA/:opgavenummer', function (req, res) {
           }
       
           
-          kmeans.push(`UPDATE \`Opaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgaven]} WHERE \`Besvarelse_ID\` = ${opgavenummer}`);
+          
       
         }
         
-      
+        var sql = (`UPDATE \`Opaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgavenummer]} WHERE \`Besvarelse_ID\` = ${opgavenummer}`);
         return kmeans;
       }
-   
-   
+
+
+
+
+
+      
+    /*   con.query(sql, function (err) {
+          if (err) throw err;
+          console.log("One record inserted");
+      });   */
   });
   res.redirect(`back`);
 });
