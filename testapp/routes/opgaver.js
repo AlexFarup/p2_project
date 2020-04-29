@@ -129,7 +129,7 @@ let rang3;
 
 
 var samlingSvaerhedsGrader = [];
-samlingSvaerhedsGrader = 0;
+samlingSvaerhedsGrader.length = 0;
 
 
   
