@@ -129,7 +129,7 @@ let rang3;
 
 
 var samlingSvaerhedsGrader = [];
-samlingSvaerhedsGrader.length = 0;
+
 
 
   
@@ -361,7 +361,7 @@ function svaerhedsGrad() {
   var x = 0;
   var y = 0;
   var z = 0;
-   
+  let mindsteAfstand = [];
 
 
   for(var opgaven = 0; opgaven < data.length; opgaven++) {
