@@ -40,6 +40,7 @@ router.get('/:opgavenummer', function(req, res, next) {
             });
       }); 
   });
+  return (result[0]);
 });
 
 
