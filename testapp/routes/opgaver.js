@@ -49,7 +49,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
   var svar = req.body.svar;
   var opgavenummer = req.params.opgavenummer;
   var mysql = require('mysql');
- var forventet_svar = req.params.result[0].opg_Forv_svar;
+ var forventet_svar = req.params.result.opg_Forv_svar;
   
   var con = mysql.createConnection({
     host: environment.host,
