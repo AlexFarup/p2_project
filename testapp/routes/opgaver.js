@@ -64,12 +64,14 @@ router.post('/sendA/:opgavenummer', function (req, res) {
   con.connect(function (err) {
       if (err) throw err;
       console.log("connected");
+
   /*     if (`${svar}` == forventet_svar) {
         var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 1, \`Besv_Svar\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
       }
       else  {
         var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 0, \`Besv_Svar\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
       } */
+
       main();
 
       var sql = `UPDATE \`Opgaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgavenummer]} WHERE \`opg_Bes_ID\` = ${opgavenummer}`;
@@ -99,7 +101,7 @@ var data = [
 
   [88, 115, 13], // opgave 6
 
-  [100, 25, 15], // opgave 7
+  [100, 2500, 15], // opgave 7
 
   [84, 220, 10], // opgave 8
 
