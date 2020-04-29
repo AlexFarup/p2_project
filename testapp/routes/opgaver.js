@@ -629,7 +629,6 @@ function svaerhedsGrad() {
     }
     
   }
-  return count;
 }
 
 
