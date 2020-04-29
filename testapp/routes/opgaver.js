@@ -143,7 +143,7 @@ function main() {
     
     koer();
     svaerhedsGrad();
-    mindsteAfstand = [];
+    
 }
 
 
