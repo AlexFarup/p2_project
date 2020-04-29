@@ -65,7 +65,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
       if (err) throw err;
       console.log("connected");
 
-       if (`${svar}` == forventet_svar) {
+       if (`${svar}` == opgaver.forventet_svar) {
         var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 1, \`Besv_Svar\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
       }
       else  {
