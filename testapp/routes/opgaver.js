@@ -139,6 +139,9 @@ function main() {
   dataRaekkevidde = skafDataRaekkevidde(dataExtremer);
   kPlaceringer = initialiseringK();
 
+  mindsteAfstand.length = 0;
+  samlingSvaerhedsGrader.length = 0;
+  kPlaceringer.length = 0;
   
     
     koer();
