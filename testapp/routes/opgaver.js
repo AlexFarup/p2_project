@@ -620,7 +620,10 @@ router.post('/sendA/:opgavenummer', function (req, res) {
         }
         
         var sql = (`UPDATE \`Opaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgavenummer]} WHERE \`Besvarelse_ID\` = ${opgavenummer}`);
-        
+        con.query(sql, function (err) {
+          if (err) throw err;
+          console.log("One record inserted");
+      });  
       }
 
 
@@ -628,10 +631,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
 
 
       
-    /*   con.query(sql, function (err) {
-          if (err) throw err;
-          console.log("One record inserted");
-      });   */
+      
   });
   res.redirect(`back`);
 });
