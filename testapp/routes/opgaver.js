@@ -388,7 +388,7 @@ function svaerhedsGrad() {
               z++;
             }
             if(x + y + z >= 2){
-              samlingSvaerhedsGrader.push("Svaerhedsgrad 1");
+              samlingSvaerhedsGrader.push(1);
               count++;
               x = 0, y = 0, z = 0;
             }
@@ -416,7 +416,7 @@ function svaerhedsGrad() {
               z++;
             } 
             if(x + y + z >= 2){
-              samlingSvaerhedsGrader.push("Svaerhedsgrad 2");
+              samlingSvaerhedsGrader.push(2);
               count++;
               x = 0, y = 0, z = 0;
             }
@@ -444,7 +444,7 @@ function svaerhedsGrad() {
               z++;
             } 
             if(x + y + z >= 2){
-              samlingSvaerhedsGrader.push("Svaerhedsgrad 3");
+              samlingSvaerhedsGrader.push(3);
               count++;
               x = 0, y = 0, z = 0;
             }
@@ -475,7 +475,7 @@ function svaerhedsGrad() {
               z++;
             }
             if(x + y + z >= 2){
-              samlingSvaerhedsGrader.push("Svaerhedsgrad 1");
+              samlingSvaerhedsGrader.push(1);
               count++;
               x = 0, y = 0, z = 0;
             }
@@ -503,7 +503,7 @@ function svaerhedsGrad() {
               z++;
             } 
             if(x + y + z >= 2){
-              samlingSvaerhedsGrader.push("Svaerhedsgrad 2");
+              samlingSvaerhedsGrader.push(2);
               count++;
               x = 0, y = 0, z = 0;
             }
@@ -531,7 +531,7 @@ function svaerhedsGrad() {
               z++;
             } 
             if(x + y + z >= 2){
-              samlingSvaerhedsGrader.push("Svaerhedsgrad 3");
+              samlingSvaerhedsGrader.push(3);
               count++;
               x = 0, y = 0, z = 0;
             }
@@ -561,7 +561,7 @@ function svaerhedsGrad() {
               z++;
             }
             if(x + y + z >= 2){
-              samlingSvaerhedsGrader.push("Svaerhedsgrad 1");
+              samlingSvaerhedsGrader.push(1);
               count++;
               x = 0, y = 0, z = 0;
             }
@@ -589,7 +589,7 @@ function svaerhedsGrad() {
               z++;
             } 
             if(x + y + z >= 2){
-              samlingSvaerhedsGrader.push("Svaerhedsgrad 2");
+              samlingSvaerhedsGrader.push(2);
               count++;
               x = 0, y = 0, z = 0;
             }
@@ -617,7 +617,7 @@ function svaerhedsGrad() {
               z++;
             } 
             if(x + y + z >= 2){
-              samlingSvaerhedsGrader.push("Svaerhedsgrad 3");
+              samlingSvaerhedsGrader.push(3);
               count++;
               x = 0, y = 0, z = 0;
             }
