@@ -627,9 +627,8 @@ function svaerhedsGrad() {
         }
       }
     }
-    
+    samlingSvaerhedsGrader.length = 0; 
   }
-  samlingSvaerhedsGrader.length = 0;
 }
 
 
