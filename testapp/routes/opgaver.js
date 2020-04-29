@@ -620,7 +620,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
         }
         
         var sql = (`UPDATE \`Opaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgavenummer]} WHERE \`Besvarelse_ID\` = ${opgavenummer}`);
-        return kmeans;
+        
       }
 
 
