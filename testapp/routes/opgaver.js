@@ -77,7 +77,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
       var sql = `UPDATE \`Opgaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgavenummer]} WHERE \`opg_Bes_ID\` = ${opgavenummer}`;
 
       samlingSvaerhedsGrader.length = 0;
-      
+
       con.query(sql, function (err) {
         if (err) throw err;
         console.log("One record inserted");
@@ -91,7 +91,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
 
 
 var data = [
-  [100, 50, 15], // opgave 1
+  [10, 50, 2], // opgave 1
 
   [100, 32, 15], // opgave 2
 
