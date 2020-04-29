@@ -78,7 +78,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
        
       con.query(sql, function (err) {
         if (err) throw err;
-        console.log("One record inserted");
+        console.log($samlingSvaerhedsGrader[opgavenummer]);
     });  
       
      
