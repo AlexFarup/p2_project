@@ -70,7 +70,14 @@ router.post('/sendA/:opgavenummer', function (req, res) {
       else  {
         var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 0, \`Besv_Svar\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
       } */
-      
+      main();
+
+      var sql = (`UPDATE \`Opgaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgavenummer]} WHERE \`Besvarelse_ID\` = ${opgavenummer}`);
+       
+      con.query(sql, function (err) {
+        if (err) throw err;
+        console.log("One record inserted");
+    });  
 
 
       var data = [
@@ -115,7 +122,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
       
       var samlingSvaerhedsGrader = [];
       
-        main();
+      
       
         
         
@@ -619,12 +626,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
       
         }
         
-        var sql = (`UPDATE \`Opgaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgavenummer]} WHERE \`Besvarelse_ID\` = ${opgavenummer}`);
-       
-        con.query(sql, function (err) {
-          if (err) throw err;
-          console.log("One record inserted");
-      });  
+      
       }
 
 
