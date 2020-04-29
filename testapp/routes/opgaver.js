@@ -629,7 +629,7 @@ function svaerhedsGrad() {
     }
     
   }
-  return samlingSvaerhedsGrader;
+  return samlingSvaerhedsGrader[opgaven];
 }
 
 
