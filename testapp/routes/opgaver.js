@@ -361,7 +361,7 @@ function svaerhedsGrad() {
   var x = 0;
   var y = 0;
   var z = 0;
-
+  samlingSvaerhedsGrader.length = 0; 
 
 
   for(var opgaven = 0; opgaven < data.length; opgaven++) {
@@ -627,7 +627,6 @@ function svaerhedsGrad() {
         }
       }
     }
-    samlingSvaerhedsGrader.length = 0; 
   }
 }
 
