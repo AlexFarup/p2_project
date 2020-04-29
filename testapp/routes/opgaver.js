@@ -1,13 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var environment = require('../enviroment').environment;
-
+var opgavenummer = req.params.opgavenummer;
 
 
 
 /* GET home page. */
 router.get('/:opgavenummer', function(req, res, next) {
-  var opgavenummer = req.params.opgavenummer;
+  
   var mysql = require('mysql');
 
   var con = mysql.createConnection({
@@ -47,7 +47,7 @@ router.get('/:opgavenummer', function(req, res, next) {
 router.post('/sendA/:opgavenummer', function (req, res) {
   console.log(req.body);
   var svar = req.body.svar;
-  var opgavenummer = req.params.opgavenummer;
+  
   var mysql = require('mysql');
  var forventet_svar;
   
