@@ -123,8 +123,7 @@ let dataRaekkevidde;
 let rang1;
 let rang2;
 let rang3;
-let kmeans = [];
-var opgavenummer = req.params.opgavenummer;
+
 
 var samlingSvaerhedsGrader = [];
 
