@@ -65,21 +65,21 @@ router.post('/sendA/:opgavenummer', function (req, res) {
       if (err) throw err;
       console.log("connected");
 
-  /*     if (`${svar}` == forventet_svar) {
+       if (`${svar}` == forventet_svar) {
         var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 1, \`Besv_Svar\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
       }
       else  {
         var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 0, \`Besv_Svar\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
-      } */
-
+      } 
+/* 
       main();
 
       var sql = `UPDATE \`Opgaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgavenummer]} WHERE \`opg_Bes_ID\` = ${opgavenummer}`;
-
+ */
 
       con.query(sql, function (err) {
         if (err) throw err;
-        console.log(`${samlingSvaerhedsGrader[opgavenummer]}`);
+        console.log("hello");
     });  
       
      
