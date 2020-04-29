@@ -143,7 +143,7 @@ function main() {
     
     koer();
     svaerhedsGrad();
-  
+    mindsteAfstand = [];
 }
 
 
@@ -361,7 +361,6 @@ function svaerhedsGrad() {
   var x = 0;
   var y = 0;
   var z = 0;
-  let mindsteAfstand = [];
 
 
   for(var opgaven = 0; opgaven < data.length; opgaven++) {
