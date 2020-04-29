@@ -75,7 +75,9 @@ router.post('/sendA/:opgavenummer', function (req, res) {
       main();
 
       var sql = `UPDATE \`Opgaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgavenummer]} WHERE \`opg_Bes_ID\` = ${opgavenummer}`;
-       
+
+      samlingSvaerhedsGrader.length = 0;
+      
       con.query(sql, function (err) {
         if (err) throw err;
         console.log("One record inserted");
@@ -360,7 +362,7 @@ function svaerhedsGrad() {
   var x = 0;
   var y = 0;
   var z = 0;
-  samlingSvaerhedsGrader.length = 0;
+  
 
 
   for(var opgaven = 0; opgaven < data.length; opgaven++) {
