@@ -10,7 +10,11 @@ var environment = require('../enviroment').environment;
 router.get('/:elevnummer', function(req, res, next) {
   var elevnummer = req.params.elevnummer;
   var mysql = require('mysql');
-  var grafpoint = 0;
+  var grafpoint_add = 0;
+  var grafpoint_sub = 0;
+  var grafpoint_div = 0;
+  var grafpoint_mul = 0;
+
 
   var con = mysql.createConnection({
     host: environment.host,
@@ -43,12 +47,61 @@ router.get('/:elevnummer', function(req, res, next) {
             elev.Elev_ID = ${elevnummer}`, function (err, result, fields) {
       if (err) throw err;
             
-      /* if (result[0].besv_score > 25 && result[0].opg_svaerhedsgrad == 1){
-       grafpoint += 20; 
-      } */
+
+      result.forEach(element => {
+      var scoremultiplier= 0;
+      var pointgraf = 0; 
+      
+        if( element.besv_score <= 25 ){
+          scoremultiplier = 1;
+        }
+
+        else if( element.besv_score <= 50 ){
+          scoremultiplier = 2;
+        }
+
+        else if( element.besv_score <= 75 ){
+          scoremultiplier = 3;
+        }
+
+        else if( element.besv_score <= 100){
+          scoremultiplier = 4;
+        }
 
 
-      console.log(result[1]);
+          if(element.opg_svaerhedsgrad == 1){
+          pointgraf += (5*scoremultiplier); 
+        }
+          if(element.opg_svaerhedsgrad == 2){
+            pointgraf += (10*scoremultiplier); 
+          }
+          if(element.opg_svaerhedsgrad == 3){
+            pointgraf += (15*scoremultiplier); 
+          }        
+
+        switch(element.opg_Type_ID){
+          case 1: 
+            grafpoint_add += pointgraf;
+          break;
+          case 2: 
+            grafpoint_sub += pointgraf;
+          break;
+          case 3: 
+            grafpoint_div += pointgraf;
+          break;
+          case 4:
+            grafpoint_mul += pointgraf;
+          break;
+        }
+
+
+      });
+
+
+     
+
+
+      console.log(result[0]);
       res.render('oversigt', {  
           elev_ID: result[0].Elev_ID,
           elev_navn: result[0].Elev_navn,
@@ -59,6 +112,10 @@ router.get('/:elevnummer', function(req, res, next) {
           laerer_telefonnummer: result[0].Laerer_telefonnummer,
           laerer_email: result[0].Laerer_email,
           klasse_navn: result[0].Navn,
+          gp_add: grafpoint_add,
+          gp_sub: grafpoint_sub,
+          gp_div: grafpoint_div,
+          gp_mul: grafpoint_mul
       });
     });
   });
