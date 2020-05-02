@@ -80,7 +80,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
         }
       }
       else  {
-        score = 0;
+        score = score;
       } 
 
       var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = ${score}, \`Besv_Svar\` = ${svar}, \`Besv_Besvaret\` = 1 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
