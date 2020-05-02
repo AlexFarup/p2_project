@@ -116,7 +116,6 @@ router.get('/:elevnummer', function(req, res, next) {
           gp_sub: grafpoint_sub,
           gp_div: grafpoint_div,
           gp_mul: grafpoint_mul,
-          pointgraf: pointgraf
       });
     });
   });
