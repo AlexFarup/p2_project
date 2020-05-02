@@ -50,7 +50,11 @@ router.post('/sendA/:opgavenummer', function (req, res) {
   var opgavenummer = req.params.opgavenummer;
   var mysql = require('mysql');
  var forventet_svar = req.body.forventet_svar;
-  
+ var score = 0;
+ var hint_score = 1; 
+ var tid_score = 301;
+
+
   var con = mysql.createConnection({
     host: environment.host,
     user: environment.user,
@@ -65,14 +69,21 @@ router.post('/sendA/:opgavenummer', function (req, res) {
       if (err) throw err;
       console.log("connected");
 
+      
        if (`${svar}` == forventet_svar) {
-        var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 1, \`Besv_Svar\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+        score = 100;
+        if (hint_score = 1){
+          score = score/2;
+        }
+        if (tid_score > 300){
+          score = score/2;
+        }
       }
       else  {
-        var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = 0, \`Besv_Svar\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+        score = 0;
       } 
 
-
+      var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = ${score}, \`Besv_Svar\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
       main();
 
        sql += `; UPDATE \`Opgaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgavenummer]} WHERE \`opg_Bes_ID\` = ${opgavenummer}`;
