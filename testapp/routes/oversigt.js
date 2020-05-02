@@ -49,23 +49,23 @@ router.get('/:elevnummer', function(req, res, next) {
             
 
       result.forEach(element => {
-      var scoremultiplier= 0;
-      var pointgraf = 10; 
+      var scoremultiplier = 0;
+      var pointgraf = 0; 
       
         if( element.besv_score == 0 ){
-          scoremultiplier == 0;
+          scoremultiplier = 0;
         }
 
         else if(element.besv_score == 25){
-          scoremultiplier == 1;
+          scoremultiplier = 1;
         }
 
         else if( element.besv_score == 50 ){
-          scoremultiplier == 2;
+          scoremultiplier = 2;
         }
 
         else if( element.besv_score == 100){
-          scoremultiplier == 3;
+          scoremultiplier = 3;
         }
 
 
