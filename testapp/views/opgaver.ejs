@@ -28,14 +28,16 @@
                         <h1>Opgavenummer <%= opgave_ID %> </h1>
                 <div class="content" >
                         <p>Opgave beskrivelse</p>
-                        <p><%= opgavebeskrivelse %> </p> 
+                        <p><%= opgavebeskrivelse %> <%= forventet_svar %> </p> 
                     
                     <div class="content">
                         <div class="field columns is-centered" style="padding: 2rem ">
                     
                     <div class="control">
+
                             <form method="POST" action=<%= "/opgaver/sendA/" + opgave_ID %>>
                                 <input class="input is-primary" type="text" placeholder="Indtast dit svar" name="svar">
+                                <input type="hidden" name="forventet_svar" value= <%= forventet_svar %> >
                         </div>
                                 <button class="button is-primary is-hovered" type="submit"> Indsend Svar</button>
                             </form>
