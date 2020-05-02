@@ -52,20 +52,20 @@ router.get('/:elevnummer', function(req, res, next) {
       var scoremultiplier= 0;
       var pointgraf = 10; 
       
-        if( element.besv_score <= 25 ){
-          scoremultiplier = 1;
+        if( element.besv_score == 0 ){
+          scoremultiplier == 0;
         }
 
-        else if( element.besv_score <= 50 ){
-          scoremultiplier = 2;
+        else if(element.besv_score == 25){
+          scoremultiplier == 1;
         }
 
-        else if( element.besv_score <= 75 ){
-          scoremultiplier = 3;
+        else if( element.besv_score == 50 ){
+          scoremultiplier == 2;
         }
 
-        else if( element.besv_score <= 100){
-          scoremultiplier = 4;
+        else if( element.besv_score == 100){
+          scoremultiplier == 3;
         }
 
 
