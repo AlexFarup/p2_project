@@ -48,7 +48,7 @@ router.get('/:elevnummer', function(req, res, next) {
       } */
 
 
-      console.log(result[0]);
+      console.log(result[1]);
       res.render('oversigt', {  
           elev_ID: result[0].Elev_ID,
           elev_navn: result[0].Elev_navn,
