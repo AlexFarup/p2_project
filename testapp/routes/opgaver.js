@@ -72,7 +72,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
       
        if (`${svar}` == forventet_svar) {
         score = 100;
-        if (hint_score = 1){
+        if (hint_score == 1){
           score = score/2;
         }
         if (tid_score > 300){
