@@ -83,7 +83,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
         score = 0;
       } 
 
-      var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = ${score}, \`Besv_Svar\` = ${svar} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+      var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = ${score}, \`Besv_Svar\` = ${svar}, \`Besv_Besvaret\` = 1 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
       main();
 
        sql += `; UPDATE \`Opgaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgavenummer]} WHERE \`opg_Bes_ID\` = ${opgavenummer}`;
