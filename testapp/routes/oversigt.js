@@ -7,9 +7,10 @@ var environment = require('../enviroment').environment;
 
 
 /* GET home page. */
-router.get('/:opgavenummer', function(req, res, next) {
-  var opgavenummer = req.params.opgavenummer;
+router.get('/:elevnummer', function(req, res, next) {
+  var elevnummer = req.params.elevnummer;
   var mysql = require('mysql');
+  var grafpoint = 0;
 
   var con = mysql.createConnection({
     host: environment.host,
@@ -34,13 +35,19 @@ router.get('/:opgavenummer', function(req, res, next) {
             ON elev.Elev_klasse_ID = klasse.Klasse_ID
         INNER JOIN
             \`Besvarelser\` AS besvarelser
-            ON elev.Elev_ID = besvarelser.Besvarelse_ID   
+            ON elev.Elev_ID = besvarelser.Besv_Elev_ID   
         INNER JOIN
         \`Opgaver\` AS opgaver
           ON besvarelser.Besvarelse_ID = opgaver.Opgave_ID    
         WHERE
-            elev.Elev_ID = ${opgavenummer}`, function (err, result, fields) {
+            elev.Elev_ID = ${elevnummer}`, function (err, result, fields) {
       if (err) throw err;
+            
+      /* if (result[0].besv_score > 25 && result[0].opg_svaerhedsgrad == 1){
+       grafpoint += 20; 
+      } */
+
+
       console.log(result[0]);
       res.render('oversigt', {  
           elev_ID: result[0].Elev_ID,
