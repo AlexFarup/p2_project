@@ -52,31 +52,31 @@ router.get('/:elevnummer', function(req, res, next) {
       var scoremultiplier = 0;
       var pointgraf = 1; 
       
-        if( element.besv_score == 0 ){
+        if( element.Besv_Score == 0 ){
           scoremultiplier = 0;
         }
 
-        else if(element.besv_score == 25){
+        else if(element.Besv_Score == 25){
           scoremultiplier = 1;
         }
 
-        else if( element.besv_score == 50 ){
+        else if( element.Besv_Score == 50 ){
           scoremultiplier = 2;
         }
 
-        else if( element.besv_score == 100){
+        else if( element.Besv_Score == 100){
           scoremultiplier = 3;
         }
 
 
           if(element.opg_svaerhedsgrad == 1){
-          pointgraf += 5*scoremultiplier; 
+          pointgraf += (5*scoremultiplier); 
         }
           else if(element.opg_svaerhedsgrad == 2){
-            pointgraf += 10*scoremultiplier; 
+            pointgraf += (10*scoremultiplier); 
           }
           else if(element.opg_svaerhedsgrad == 3){
-            pointgraf += 15*scoremultiplier; 
+            pointgraf += (15*scoremultiplier); 
           }        
 
         switch(element.opg_Type_ID){

@@ -50,7 +50,6 @@ router.post('/sendA/:opgavenummer', function (req, res) {
   var opgavenummer = req.params.opgavenummer;
   var mysql = require('mysql');
  var forventet_svar = req.body.forventet_svar;
- var score = 0;
  var hint_score = 0; 
  var tid_score = 299;
 
