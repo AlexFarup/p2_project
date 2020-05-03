@@ -70,13 +70,13 @@ router.get('/:elevnummer', function(req, res, next) {
 
 
           if(element.opg_svaerhedsgrad == 1){
-          pointgraf += (5*scoremultiplier); 
+          pointgraf += 5*scoremultiplier; 
         }
           else if(element.opg_svaerhedsgrad == 2){
-            pointgraf += (10*scoremultiplier); 
+            pointgraf += 10*scoremultiplier; 
           }
           else if(element.opg_svaerhedsgrad == 3){
-            pointgraf += (15*scoremultiplier); 
+            pointgraf += 15*scoremultiplier; 
           }        
 
         switch(element.opg_Type_ID){
