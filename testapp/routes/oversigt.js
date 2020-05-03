@@ -50,7 +50,7 @@ router.get('/:elevnummer', function(req, res, next) {
 
       result.forEach(element => {
       var scoremultiplier = 0;
-      var pointgraf = 1; 
+      var pointgraf = 0; 
       
         if( element.Besv_Score == 0 ){
           scoremultiplier = 0;
