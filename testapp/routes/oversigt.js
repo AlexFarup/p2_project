@@ -69,13 +69,13 @@ router.get('/:elevnummer', function(req, res, next) {
         }
 
 
-          if(element.opg_svaerhedsgrad == 1){
+          if(element.opg_Forv_svaerhedsgrad == 1){
           pointgraf += (5*scoremultiplier); 
         }
-          else if(element.opg_svaerhedsgrad == 2){
+          else if(element.opg_Forv_svaerhedsgrad == 2){
             pointgraf += (10*scoremultiplier); 
           }
-          else if(element.opg_svaerhedsgrad == 3){
+          else if(element.opg_Forv_svaerhedsgrad == 3){
             pointgraf += (13.3*scoremultiplier); 
           }        
 
