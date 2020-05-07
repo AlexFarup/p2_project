@@ -66,13 +66,24 @@
 
          <div class="box is-centered has-text-centered is-size-2" style="padding: 2rem">
             <p>Hint til opgave <%= opgave_ID %>  </p>
-                    <button class="button is-warning is-hovered"> HINT </button>
+            <br>
+                    <button onclick="myFunction()" class="button is-warning is-hovered" > HINT </button>
                <div id="hintDiv">
                 <p>HER VISER VI HINTET</p>          
                </div>
 
         </div>
 
+        <script>
+        function myFunction() {
+            var x = document.getElementById("myDIV");
+            if (x.style.display === "none") {
+              x.style.display = "block";
+            } else {
+              x.style.display = "none";
+            }
+          }
+        </script>
 
     </section>
 
