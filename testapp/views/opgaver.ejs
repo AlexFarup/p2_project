@@ -41,7 +41,7 @@
                                 <input class="input is-primary" type="text" placeholder="Indtast dit svar" name="svar">
                                 <input type="hidden" name="forventet_svar" value= <%= forventet_svar %> >
                                 <input id="hintID" type="hidden" name="hint_point" value="hintklik" >
-                                <input id="currentTime" type="hidden" name="tidbrugt" value="tid" >
+                                <input id="tidID" type="hidden" name="tidbrugt" value="tid" >
                                
                                 
                         </div>
@@ -172,10 +172,9 @@ function updaterTæller()
 
 function gemTid()
 {
-    
     let currentText = document.getElementById("currentTime").innerHTML;
     currentTime.innerHTML = currentText + tællerEL.innerHTML +  "<br/>";
-    tid = document.getElementById("currentTime").value;
+    document.getElementById("tidID").value = tid;
 }
 
 
