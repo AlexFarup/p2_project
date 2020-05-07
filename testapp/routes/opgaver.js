@@ -42,7 +42,8 @@ router.get('/:opgavenummer', function(req, res, next) {
           forventet_svar: result[0].opg_Forv_svar,
           hint_score: result[0].hint_score,
           hintpoint: result[0].Besv_Hint,
-          hintforklaring: result[0].hint
+          hintforklaring: result[0].hint,
+          forventet_tid: result[0].opg_Forv_tid
             });
       }); 
   });
@@ -58,6 +59,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
  var forventet_svar = req.body.forventet_svar;
  var hintpoint = req.body.hint_point;
  var tid_score = req.body.tidbrugt;
+ var forventet_tid = req.body.forventet_tid
 
 
   var con = mysql.createConnection({
@@ -80,7 +82,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
         if (hintpoint == 1){
           score = score/2;
         }
-        if (tid_score > 300){
+        if (tid_score > forventet_tid){
           score = score/2;
         }
       }
