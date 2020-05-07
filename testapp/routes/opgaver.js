@@ -26,7 +26,10 @@ router.get('/:opgavenummer', function(req, res, next) {
     FROM \`Opgaver\` AS opgaver
         INNER JOIN
             \`Besvarelser\` AS besvarelser
-            ON opgaver.opg_Bes_ID = besvarelser.Besvarelse_ID   
+            ON opgaver.opg_Bes_ID = besvarelser.Besvarelse_ID
+            INNER JOIN
+            \`Type_opgave\` AS topgave
+            on opgaver.opg_Type_ID = Type_ID
         WHERE
             opgaver.Opgave_ID = ${opgavenummer}`, function (err, result, fields) {
 
@@ -38,7 +41,8 @@ router.get('/:opgavenummer', function(req, res, next) {
             besvarelse_svar: result[0].Besv_Svar,
           forventet_svar: result[0].opg_Forv_svar,
           hint_score: result[0].hint_score,
-          hintpoint: result[0].Besv_Hint
+          hintpoint: result[0].Besv_Hint,
+          hintforklaring: result[0].hint
             });
       }); 
   });
