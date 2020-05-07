@@ -38,6 +38,7 @@
                             <form method="POST" action=<%= "/opgaver/sendA/" + opgave_ID %>> 
                                 <input class="input is-primary" type="text" placeholder="Indtast dit svar" name="svar">
                                 <input type="hidden" name="forventet_svar" value= <%= forventet_svar %> >
+                                <input type="hidden" name="hint_point" value="hint_point" >
                                
                                 
                         </div>
@@ -69,8 +70,8 @@
             <p>Hint til opgave <%= opgave_ID %>  </p>
             <br>
               
-                    <button onclick="myFunction()" class="button is-warning is-hovered" > Brug for et hint? </button>
-                    <input type="hidden" name="hint_point" value= <%= hint_point %> >
+            <button onclick="hentHint()" class="button is-warning is-hovered" > Brug for et hint? </button>
+                   
                <div id="hintDiv" style="display:none" >
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>          
                </div>
@@ -78,7 +79,7 @@
         </div>
 
         <script>
-        function myFunction() {
+        function hentHint() {
             
             var hint_point = 0;
             var x = document.getElementById("hintDiv");
