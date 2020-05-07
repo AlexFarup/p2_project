@@ -37,7 +37,8 @@ router.get('/:opgavenummer', function(req, res, next) {
             opgave_ID: result[0].Opgave_ID,
             besvarelse_svar: result[0].Besv_Svar,
           forventet_svar: result[0].opg_Forv_svar,
-          hint_score: result[0].hint_score
+          hint_score: result[0].hint_score,
+          hintpoint: result[0].Besv_Hint
             });
       }); 
   });
