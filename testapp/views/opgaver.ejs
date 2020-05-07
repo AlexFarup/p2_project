@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
     <link rel="stylesheet" href="css/style.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
+    <script>
+        var hint_point = 0;
+    </script>
+    
 </head>
 
 <body>
@@ -81,7 +85,6 @@
         <script>
         function hentHint() {
             
-            var hint_point = 0;
             var x = document.getElementById("hintDiv");
             if (x.style.display === "none") {
               x.style.display = "block";
