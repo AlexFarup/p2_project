@@ -70,7 +70,7 @@
             <br>
               
                     <button onclick="myFunction()" class="button is-warning is-hovered" > Brug for et hint? </button>
-                    <input type="hidden" name="hintpoint" value= <%= hintpoint %> >
+                    <input type="hidden" name="hint_point" value= <%= hint_point %> >
                <div id="hintDiv" style="display:none" >
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>          
                </div>
@@ -80,11 +80,12 @@
         <script>
         function myFunction() {
             
-            var hintpoint = 0;
+            var hint_point = 0;
             var x = document.getElementById("hintDiv");
             if (x.style.display === "none") {
               x.style.display = "block";
-              hintpoint = 1;
+              hint_point = 1;
+              return hint_point;
             } 
           }
         </script>
