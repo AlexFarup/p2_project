@@ -40,7 +40,7 @@
                             <form method="POST" action=<%= "/opgaver/sendA/" + opgave_ID %>> 
                                 <input class="input is-primary" type="text" placeholder="Indtast dit svar" name="svar">
                                 <input type="hidden" name="forventet_svar" value= <%= forventet_svar %> >
-                                <input id="hintID" type="hidden" name="hint_point" value="hint_point" >
+                                <input id="hintID" type="hidden" name="hint_point" value="hintklik" >
                                
                                 
                         </div>
@@ -95,8 +95,15 @@
 
         <script>
             function ikkehint(){
-                var hint_point = 0;
-                document.getElementById("hintID").value = hint_point;
+                var hintklik = 0
+                if(hint_point == 0){
+                hintklik = 0;
+                document.getElementById("hintID").value = hintklik;
+                }
+                else{
+                hintklik = 1;
+                document.getElementById("hintID").value = hintklik;
+                }
             }
         </script>
 
