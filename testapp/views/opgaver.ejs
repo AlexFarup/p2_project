@@ -39,6 +39,7 @@
                                 <input class="input is-primary" type="text" placeholder="Indtast dit svar" name="svar">
                                 <input type="hidden" name="forventet_svar" value= <%= forventet_svar %> >
                                 <input type="hidden" name="hint_score" value= <%= hint_score %> >
+                                <input type="hidden" name="hintpoint" value= <%= hintpoint %> >
                         </div>
                                 <button class="button is-primary is-hovered" type="submit"> Indsend Svar</button>
                             </form>
@@ -77,9 +78,11 @@
 
         <script>
         function myFunction() {
+            var hintpoint = 0;
             var x = document.getElementById("hintDiv");
             if (x.style.display === "none") {
               x.style.display = "block";
+              hintpoint = 1;
             } 
           }
         </script>
