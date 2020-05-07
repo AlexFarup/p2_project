@@ -39,7 +39,6 @@
                                 <input class="input is-primary" type="text" placeholder="Indtast dit svar" name="svar">
                                 <input type="hidden" name="forventet_svar" value= <%= forventet_svar %> >
                                 <input type="hidden" name="hint_score" value= <%= hint_score %> >
-                                <input type="hidden" name="hintpoint" value= <%= hintpoint %> >
                         </div>
                                 <button class="button is-primary is-hovered" type="submit"> Indsend Svar</button>
                             </form>
@@ -68,16 +67,18 @@
          <div class="box is-centered has-text-centered is-size-2" style="padding: 2rem">
             <p>Hint til opgave <%= opgave_ID %>  </p>
             <br>
-           
+                
                     <button onclick="myFunction()" class="button is-warning is-hovered" > Brug for et hint? </button>
                <div id="hintDiv" style="display:none" >
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>          
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p> 
+                <p style="display: none;"> <%= hintpoint %> </p>         
                </div>
 
         </div>
 
         <script>
         function myFunction() {
+            
             var hintpoint = 0;
             var x = document.getElementById("hintDiv");
             if (x.style.display === "none") {
