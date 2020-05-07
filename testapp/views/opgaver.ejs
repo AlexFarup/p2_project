@@ -11,9 +11,7 @@
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
     <link rel="stylesheet" href="css/style.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
-    <script>
-        var hint_point = 0;
-    </script>
+   
     
 </head>
 
@@ -42,11 +40,11 @@
                             <form method="POST" action=<%= "/opgaver/sendA/" + opgave_ID %>> 
                                 <input class="input is-primary" type="text" placeholder="Indtast dit svar" name="svar">
                                 <input type="hidden" name="forventet_svar" value= <%= forventet_svar %> >
-                                <input id="hintID" type="hidden" name="hint_point" value="hint_point" >
+                                <input id="hintID" type="hidden" name="hint_point" value="hintklik" >
                                
                                 
                         </div>
-                                <button class="button is-primary is-hovered" type="submit"> Indsend Svar</button>
+                                <button class="button is-primary is-hovered" type="submit" onclick="ikkehint()"> Indsend Svar</button>
                             </form>
 
 
@@ -84,15 +82,28 @@
 
         <script>
         function hentHint() {
-            
+            var hint_point = 0;
             var x = document.getElementById("hintDiv");
             if (x.style.display === "none") {
               x.style.display = "block";
               hint_point = 1;
              
             } 
-            document.getElementById("hintID").value = hint_point;
           }
+        </script>
+
+        <script>
+            function ikkehint(){
+                var hintklik = 0;
+                if (hint_point == 0){
+                    document.getElementById("hintID").value = hintklik;
+                }
+                else{
+                    hintklik = 1;
+                    document.getElementById("hintID").value = hintklik;
+                }
+                
+            }
         </script>
 
     </section>
