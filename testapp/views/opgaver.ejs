@@ -89,21 +89,23 @@
               hint_point = 1;
              
             } 
-           
+            document.getElementById("hintID").value = hint_point;
           }
         </script>
 
         <script>
             function ikkehint(){
                 var hintklik = 0
-                if(hint_point == 0){
-                hintklik = 0;
-                document.getElementById("hintID").value = hintklik;
+               
+                if(x.style.display == "none"){
+                    document.getElementById("hintID").value = hintklik;
                 }
                 else{
-                hintklik = 1;
-                document.getElementById("hintID").value = hintklik;
+                    hintklik = 1;
+                    document.getElementById("hintID").value = hintklik;
                 }
+
+
             }
         </script>
 
