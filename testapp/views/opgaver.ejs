@@ -89,7 +89,6 @@
               hint_point = 1;
              
             } 
-            document.getElementById("hintID").value = hint_point;
           }
         </script>
 
@@ -97,12 +96,12 @@
             function ikkehint(){
                 var hintklik = 0;
                
-                if(x.style.display == "none"){
-                    hintklik = 0;
+                if(hint_point == 1){
+                    hintklik = 1;
                     document.getElementById("hintID").value = hintklik;
                 }
                 else{
-                    hintklik = 1;
+                    hintklik = 0;
                     document.getElementById("hintID").value = hintklik;
                 }
 
