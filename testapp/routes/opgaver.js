@@ -52,7 +52,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
   var opgavenummer = req.params.opgavenummer;
   var mysql = require('mysql');
  var forventet_svar = req.body.forventet_svar;
- var hint_point = req.body.hintpoint;
+ var hint_point = req.body.hint_point;
  var tid_score = 299;
 
 
@@ -84,7 +84,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
         score = 0;
       } 
 
-      var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = ${score}, \`Besv_Svar\` = ${svar}, \`Besv_Besvaret\` = 1, \`Besv_Hint\` = ${hint_point} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+      var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = ${score}, \`Besv_Svar\` = ${svar}, \`Besv_Besvaret\` = 1, \`Besv_Hint\` = 1 WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
       main();
 
        sql += `; UPDATE \`Opgaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgavenummer]} WHERE \`opg_Bes_ID\` = ${opgavenummer}`;
