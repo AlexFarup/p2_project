@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
     <link rel="stylesheet" href="css/style.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
+   
+    
 </head>
 
 <body>
@@ -28,16 +30,23 @@
                         <h1>Opgavenummer <%= opgave_ID %> </h1>
                 <div class="content" >
                         <p>Opgave beskrivelse</p>
-                        <p><%= opgavebeskrivelse %> </p> 
+                        <p><%= opgavebeskrivelse %> <%= forventet_svar %> </p> 
                     
                     <div class="content">
                         <div class="field columns is-centered" style="padding: 2rem ">
                     
                     <div class="control">
-                            <form method="POST" action=<%= "/opgaver/sendA/" + opgave_ID %>>
+
+                            <form method="POST" action=<%= "/opgaver/sendA/" + opgave_ID %>> 
                                 <input class="input is-primary" type="text" placeholder="Indtast dit svar" name="svar">
+                                <input type="hidden" name="forventet_svar" value= <%= forventet_svar %> >
+                                <input id="hintID" type="hidden" name="hint_point" value="hintklik" >
+                                <input id="currentTime" type="hidden" name="tidbrugt" value="tid" >
+                                <input type="hidden" name="forventet_tid" value= <%= forventet_tid %> >
+                               
+                                
                         </div>
-                                <button class="button is-primary is-hovered" type="submit"> Indsend Svar</button>
+                                <button class="button is-primary is-hovered" type="submit" onclick="ikkehint(); startStopFunc()"> Indsend Svar</button>
                             </form>
 
 
@@ -49,7 +58,7 @@
 
 
                    <div class="columns is-mobile">
-                    <div class="column is-half is-offset-one-quarter is-size-2"><p>TIME 120 sekunder</p></div>
+                    <div class="column is-half is-offset-one-quarter is-size-2" ><p id="Countdown" style="display: inline;"> </p> <p style="display: inline;">/ <%= forventet_tid %></p> </div> <p id = "currentTime"> </p>
                     <div class="column is-4 is-offset-two-quarter is-size-2"> 
 
                     <form method="GET" action=<%= "/opgaver/" + (opgave_ID - 1) %>> <button type="submit" class="button is-primary">Tilbage</button> </form>  
@@ -62,13 +71,117 @@
 
 
          <div class="box is-centered has-text-centered is-size-2" style="padding: 2rem">
-                    <button class="button is-warning is-hovered"> HINTS </button>
-               <div>
-                <p>Hint til opgave <%= opgave_ID %>  </p>
-                <p>HER VISER VI HINTET</p>          
+            <p>Hint til opgave <%= opgave_ID %>  </p>
+            <br>
+              
+            <button onclick="hentHint()" class="button is-warning is-hovered" > Brug for et hint? </button>
+                   
+               <div id="hintDiv" style="display:none" >
+                <p><%= hintforklaring %> </p>          
                </div>
-
+          
         </div>
+
+        <script>
+        function hentHint() {
+           
+            var x = document.getElementById("hintDiv");
+            if (x.style.display === "none") {
+              x.style.display = "block";
+
+            } 
+          }
+        </script>
+
+
+        <script>
+            function ikkehint(){
+            var hintklik = 0;
+            var x = document.getElementById("hintDiv");
+
+                if(x.style.display == "none"){
+                    hintklik = 0;
+                    document.getElementById("hintID").value = hintklik;
+                }
+                else{
+                    hintklik = 1;
+                    document.getElementById("hintID").value = hintklik;
+                }
+            }
+        </script>
+
+
+
+        <script>
+            var tid = 0;
+
+var tællerEL = document.getElementById('Countdown');
+
+var startStop = Boolean(true);
+
+//Kalder updateCountdown hvergang der går 1000 milisekunder(1 sekunder)
+var interval = setInterval(updaterTæller, 1000);
+
+function startStopFunc()
+{
+    if (startStop == true)
+    {
+        gemTid();
+        startStop = false;
+    }
+    else
+    {
+        startStop = true;
+    }
+}
+
+function formatterTid(x)
+{
+    if(x < 100)
+    {
+            return "00" + x;
+        }
+        else
+    {
+            return x;
+        }
+}
+
+function updaterTæller() 
+{
+    let sekunder = tid;
+    tællerEL.innerHTML = + formatterTid(sekunder);
+
+
+    if (startStop == true)
+    {
+        if (tid != 120)
+        {
+            tid++;
+        }
+        else
+        {
+            gemTid();
+            clearInterval(interval);
+        }
+    }
+    else if (startStop == false)
+    {
+
+    }
+}
+
+function gemTid()
+{
+    let currentText = document.getElementById("currentTime").innerHTML;
+    currentTime.innerHTML = currentText + tællerEL.innerHTML +  "<br/>";
+    document.getElementById("currentTime").value = tid;
+}
+
+
+
+        </script>
+
 
 
     </section>

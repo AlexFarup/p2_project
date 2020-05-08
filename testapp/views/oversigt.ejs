@@ -78,6 +78,11 @@
                   </div>
                 
                   <script>
+                      console.log("<%= gp_add %>");
+                      console.log("<%= gp_sub %>");
+                      console.log("<%= gp_div %>");
+                      console.log("<%= gp_mul %>");
+                      
                       let myChart = document.getElementById('myChart').getContext('2d');
                 
                         Chart.defaults.global.defaultFontFamily = 'Lato';
@@ -91,33 +96,19 @@
                             datasets:[{
                                 label:'Rigtige Svar',
                                 data:[
-                                    100,
-                                    80,
-                                    60,
-                                    40,
-                                    0
+                                   
+                                   "<%= gp_add %>",
+                                   "<%= gp_sub %>",
+                                   "<%= gp_div %>",
+                                   "<%= gp_mul %>",
+                                   0,
+                                   100
                                 ],
-                                backgroundColor:'green',
+                                backgroundColor:'rgba(0, 999, 0, 0.3)',
                                 borderWidth:1,
                                 borderColor:'#777',
                                 hoverBorderWidth:3,
                                 hoverBorderColor:'#000'
-                            },
-                            {
-                                label:'Forkerte Svar',
-                                data:[
-                                    40,
-                                    60,
-                                    80,
-                                    100,
-                                    0
-                                ],
-                                backgroundColor:'Red',
-                                borderWidth:1,
-                                borderColor:'#777',
-                                hoverBorderWidth:3,
-                                hoverBorderColor:'#000'
-                
                             }]
                 
                           },
@@ -157,7 +148,7 @@
                     <br>
                     <p class="column has-text-centered ">
                         <a class="button is-medium is-danger ">
-                          Gennemsnitskarakter: 7/10
+                          Gennemsnitskarakter: 10/10
                         </a>
                     </p>
 
