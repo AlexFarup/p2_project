@@ -1,6 +1,13 @@
 
-        function hentHint() {
-            
+      let hintKnap = document.getElementById("hintKnappen");
+
+    if(hintKnap.onclick = function(){
+        hentHint();
+    });
+
+      
+      function hentHint() {
+
             var x = document.getElementById("hintDiv");
             if (x.style.display === "none") {
               x.style.display = "block";
