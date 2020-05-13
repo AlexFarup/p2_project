@@ -8,15 +8,15 @@ const environment = require('../enviroment').environment;
 
 /* GET home page. */
 router.get('/:elevnummer', function(req, res, next) {
-  var elevnummer = req.params.elevnummer;
-  var mysql = require('mysql');
-  var grafpoint_add = 0;
-  var grafpoint_sub = 0;
-  var grafpoint_div = 0;
-  var grafpoint_mul = 0;
+  let elevnummer = req.params.elevnummer;
+  let mysql = require('mysql');
+  let grafpoint_add = 0;
+  let grafpoint_sub = 0;
+  let grafpoint_div = 0;
+  let grafpoint_mul = 0;
 
 
-  var con = mysql.createConnection({
+  let con = mysql.createConnection({
     host: environment.host,
     user: environment.user,
     password: environment.password,
@@ -49,8 +49,8 @@ router.get('/:elevnummer', function(req, res, next) {
             
 
       result.forEach(element => {
-      var scoremultiplier = 0;
-      var pointgraf = 0; 
+      let scoremultiplier = 0;
+      let pointgraf = 0; 
       
         if( element.Besv_Score == 0 ){
           scoremultiplier = 0;

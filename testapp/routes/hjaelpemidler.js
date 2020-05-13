@@ -5,10 +5,10 @@ const environment = require('../enviroment').environment;
 
 /* GET home page. */
 router.get('/:opgavenummer', function(req, res, next) {
-  var opgavenummer = req.params.opgavenummer;
-  var mysql = require('mysql');
+  let opgavenummer = req.params.opgavenummer;
+  let mysql = require('mysql');
 
-  var con = mysql.createConnection({
+  let con = mysql.createConnection({
     host: environment.host,
     user: environment.user,
     password: environment.password,
