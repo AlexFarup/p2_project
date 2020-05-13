@@ -1,9 +1,6 @@
-alert("farvel");
 
 $('#hintKnappen').click( () => { 
   
-    
-         console.log("hej");
         var x = document.getElementById("hintDiv");
         if (x.style.display === "none") {
           x.style.display = "block";
@@ -50,6 +47,19 @@ var startStop = Boolean(true);
 
 //Kalder updateCountdown hvergang der går 1000 milisekunder(1 sekunder)
 var interval = setInterval(updaterTæller, 1000);
+
+
+$('#indsendSvar').click( () => { 
+  
+    
+  
+
+      startStopFunc();
+      ikkehint();
+
+   });
+
+
 
 function startStopFunc()
 {
