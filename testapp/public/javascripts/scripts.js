@@ -1,10 +1,10 @@
 let hintKnap = document.getElementById("hintKnappen");
    
-if(hintKnap.onclick = function(){
+hintKnap.onclick = function(){
 
     hentHint();
 
-});
+};
 
 
 
