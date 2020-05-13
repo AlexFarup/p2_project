@@ -1,6 +1,6 @@
 let hintKnap = document.getElementById("hintKnappen");
    
-hintKnap.onclick = function(){
+hintKnap.onclick() = function(){
 
     hentHint();
 
