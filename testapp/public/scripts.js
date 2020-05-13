@@ -77,7 +77,7 @@ function gemTid()
 {
     let currentText = document.getElementById("currentTime").innerHTML;
     currentTime = currentText + tællerEL.innerHTML +  "<br/>";
-    document.getElementById("currentTime").value = tid;
+    tid = document.getElementById("currentTime").value;
 }
 
 
