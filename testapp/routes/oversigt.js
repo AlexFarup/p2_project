@@ -2,21 +2,21 @@ const express = require('express');
 const router = express.Router();
 const environment = require('../enviroment').environment;
 
-let elevnummer = 0;
-const mysql = require('mysql');
-var grafpoint_add = 0;
-var grafpoint_sub = 0;
-var grafpoint_div = 0;
-var grafpoint_mul = 0;
+
 
 
 
 /* GET home page. */
 router.get('/:elevnummer', function(req, res, next) {
   var elevnummer = req.params.elevnummer;
+  var mysql = require('mysql');
+  var grafpoint_add = 0;
+  var grafpoint_sub = 0;
+  var grafpoint_div = 0;
+  var grafpoint_mul = 0;
 
 
-  let con = mysql.createConnection({
+  var con = mysql.createConnection({
     host: environment.host,
     user: environment.user,
     password: environment.password,
@@ -49,7 +49,7 @@ router.get('/:elevnummer', function(req, res, next) {
             
 
       result.forEach(element => {
-      let scoremultiplier = 0;
+      var scoremultiplier = 0;
       var pointgraf = 0; 
       
         if( element.Besv_Score == 0 ){
