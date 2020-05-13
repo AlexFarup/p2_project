@@ -1,7 +1,7 @@
 
-      let hintKnap = document.getElementById("hintKnappen");
+     
 
-    if(hintKnap.onclick = function(){
+    if(document.getElementById("hintKnappen").onclick = function(){
         hentHint();
     });
 
