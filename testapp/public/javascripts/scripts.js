@@ -1,13 +1,15 @@
+alert("farvel");
+
 $('#hintKnappen').click( () => { 
   
     
-
+         console.log("hej");
         var x = document.getElementById("hintDiv");
         if (x.style.display === "none") {
           x.style.display = "block";
 
             ikkehint();
-
+        
         } 
       
 
