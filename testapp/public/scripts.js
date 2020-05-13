@@ -45,7 +45,7 @@ function hentHint(){
         
             
 
-
+var tid = 0;
 var tællerEL = document.getElementById('Countdown');
 
 var startStop = Boolean(true);
@@ -92,7 +92,7 @@ function formatterTid(x)
 
 function updaterTæller() 
 {
-    var tid = 0;
+   
     let sekunder = tid;
     tællerEL.innerHTML = + formatterTid(sekunder);
 
@@ -115,9 +115,10 @@ function updaterTæller()
     }
 }
 
+
+let currentText = document.getElementById("currentTime").innerHTML;
 function gemTid()
 {
-    let currentText = document.getElementById("currentTime").innerHTML;
     currentTime.innerHTML = currentText + tællerEL.innerHTML +  "<br/>";
     document.getElementById("currentTime").value = tid;
 }
