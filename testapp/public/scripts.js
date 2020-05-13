@@ -43,7 +43,8 @@ function hentHint(){
 
    
         
-            var tid = 0;
+            
+
 
 var tællerEL = document.getElementById('Countdown');
 
@@ -56,7 +57,6 @@ var interval = setInterval(updaterTæller, 1000);
 $('#indsendSvar').click( () => { 
   
     
-  
 
       startStopFunc();
       ikkehint();
@@ -92,6 +92,7 @@ function formatterTid(x)
 
 function updaterTæller() 
 {
+    var tid = 0;
     let sekunder = tid;
     tællerEL.innerHTML = + formatterTid(sekunder);
 
