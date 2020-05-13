@@ -70,13 +70,13 @@ function updaterTæller()
     }
 }
 
+let currentTime = 0;
 
-let currentText = document.getElementById("currentTime").innerHTML;
 
 function gemTid()
 {
-
-    currentText = currentText + tællerEL.innerHTML +  "<br/>";
+    let currentText = document.getElementById("currentTime").innerHTML;
+    currentTime = currentText + tællerEL.innerHTML +  "<br/>";
     document.getElementById("currentTime").value = tid;
 }
 
