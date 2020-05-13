@@ -1,6 +1,6 @@
-var express = require('express');
-var router = express.Router();
-var environment = require('../enviroment').environment;
+const express = require('express');
+const router = express.Router();
+const environment = require('../enviroment').environment;
 
 
 
