@@ -54,7 +54,7 @@ function updaterTæller()
 
     if (startStop == true)
     {
-        if (tid != 120)
+        if (tid != Infinity)
         {
             tid++;
         }
@@ -64,10 +64,7 @@ function updaterTæller()
             clearInterval(interval);
         }
     }
-    else if (startStop == false)
-    {
-
-    }
+   
 }
 
 let currentTime = 0;
@@ -77,7 +74,7 @@ function gemTid()
 {
     let currentText = document.getElementById("currentTime").innerHTML;
     currentTime = currentText + tællerEL.innerHTML +  "<br/>";
-    tid = document.getElementById("currentTime").value;
+    document.getElementById("currentTime").value = tid;
 }
 
 
