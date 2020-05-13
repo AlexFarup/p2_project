@@ -8,7 +8,7 @@ const environment = require('../enviroment').environment;
 
 /* GET home page. */
 router.get('/:elevnummer', function(req, res, next) {
-  let elevnummer = req.params.elevnummer;
+  var elevnummer = req.params.elevnummer;
   let mysql = require('mysql');
   var grafpoint_add = 0;
   var grafpoint_sub = 0;
