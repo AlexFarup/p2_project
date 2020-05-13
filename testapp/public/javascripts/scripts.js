@@ -1,24 +1,23 @@
 $('#hintKnappen').click( () => { 
-   hentHint();
+  
+    
+
+        var x = document.getElementById("hintDiv");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+
+            ikkehint();
+
+        } 
+      
+
+
 });
 
 
 
-
-
-
-
       
-      function hentHint() {
-
-            var x = document.getElementById("hintDiv");
-            if (x.style.display === "none") {
-              x.style.display = "block";
-
-                ikkehint();
-
-            } 
-          }
+      
         
             function ikkehint(){
             var hintklik = 0;
