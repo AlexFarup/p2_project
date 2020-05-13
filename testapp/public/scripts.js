@@ -18,9 +18,6 @@ $('#hintKnappen').click( () => {
 
 
 
-      
-      
-        
             function ikkehint(){
             var hintklik = 0;
             var x = document.getElementById("hintDiv");
@@ -38,6 +35,12 @@ $('#hintKnappen').click( () => {
 
 
 
+
+
+
+
+
+   
         
             var tid = 0;
 
