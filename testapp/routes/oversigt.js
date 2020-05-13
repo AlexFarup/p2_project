@@ -10,10 +10,10 @@ const environment = require('../enviroment').environment;
 router.get('/:elevnummer', function(req, res, next) {
   let elevnummer = req.params.elevnummer;
   let mysql = require('mysql');
-  let grafpoint_add = 0;
-  let grafpoint_sub = 0;
-  let grafpoint_div = 0;
-  let grafpoint_mul = 0;
+  var grafpoint_add = 0;
+  var grafpoint_sub = 0;
+  var grafpoint_div = 0;
+  var grafpoint_mul = 0;
 
 
   let con = mysql.createConnection({
