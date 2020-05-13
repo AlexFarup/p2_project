@@ -1,49 +1,4 @@
-
-$('#hintKnappen').click( () => { 
-  
-hentHint();        
-      
-
-
-});
-
-
-function hentHint(){
-    var x = document.getElementById("hintDiv");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-
-        ikkehint();
-    }
-    } 
-
-
-
-            function ikkehint(){
-            var hintklik = 0;
-            var x = document.getElementById("hintDiv");
-
-                if(x.style.display == "none"){
-                    hintklik = 0;
-                    document.getElementById("hintID").value = hintklik;
-                }
-                else{
-                    hintklik = 1;
-                    document.getElementById("hintID").value = hintklik;
-                }
-            }
         
-
-
-
-
-
-
-
-
-   
-        
-            
 
 var tid = 0;
 var tællerEL = document.getElementById('Countdown');
@@ -126,3 +81,37 @@ function gemTid()
 
 
         
+
+$('#hintKnappen').click( () => { 
+  
+    hentHint();        
+          
+    
+    
+    });
+    
+    
+    function hentHint(){
+        var x = document.getElementById("hintDiv");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+    
+            ikkehint();
+        }
+        } 
+    
+    
+    
+                function ikkehint(){
+                var hintklik = 0;
+                var x = document.getElementById("hintDiv");
+    
+                    if(x.style.display == "none"){
+                        hintklik = 0;
+                        document.getElementById("hintID").value = hintklik;
+                    }
+                    else{
+                        hintklik = 1;
+                        document.getElementById("hintID").value = hintklik;
+                    }
+                }
