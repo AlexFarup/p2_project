@@ -26,13 +26,11 @@ function startStopFunc()
     if (startStop == true)
     {
         gemTid();
-        tid = 0;
         startStop = false;
     }
     else
     {
         startStop = true;
-        tid = 0;
     }
 }
 
@@ -64,6 +62,7 @@ function updaterTæller()
         else
         {
             gemTid();
+            tid = 0;
             clearInterval(interval);
         }
     }
