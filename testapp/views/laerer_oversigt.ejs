@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
 <!--BASIC HTML-->  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +17,6 @@
 <!--SCRIPTS-->
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
     <script defer src="../js/bulma.js"></script>
-
 </head>
 
 <body>
@@ -26,83 +24,99 @@
     <%- include('navbar')  %>
 
 <!--Oversigts body-->
-  <div class="box">
-    <div class="box">
-      <div class="columns has-text-centered">
-        <div class="column">
-          <p class="bd-notification is-info"> <strong>Navn:</strong> <%= laerer_navn %> <%= laerer_efternavn %>  </p>
-        </div>
-        <div class="column">
-          <p class="bd-notification is-danger"> <strong>Email:</strong> <%= laerer_email %> </p>
-        </div>
-        <div class="column">
-          <p class="bd-notification is-danger has-text-centered"> <strong>Klasser:</strong> 7a - 8b - 9acd </p>
-        </div>
-      </div>
-    </div>
+	<div class="box">
+		<div class="box">
+			<div class="columns has-text-centered">
 
+				<div class="column">
+					<p class="bd-notification is-info"> <strong>Navn:</strong> <%= laerer_navn %> <%= laerer_efternavn %>  </p>
+				</div>
 
-    <div class="box">
+				<div class="column">
+					<p class="bd-notification is-danger"> <strong>Email:</strong> <%= laerer_email %> </p>
+				</div>
 
-      <div class="columns is-mobile has-text-centered">
-          <div class="column is-half centered-text"> 
-            <p class="is-size-3">7.a Matematik</p> 
-            <p> <a>Se klasseliste</a></p> 
-            <p> <a>Se opgaveliste</a></p>
-          </div>
-        <div class="column is-half">
-          <img src="http://localhost:3000/images/testgraph.png" alt="">
-        </div>
-      </div>
-    </div>
+				<div class="column">
+					<p class="bd-notification is-danger has-text-centered"> <strong>Klasser:</strong> 7a - 8b - 9acd </p>
+				</div>
 
-    <div class="box">
-      <div class="columns is-mobile has-text-centered">
-        <div class="column is-half centered-text"> 
-          <p class="is-size-3">8.b Matematik</p> 
-          <p> <a>Se klasseliste</a></p> 
-          <p> <a>Se opgaveliste</a></p>
-        </div>
-        <div class="column is-half">
-          <img class="" src="http://localhost:3000/images/testgraph.png" alt="">
-        </div>
-      </div>
-    </div>
+			</div>
+		</div>
+		
+		<div class="box">
 
-    <div class="box">
-      <div class="columns is-mobile has-text-centered">
-        <div class="column is-half centered-text"> 
-          <p class="is-size-3">9.a Matematik</p> 
-          <p> <a>Se klasseliste</a></p> 
-          <p> <a>Se opgaveliste</a></p> 
-        </div>
-        <div class="column is-half">
-          <img src="http://localhost:3000/images/testgraph.png" alt="">
-        </div>
-      </div>
-    </div>
+			<div class="columns is-mobile has-text-centered">
+				<div class="column is-half centered-text"> 
+					<p class="is-size-3">7.a Matematik</p> 
+					<p> <a>Se klasseliste</a></p> 
+					<p> <a>Se opgaveliste</a></p>
+				</div>
 
-    <div class="box">
-      <p class="is-size-5">Lærerliste:</p>
-      <br>
-      <div class="columns has-text-centered">
-        <div class="column">
-          <p class="bd-notification is-info"> <strong>Nina Nielsen  </strong> <a>Se mere</a> </p>
-        </div>
-        <div class="column">
-          <p class="bd-notification is-danger"> <strong>Bo Otter  </strong> <a>Se mere</a> </p>
-        </div>
-        <div class="column">
-          <p class="bd-notification is-danger has-text-centered"> <strong>Ulrik Kno</strong> <a>Se mere</a> </p>
-        </div>
-        <div class="column">
-          <p class="bd-notification is-danger has-text-centered"> <strong>Henning Honning</strong> <a>Se mere</a> </p>
-        </div>  
-      </div>
-    </div>
-  
-  </div>
+				<div class="column is-half">
+					<img src="http://localhost:3000/images/testgraph.png" alt="">
+				</div>
+		
+			</div>
+		</div>
+
+		<div class="box">
+			<div class="columns is-mobile has-text-centered">
+
+				<div class="column is-half centered-text"> 
+					<p class="is-size-3">8.b Matematik</p> 
+					<p> <a>Se klasseliste</a></p> 
+					<p> <a>Se opgaveliste</a></p>
+				</div>
+
+				<div class="column is-half">
+					<img class="" src="http://localhost:3000/images/testgraph.png" alt="">
+				</div>
+
+			</div>
+		</div>
+
+		<div class="box">
+			<div class="columns is-mobile has-text-centered">
+
+				<div class="column is-half centered-text"> 
+					<p class="is-size-3">9.a Matematik</p> 
+					<p> <a>Se klasseliste</a></p> 
+					<p> <a>Se opgaveliste</a></p> 
+				</div>
+
+				<div class="column is-half">
+					<img src="http://localhost:3000/images/testgraph.png" alt="">
+				</div>
+
+			</div>
+		</div>
+
+		<div class="box">
+				<p class="is-size-5">Lærerliste:</p>
+				<br>
+
+			<div class="columns has-text-centered">
+				
+				<div class="column">
+					<p class="bd-notification is-info"> <strong>Nina Nielsen  </strong> <a>Se mere</a> </p>
+				</div>
+
+				<div class="column">
+					<p class="bd-notification is-danger"> <strong>Bo Otter  </strong> <a>Se mere</a> </p>
+				</div>
+
+				<div class="column">
+					<p class="bd-notification is-danger has-text-centered"> <strong>Ulrik Kno</strong> <a>Se mere</a> </p>
+				</div>
+
+				<div class="column">
+					<p class="bd-notification is-danger has-text-centered"> <strong>Henning Honning</strong> <a>Se mere</a> </p>
+				</div>
+
+			</div>
+		</div>
+	
+	</div>
 
 </body>
-
 </html>
