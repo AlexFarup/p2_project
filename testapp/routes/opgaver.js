@@ -4,109 +4,118 @@ const environment = require('../enviroment').environment;
 
 /* GET home page. */
 router.get('/:opgavenummer', function(req, res, next) {
-  let opgavenummer = req.params.opgavenummer;
-  let mysql = require('mysql');
+    let opgavenummer = req.params.opgavenummer;
+    let mysql = require('mysql');
 
-  let con = mysql.createConnection({
-    host: environment.host,
-    user: environment.user,
-    password: environment.password,
-    database: environment.database,
-    port: environment.port,
-    multipleStatements: true
-  });
+    let con = mysql.createConnection({
+        host: environment.host,
+        user: environment.user,
+        password: environment.password,
+        database: environment.database,
+        port: environment.port,
+        multipleStatements: true
+    });
   
-  con.connect(function(err){
-    if (err) throw err;
-    console.log("Connected!");
-    con.query(`SELECT *
-    FROM \`Opgaver\` AS opgaver
-        INNER JOIN
-            \`Besvarelser\` AS besvarelser
-            ON opgaver.opg_Bes_ID = besvarelser.Besvarelse_ID
-            INNER JOIN
-            \`Type_opgave\` AS topgave
-            on opgaver.opg_Type_ID = Type_ID
-        WHERE
-            opgaver.Opgave_ID = ${opgavenummer}`, function (err, result, fields) {
-
+    con.connect(function(err){
         if (err) throw err;
-        console.log(result[0]);
-        res.render('opgaver', {  
-            opgavebeskrivelse: result[0].opg_Opgave,
-            opgave_ID: result[0].Opgave_ID,
-            besvarelse_svar: result[0].Besv_Svar,
-          forventet_svar: result[0].opg_Forv_svar,
-          hint_score: result[0].hint_score,
-          hintpoint: result[0].Besv_Hint,
-          hintforklaring: result[0].hint,
-          forventet_tid: result[0].opg_Forv_tid,
-            });
-      }); 
-  });
+        console.log("Connected!");
+
+        con.query(`SELECT *
+        FROM \`Opgaver\` AS opgaver
+            INNER JOIN
+                \`Besvarelser\` AS besvarelser
+                ON opgaver.opg_Bes_ID = besvarelser.Besvarelse_ID
+                INNER JOIN
+                \`Type_opgave\` AS topgave
+                on opgaver.opg_Type_ID = Type_ID
+            WHERE
+                opgaver.Opgave_ID = ${opgavenummer}`,
+                function (err, result, fields) {
+
+                    if (err) throw err;
+                    console.log(result[0]);
+                    res.render('opgaver', {  
+                        opgavebeskrivelse: result[0].opg_Opgave,
+                        opgave_ID: result[0].Opgave_ID,
+                        besvarelse_svar: result[0].Besv_Svar,
+                        forventet_svar: result[0].opg_Forv_svar,
+                        hint_score: result[0].hint_score,
+                        hintpoint: result[0].Besv_Hint,
+                        hintforklaring: result[0].hint,
+                        forventet_tid: result[0].opg_Forv_tid,
+                    });
+                }); 
+    });
 });
 
 
 
 router.post('/sendA/:opgavenummer', function (req, res) {
-  console.log(req.body);
-  let svar = req.body.svar;
-  let opgavenummer = req.params.opgavenummer;
-  let mysql = require('mysql');
- let forventet_svar = req.body.forventet_svar;
- let hintpoint = req.body.hint_point;
- let tid_score = req.body.tidbrugt;
- let forventet_tid = req.body.forventet_tid;
+    console.log(req.body);
+
+    let svar = req.body.svar;
+    let opgavenummer = req.params.opgavenummer;
+    let mysql = require('mysql');
+    let forventet_svar = req.body.forventet_svar;
+    let hintpoint = req.body.hint_point;
+    let tid_score = req.body.tidbrugt;
+    let forventet_tid = req.body.forventet_tid;
 
 
-  let con = mysql.createConnection({
-    host: environment.host,
-    user: environment.user,
-    password: environment.password,
-    database: environment.database,
-    port: environment.port,
-    multipleStatements: true
-  });
+    let con = mysql.createConnection({
+        host: environment.host,
+        user: environment.user,
+        password: environment.password,
+        database: environment.database,
+        port: environment.port,
+        multipleStatements: true
+    });
 
  
-  con.connect(function (err) {
-      if (err) throw err;
-      console.log(tid_score, forventet_tid);
-
-      
-       if (parseInt(`${svar}`) == parseInt(forventet_svar)) {
-        score = 100;
-        if (hintpoint == 1 && parseInt(tid_score) < parseInt(forventet_tid)){
-          score = score/2;
-        }
-        if (hintpoint == 1 && parseInt(tid_score) > parseInt(forventet_tid)){
-          score = score/4;
-        }
-        if (hintpoint == 0 && parseInt(tid_score) > parseInt(forventet_tid)){
-          score = score/2;
-        }
-        if (hintpoint == 0 && parseInt(tid_score) < parseInt(forventet_tid)){
-          score = 100;
-        }
-      }
-  
-      else  {
-        score = 0;
-      }
-
-      let sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = ${score}, \`Besv_Svar\` = ${svar}, \`Besv_Besvaret\` = 1, \`Besv_Hint\` = ${hintpoint}, \`Besv_Tid\` = ${tid_score} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
-      main();
-
-      sql += `; UPDATE \`Opgaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgavenummer]} WHERE \`opg_Bes_ID\` = ${opgavenummer}`;
-
-
-      con.query(sql, function (err) {
+    con.connect(function (err) {
         if (err) throw err;
-        console.log("hello");
-    });  
-      
-     
-  });
+        console.log(tid_score, forventet_tid);
+
+        
+        if (parseInt(`${svar}`) == parseInt(forventet_svar)){
+            score = 100;
+            
+            if (hintpoint == 1 && parseInt(tid_score) < parseInt(forventet_tid)){
+            score = score/2;
+            }
+
+            if (hintpoint == 1 && parseInt(tid_score) > parseInt(forventet_tid)){
+            score = score/4;
+            }
+
+            if (hintpoint == 0 && parseInt(tid_score) > parseInt(forventet_tid)){
+            score = score/2;
+            }
+
+            if (hintpoint == 0 && parseInt(tid_score) < parseInt(forventet_tid)){
+            score = 100;
+            }
+        
+        }else{
+            score = 0;
+        }
+
+        let sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = ${score}, \`Besv_Svar\` = ${svar},
+                  \`Besv_Besvaret\` = 1, \`Besv_Hint\` = ${hintpoint}, \`Besv_Tid\` = ${tid_score}
+                   WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+        
+        main();
+
+        sql += `; UPDATE \`Opgaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgavenummer]} 
+                  WHERE \`opg_Bes_ID\` = ${opgavenummer}`;
+
+
+        con.query(sql, function (err) {
+            if (err) throw err;
+            console.log("hello");
+        });  
+    });
+
   res.redirect(`back`);
 });
 
