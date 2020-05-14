@@ -43,7 +43,8 @@ router.get('/:opgavenummer', function(req, res, next) {
           hint_score: result[0].hint_score,
           hintpoint: result[0].Besv_Hint,
           hintforklaring: result[0].hint,
-          forventet_tid: result[0].opg_Forv_tid
+          forventet_tid: result[0].opg_Forv_tid,
+          tidbrugt: result[0].Besv_Tid
             });
       }); 
   });
