@@ -1,19 +1,19 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
 //var sassMiddleware = require('node-sass-middleware');
 
-var oversigtRouter = require('./routes/oversigt');
-var opgaverRouter = require('./routes/opgaver');
-var indexRouter = require('./routes/index');
-var oversigt_opgaverRouter = require('./routes/oversigt_opgaver');
-var laerer_oversigtRouter = require('./routes/laerer_oversigt');
-var hjaelpemidlerRouter = require('./routes/hjaelpemidler');
+const oversigtRouter = require('./routes/oversigt');
+const opgaverRouter = require('./routes/opgaver');
+const indexRouter = require('./routes/index');
+const oversigt_opgaverRouter = require('./routes/oversigt_opgaver');
+const laerer_oversigtRouter = require('./routes/laerer_oversigt');
+const hjaelpemidlerRouter = require('./routes/hjaelpemidler');
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

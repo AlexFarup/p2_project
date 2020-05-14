@@ -1,4 +1,4 @@
-var environmentObj = {
+const environmentObj = {
     host: "localhost",
     user: "root",
     password: "",
