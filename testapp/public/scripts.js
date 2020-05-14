@@ -69,7 +69,7 @@ function updaterTæller()
 
 
 
-let tid = 0;
+
 function gemTid()
 {
     
