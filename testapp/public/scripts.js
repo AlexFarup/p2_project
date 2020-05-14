@@ -16,7 +16,7 @@ $('#indsendSvar').click( () => {
       startStopFunc();
       ikkehint();
 
-      tid = 0;
+      
    });
 
 
@@ -26,11 +26,13 @@ function startStopFunc()
     if (startStop == true)
     {
         gemTid();
+        tid = 0;
         startStop = false;
     }
     else
     {
         startStop = true;
+        tid = 0;
     }
 }
 
