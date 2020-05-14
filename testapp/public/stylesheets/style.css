@@ -1,10 +1,25 @@
-.bokse{
+/* Hjælpemidler */
+.bokse {
     padding: 5% 5%;
 }
 
-.skjul{
+.skjul { 
     position: fixed;
     left: 50%;
     top: 19.5%;
     padding: 0 7% 0 7%;
+}
+
+
+/* Opgaver-oversigt*/
+.fagknapper {
+    margin: 5%;
+}
+  
+.opgavesætknapper {
+    padding: 5%;
+}
+
+.centered-text {
+    margin-top: 13%;
 }

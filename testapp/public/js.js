@@ -1,3 +1,5 @@
+//----------------------------------Oversigt opgaver----------------------------------
+
 //Hides the right side of the page until a button is clicked
 $('.container-right').hide();
 
@@ -7,8 +9,11 @@ $('.matbox').click( () => {
     $('.container-right').fadeIn();
 });
 
-$('.skjul').hide();
 
+
+//-----------------------------------Hjælpemidler-------------------------------------
+
+$('.skjul').hide();
 
 $('.addition').click( () => { 
     $('.skjul-addition').fadeIn();
