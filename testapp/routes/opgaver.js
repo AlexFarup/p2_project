@@ -88,9 +88,6 @@ router.post('/sendA/:opgavenummer', function (req, res) {
         else if (hintpoint == 0 && tid_score > 30){
           score = score/2;
         }
-        else{
-          score = 100;
-        }
       }
     
       else  {
