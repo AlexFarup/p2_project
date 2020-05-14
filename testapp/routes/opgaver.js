@@ -74,7 +74,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
  
   con.connect(function (err) {
       if (err) throw err;
-      console.log('${tid_score}');
+      console.log(tid_score);
 
       
        if (`${svar}` == forventet_svar) {
