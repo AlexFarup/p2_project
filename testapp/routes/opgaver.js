@@ -1,16 +1,16 @@
-var express = require('express');
-var router = express.Router();
-var environment = require('../enviroment').environment;
+const express = require('express');
+const router = express.Router();
+const environment = require('../enviroment').environment;
 
 
 
 
 /* GET home page. */
 router.get('/:opgavenummer', function(req, res, next) {
-  var opgavenummer = req.params.opgavenummer;
-  var mysql = require('mysql');
+  let opgavenummer = req.params.opgavenummer;
+  let mysql = require('mysql');
 
-  var con = mysql.createConnection({
+  let con = mysql.createConnection({
     host: environment.host,
     user: environment.user,
     password: environment.password,
@@ -43,7 +43,7 @@ router.get('/:opgavenummer', function(req, res, next) {
           hint_score: result[0].hint_score,
           hintpoint: result[0].Besv_Hint,
           hintforklaring: result[0].hint,
-          forventet_tid: result[0].opg_Forv_tid
+          forventet_tid: result[0].opg_Forv_tid,
             });
       }); 
   });
@@ -53,16 +53,16 @@ router.get('/:opgavenummer', function(req, res, next) {
 
 router.post('/sendA/:opgavenummer', function (req, res) {
   console.log(req.body);
-  var svar = req.body.svar;
-  var opgavenummer = req.params.opgavenummer;
-  var mysql = require('mysql');
-  var forventet_svar = req.body.forventet_svar;
-  var hintpoint = req.body.hint_point;
-  var tid_score = req.body.tidbrugt;
-  var forventet_tid = req.body.forventet_tid
+  let svar = req.body.svar;
+  let opgavenummer = req.params.opgavenummer;
+  let mysql = require('mysql');
+ let forventet_svar = req.body.forventet_svar;
+ let hintpoint = req.body.hint_point;
+ let tid_score = req.body.tidbrugt;
+ let forventet_tid = req.body.forventet_tid;
 
 
-  var con = mysql.createConnection({
+  let con = mysql.createConnection({
     host: environment.host,
     user: environment.user,
     password: environment.password,
@@ -74,29 +74,33 @@ router.post('/sendA/:opgavenummer', function (req, res) {
  
   con.connect(function (err) {
       if (err) throw err;
-      console.log("connected");
+      console.log(tid_score, forventet_tid);
 
       
-        if (`${svar}` == forventet_svar) {
+       if (parseInt(`${svar}`) == parseInt(forventet_svar)) {
         score = 100;
-        if (hintpoint == 1 && tid_score > forventet_tid){
+        if (hintpoint == 1 && parseInt(tid_score) < parseInt(forventet_tid)){
+          score = score/2;
+        }
+        if (hintpoint == 1 && parseInt(tid_score) > parseInt(forventet_tid)){
           score = score/4;
         }
-        if (hintpoint == 1 && tid_score < forventet_tid){
+        if (hintpoint == 0 && parseInt(tid_score) > parseInt(forventet_tid)){
           score = score/2;
         }
-        else if (hintpoint == 0 && tid_score > forventet_tid){
-          score = score/2;
+        if (hintpoint == 0 && parseInt(tid_score) < parseInt(forventet_tid)){
+          score = 100;
         }
       }
+  
       else  {
         score = 0;
-      } 
+      }
 
-      var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = ${score}, \`Besv_Svar\` = ${svar}, \`Besv_Besvaret\` = 1, \`Besv_Hint\` = ${hintpoint}, \`Besv_Tid\` = ${tid_score} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
+      let sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = ${score}, \`Besv_Svar\` = ${svar}, \`Besv_Besvaret\` = 1, \`Besv_Hint\` = ${hintpoint}, \`Besv_Tid\` = ${tid_score} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
       main();
 
-       sql += `; UPDATE \`Opgaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgavenummer]} WHERE \`opg_Bes_ID\` = ${opgavenummer}`;
+      sql += `; UPDATE \`Opgaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgavenummer]} WHERE \`opg_Bes_ID\` = ${opgavenummer}`;
 
 
       con.query(sql, function (err) {

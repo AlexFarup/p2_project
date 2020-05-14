@@ -2,15 +2,24 @@
 <html lang="en">
 
 <head>
+
+<!--BASIC HTML-->   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Band Template</title>
+    <title>Opgaver</title>
+ 
+<!--LINKS-->    
     <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
     <!-- Bulma Version 0.8.x-->
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
     <link rel="stylesheet" href="css/style.css">
+
+<!--SCRIPTS-->    
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
+    <script defer src="..\scripts.js" ></script>
+    <script defer src="../js/bulma.js"></script>
+    
    
     
 </head>
@@ -41,12 +50,13 @@
                                 <input class="input is-primary" type="text" placeholder="Indtast dit svar" name="svar">
                                 <input type="hidden" name="forventet_svar" value= <%= forventet_svar %> >
                                 <input id="hintID" type="hidden" name="hint_point" value="hintklik" >
-                                <input id="currentTime" type="hidden" name="tidbrugt" value="tid" >
                                 <input type="hidden" name="forventet_tid" value= <%= forventet_tid %> >
+                                <input id="currentTime" type="hidden" name="tidbrugt" value="tid" >
+                                
                                
                                 
                         </div>
-                                <button class="button is-primary is-hovered" type="submit" onclick="ikkehint(); startStopFunc()"> Indsend Svar</button>
+                                <button id="indsendSvar" class="button is-primary is-hovered" type="submit" > Indsend Svar</button>
                             </form>
 
 
@@ -74,7 +84,9 @@
             <p>Hint til opgave <%= opgave_ID %>  </p>
             <br>
               
-            <button onclick="hentHint()" class="button is-warning is-hovered" > Brug for et hint? </button>
+
+            
+            <button id="hintKnappen" class="button is-warning is-hovered" > Brug for et hint? </button>
                    
                <div id="hintDiv" style="display:none" >
                 <p><%= hintforklaring %> </p>          
@@ -82,115 +94,9 @@
           
         </div>
 
-        <script>
-        function hentHint() {
-           
-            var x = document.getElementById("hintDiv");
-            if (x.style.display === "none") {
-              x.style.display = "block";
-
-            } 
-          }
-        </script>
-
-
-        <script>
-            function ikkehint(){
-            var hintklik = 0;
-            var x = document.getElementById("hintDiv");
-
-                if(x.style.display == "none"){
-                    hintklik = 0;
-                    document.getElementById("hintID").value = hintklik;
-                }
-                else{
-                    hintklik = 1;
-                    document.getElementById("hintID").value = hintklik;
-                }
-            }
-        </script>
-
-
-
-        <script>
-            var tid = 0;
-
-var tællerEL = document.getElementById('Countdown');
-
-var startStop = Boolean(true);
-
-//Kalder updateCountdown hvergang der går 1000 milisekunder(1 sekunder)
-var interval = setInterval(updaterTæller, 1000);
-
-function startStopFunc()
-{
-    if (startStop == true)
-    {
-        gemTid();
-        startStop = false;
-    }
-    else
-    {
-        startStop = true;
-    }
-}
-
-function formatterTid(x)
-{
-    if(x < 100)
-    {
-            return "00" + x;
-        }
-        else
-    {
-            return x;
-        }
-}
-
-function updaterTæller() 
-{
-    let sekunder = tid;
-    tællerEL.innerHTML = + formatterTid(sekunder);
-
-
-    if (startStop == true)
-    {
-        if (tid != 120)
-        {
-            tid++;
-        }
-        else
-        {
-            gemTid();
-            clearInterval(interval);
-        }
-    }
-    else if (startStop == false)
-    {
-
-    }
-}
-
-function gemTid()
-{
-    let currentText = document.getElementById("currentTime").innerHTML;
-    currentTime.innerHTML = currentText + tællerEL.innerHTML +  "<br/>";
-    document.getElementById("currentTime").value = tid;
-}
-
-
-
-        </script>
-
-
 
     </section>
-
-  
-
-
-   
-        <script src="../js/bulma.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 
 </html>

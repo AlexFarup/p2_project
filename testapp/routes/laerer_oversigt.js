@@ -1,14 +1,14 @@
-var express = require('express');
-var router = express.Router();
-var environment = require('../enviroment').environment;
+const express = require('express');
+const router = express.Router();
+const environment = require('../enviroment').environment;
 
 
 /* GET home page. */
 router.get('/:opgavenummer', function(req, res, next) {
-  var opgavenummer = req.params.opgavenummer;
-  var mysql = require('mysql');
+  let opgavenummer = req.params.opgavenummer;
+  let mysql = require('mysql');
 
-  var con = mysql.createPool({
+  let con = mysql.createPool({
     connectionLimit: 10,
     host: environment.host,
     user: environment.user,
