@@ -2,9 +2,6 @@ const express = require('express');
 const router = express.Router();
 const environment = require('../enviroment').environment;
 
-
-
-
 /* GET home page. */
 router.get('/:opgavenummer', function(req, res, next) {
   let opgavenummer = req.params.opgavenummer;
@@ -113,6 +110,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
   res.redirect(`back`);
 });
 
+//--------------------------Alex
 
 
 var data = [

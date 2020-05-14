@@ -4,9 +4,7 @@ const environment = require('../enviroment').environment;
 const mysql = require('mysql');
 
 
-
-
-    /* GET home page. */
+/* GET home page. */
 router.get('/:elevnummer', function(req, res, next) {
     let elevnummer = req.params.elevnummer;
     let grafpoint_add = 0;
@@ -43,84 +41,79 @@ router.get('/:elevnummer', function(req, res, next) {
             \`Opgaver\` AS opgaver
             ON besvarelser.Besvarelse_ID = opgaver.Opgave_ID    
             WHERE
-                elev.Elev_ID = ${elevnummer}`, function (err, result, fields) {
-        if (err) throw err;
+                elev.Elev_ID = ${elevnummer}`, 
+                function (err, result, fields) {
+                     if (err) throw err;
                 
+                    result.forEach(element => {
+                        let scoremultiplier = 0;
+                        let pointgraf = 0; 
+            
+                        if( element.Besv_Score == 0 ){
+                            scoremultiplier = 0;
+                        
 
-        result.forEach(element => {
-        let scoremultiplier = 0;
-        let pointgraf = 0; 
-        
-            if( element.Besv_Score == 0 ){
-            scoremultiplier = 0;
-            }
+                        }else if(element.Besv_Score == 25){
+                            scoremultiplier = 1;
+                        
 
-            else if(element.Besv_Score == 25){
-            scoremultiplier = 1;
-            }
+                        }else if( element.Besv_Score == 50 ){
+                            scoremultiplier = 2;
+                        
 
-            else if( element.Besv_Score == 50 ){
-            scoremultiplier = 2;
-            }
-
-            else if( element.Besv_Score == 100){
-            scoremultiplier = 3;
-            }
-
-
-            if(element.opg_Forv_svaerhedsgrad == 1){
-            pointgraf += (5*scoremultiplier); 
-            }
-            else if(element.opg_Forv_svaerhedsgrad == 2){
-                pointgraf += (10*scoremultiplier); 
-            }
-            else if(element.opg_Forv_svaerhedsgrad == 3){
-                pointgraf += (13.3*scoremultiplier); 
-            }        
-
-            switch(element.opg_Type_ID){
-            case 1: 
-                grafpoint_add += pointgraf;
-            break;
-            case 2: 
-                grafpoint_sub += pointgraf;
-            break;
-            case 3: 
-                grafpoint_div += pointgraf;
-            break;
-            case 4:
-                grafpoint_mul += pointgraf;
-            break;
-            }
+                        }else if( element.Besv_Score == 100){
+                            scoremultiplier = 3;
+                        }
 
 
-        });
+                        if(element.opg_Forv_svaerhedsgrad == 1){
+                            pointgraf += (5*scoremultiplier); 
+                        
+                        }else if(element.opg_Forv_svaerhedsgrad == 2){
+                            pointgraf += (10*scoremultiplier); 
+                        
+                        }else if(element.opg_Forv_svaerhedsgrad == 3){
+                            pointgraf += (13.3*scoremultiplier); 
+                        }        
+
+                        switch(element.opg_Type_ID){
+                            case 1: 
+                                grafpoint_add += pointgraf;
+                                break;
+                            case 2: 
+                                grafpoint_sub += pointgraf;
+                                break;
+                            case 3: 
+                                grafpoint_div += pointgraf;
+                                break;
+                            case 4:
+                                grafpoint_mul += pointgraf;
+                                break;
+                        }
+                    });
 
 
-        
-
-
-        console.log(result[0]);
-        res.render('oversigt', {  
-            elev_ID: result[0].Elev_ID,
-            elev_navn: result[0].Elev_navn,
-            elev_efternavn: result[0].Elev_efternavn,
-            elev_email: result[0].Elev_email,
-            laerer_navn: result[0].Laerer_navn,
-            laerer_efternavn: result[0].Laerer_efternavn,
-            laerer_telefonnummer: result[0].Laerer_telefonnummer,
-            laerer_email: result[0].Laerer_email,
-            klasse_navn: result[0].Navn,
-            gp_add: grafpoint_add,
-            gp_sub: grafpoint_sub,
-            gp_div: grafpoint_div,
-            gp_mul: grafpoint_mul,
-        });
-        });
+                    console.log(result[0]);
+                    res.render('oversigt', {  
+                        elev_ID: result[0].Elev_ID,
+                        elev_navn: result[0].Elev_navn,
+                        elev_efternavn: result[0].Elev_efternavn,
+                        elev_email: result[0].Elev_email,
+                        laerer_navn: result[0].Laerer_navn,
+                        laerer_efternavn: result[0].Laerer_efternavn,
+                        laerer_telefonnummer: result[0].Laerer_telefonnummer,
+                        laerer_email: result[0].Laerer_email,
+                        klasse_navn: result[0].Navn,
+                        gp_add: grafpoint_add,
+                        gp_sub: grafpoint_sub,
+                        gp_div: grafpoint_div,
+                        gp_mul: grafpoint_mul,
+                    });
+                });
     });
-    });
+});
 
 
 
-    module.exports = router;
+module.exports = router;
 
