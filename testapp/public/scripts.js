@@ -69,10 +69,10 @@ function updaterTæller()
 
 
 
-
+let tid = 0;
 function gemTid()
 {
-    let tid = 0;
+    
     let currentText = document.getElementById("currentTime").innerHTML;
     currentTime = currentText + tællerEL.innerHTML +  "<br/>";
     document.getElementById("currentTime").value = tid;
