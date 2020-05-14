@@ -16,6 +16,7 @@ $('#indsendSvar').click( () => {
       startStopFunc();
       ikkehint();
 
+      tid = 0;
    });
 
 
