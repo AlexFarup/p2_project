@@ -59,7 +59,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
  let forventet_svar = req.body.forventet_svar;
  let hintpoint = req.body.hint_point;
  let tid_score = req.body.tidbrugt;
- let forventet_tid = req.body.forventet_tid
+ let forventet_tid = req.body.forventet_tid;
 
 
   let con = mysql.createConnection({
