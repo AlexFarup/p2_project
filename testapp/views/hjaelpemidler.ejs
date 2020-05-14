@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<!--Basic HTML-->    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hjælpemidler</title>
+
+<!--LINKS-->
+    <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+    <!-- Bulma Version 0.8.x-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="../stylesheets/style.css">
+
+<!--SCRIPTS-->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
+    <script defer src="..\js.js"></script>
+    <script defer src="../js/bulma.js"></script>
+    
+
+</head>
+
+<body>
+   <%- include('navbar')  %> 
+
+   <p class="is-size-1 has-text-centered">Hjælpemidler</p>
+
+<div class="columns">
+    <div class="column has-text-centered buttons are-large is-half bokse">
+        
+            <div class="button is-info is-fullwidth is-size-3 is-primary addition">Addition</div>
+         <br>
+            <div class="button is-info is-fullwidth is-size-3 is-danger substraktion">Substraktion</div>
+        <br>
+            <div class="button is-info is-fullwidth is-size-3 is-warning multiplikation">Multiplikation</div>
+        <br>
+            <div class="button is-info is-fullwidth is-size-3 is-info division">Division</div>
+    
+    </div>
+
+    <div class="columns skjul-addition skjul" >
+        <div class="message ">
+            <div class="message-header">
+                <p>Addition</p>
+            </div>
+            <div class="message-body">Lorem ipsum, dolor sit amet consectetur adipisicing elit. </div>
+        </div>
+    </div>
+
+    <div class="columns skjul-substraktion skjul" >
+        <div class="message ">
+            <div class="message-header">
+                <p>Substraktion</p>
+            </div>
+            <div class="message-body">Lorem ipsum, dolor sit amet consectetur adipisicing elit. </div>
+        </div>
+    </div>
+
+    <div class="columns skjul-multiplikation skjul" >
+        <div class="message ">
+            <div class="message-header">
+                <p>Multiplikation</p>
+            </div>
+            <div class="message-body">Lorem ipsum, dolor sit amet consectetur adipisicing elit. </div>
+        </div>
+    </div>
+
+    <div class="columns skjul-division skjul" >
+        <div class="message ">
+            <div class="message-header">
+                <p>Division</p>
+            </div>
+            <div class="message-body">Lorem ipsum, dolor sit amet consectetur adipisicing elit. </div>
+        </div>
+    </div>
+    <br>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</body>
+
+</html>
+

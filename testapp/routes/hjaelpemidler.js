@@ -22,7 +22,7 @@ router.get('/:opgavenummer', function(req, res, next) {
     con.query(`SELECT * FROM \`Elev\` WHERE \`Elev_ID\` = ${opgavenummer}`, function (err, result, fields) {
         if (err) throw err;
         console.log(result[0]);
-        res.render('index', {  
+        res.render('hjaelpemidler', {  
             elev_ID: result[0].Elev_ID,
             navn: result[0].Elev_navn,
             elev_efternavn: result[0].Elev_efternavn

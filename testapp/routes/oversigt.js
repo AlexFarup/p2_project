@@ -1,17 +1,21 @@
-var express = require('express');
-var router = express.Router();
-var environment = require('../enviroment').environment;
-
+const express = require('express');
+const router = express.Router();
+const environment = require('../enviroment').environment;
+const mysql = require('mysql');
 
 
 
 
 /* GET home page. */
-router.get('/:opgavenummer', function(req, res, next) {
-  var opgavenummer = req.params.opgavenummer;
-  var mysql = require('mysql');
+router.get('/:elevnummer', function(req, res, next) {
+  let elevnummer = req.params.elevnummer;
+  let grafpoint_add = 0;
+  let grafpoint_sub = 0;
+  let grafpoint_div = 0;
+  let grafpoint_mul = 0;
 
-  var con = mysql.createConnection({
+
+  let con = mysql.createConnection({
     host: environment.host,
     user: environment.user,
     password: environment.password,
@@ -32,9 +36,70 @@ router.get('/:opgavenummer', function(req, res, next) {
         INNER JOIN
             \`Klasse\` AS klasse
             ON elev.Elev_klasse_ID = klasse.Klasse_ID
+        INNER JOIN
+            \`Besvarelser\` AS besvarelser
+            ON elev.Elev_ID = besvarelser.Besv_Elev_ID   
+        INNER JOIN
+        \`Opgaver\` AS opgaver
+          ON besvarelser.Besvarelse_ID = opgaver.Opgave_ID    
         WHERE
-            elev.Elev_ID = ${opgavenummer}`, function (err, result, fields) {
+            elev.Elev_ID = ${elevnummer}`, function (err, result, fields) {
       if (err) throw err;
+            
+
+      result.forEach(element => {
+      let scoremultiplier = 0;
+      let pointgraf = 0; 
+      
+        if( element.Besv_Score == 0 ){
+          scoremultiplier = 0;
+        }
+
+        else if(element.Besv_Score == 25){
+          scoremultiplier = 1;
+        }
+
+        else if( element.Besv_Score == 50 ){
+          scoremultiplier = 2;
+        }
+
+        else if( element.Besv_Score == 100){
+          scoremultiplier = 3;
+        }
+
+
+          if(element.opg_Forv_svaerhedsgrad == 1){
+          pointgraf += (5*scoremultiplier); 
+        }
+          else if(element.opg_Forv_svaerhedsgrad == 2){
+            pointgraf += (10*scoremultiplier); 
+          }
+          else if(element.opg_Forv_svaerhedsgrad == 3){
+            pointgraf += (13.3*scoremultiplier); 
+          }        
+
+        switch(element.opg_Type_ID){
+          case 1: 
+            grafpoint_add += pointgraf;
+          break;
+          case 2: 
+            grafpoint_sub += pointgraf;
+          break;
+          case 3: 
+            grafpoint_div += pointgraf;
+          break;
+          case 4:
+            grafpoint_mul += pointgraf;
+          break;
+        }
+
+
+      });
+
+
+     
+
+
       console.log(result[0]);
       res.render('oversigt', {  
           elev_ID: result[0].Elev_ID,
@@ -45,19 +110,17 @@ router.get('/:opgavenummer', function(req, res, next) {
           laerer_efternavn: result[0].Laerer_efternavn,
           laerer_telefonnummer: result[0].Laerer_telefonnummer,
           laerer_email: result[0].Laerer_email,
-          klasse_navn: result[0].Navn
+          klasse_navn: result[0].Navn,
+          gp_add: grafpoint_add,
+          gp_sub: grafpoint_sub,
+          gp_div: grafpoint_div,
+          gp_mul: grafpoint_mul,
       });
     });
   });
 });
 
+
+
 module.exports = router;
-
-
-
-//con.query(`SELECT * FROM \`Elev\` INNER JOIN \`Laerer\` ON (\`Klasse_ID\` = \`Laerer_ID\`)  WHERE \`Elev_ID\` = ${opgavenummer}`, function (err, result, fields) {
-
- 
-
-//`SELECT \`Elev_ID\`, \`Elev_navn\`, \`Elev_efternavn\`, \`Elev_username\`, \`Elev_password\`, \`Elev_email\`, \`Elev_klasse_ID, \`Elev_laerer_ID\`, \`Klasse_ID\`, \`Klasse_Navn\`, \`Laerer_ID\`, \`Laerer_navn\`, \`Laerer_efternavn\`, \`Laerer_password\`, \`Laerer_username\`, \`Laerer_email\`, \`Laerer_telefonnummer\` FROM ((\`Elev\` INNER JOIN \`Klasse\` ON \`Elev.Elev_Klasse_ID\` = \`Klasse.Klasse_ID\`) INNER JOIN \`Laerer\` ON \`Elev.Elev_laerer_ID\` = \`Laerer.Laerer_ID\`) WHERE \`Elev_ID\` = ${opgavenummer}`, function (err, result, fields
 
