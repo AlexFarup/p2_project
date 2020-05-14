@@ -79,23 +79,23 @@ router.post('/sendA/:opgavenummer', function (req, res) {
       
        if (`${svar}` == forventet_svar) {
         score = 100;
-        if (hintpoint == 1 && tid_score > forventet_tid){
+        if (hintpoint == 1 && tid_score > 30){
           score = score/4;
         }
-        if (hintpoint == 1 && tid_score < forventet_tid){
+        if (hintpoint == 1 && tid_score < 30){
           score = score/2;
         }
-        else if (hintpoint == 0 && tid_score > forventet_tid){
+        else if (hintpoint == 0 && tid_score > 30){
           score = score/2;
         }
         else{
           score = 100;
         }
       }
-     
+    
       else  {
         score = 0;
-      } 
+      }
 
       var sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = ${score}, \`Besv_Svar\` = ${svar}, \`Besv_Besvaret\` = 1, \`Besv_Hint\` = ${hintpoint}, \`Besv_Tid\` = ${tid_score} WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
       main();
