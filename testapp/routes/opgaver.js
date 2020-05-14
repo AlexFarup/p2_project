@@ -83,7 +83,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
         if(hintpoint == 1){
           score = score/2;
         }
-        if(tid_score > forventet_tid){
+        if(tid_score >= forventet_tid){
           score = score/2;
         }
       }
