@@ -59,10 +59,10 @@ router.post('/sendA/:opgavenummer', function (req, res) {
  let forventet_svar = req.body.forventet_svar;
  let hintpoint = req.body.hint_point;
  let tid_score = req.body.tidbrugt;
- let forventet_tid = req.body.forventet_tid;
+ let forventet_tid = req.body.forventet_tid
 
 
-  let con = mysql.createConnection({
+  var con = mysql.createConnection({
     host: environment.host,
     user: environment.user,
     password: environment.password,
@@ -77,17 +77,22 @@ router.post('/sendA/:opgavenummer', function (req, res) {
       console.log("connected");
 
       
-        if (`${svar}` == forventet_svar) {
+       if (`${svar}` == forventet_svar) {
          score = 100;
-
-        if(hintpoint == 1){
-          score = score/2;
-        }
-        if(tid_score >= forventet_tid){
-          score = score/2;
-        }
-        else {
+        if (hintpoint == 0 && tid_score < forventet_tid){
           score = 100;
+        }
+        if (hintpoint == 0 && tid_score > forventet_tid){
+          score = 100;
+          score = score/2;
+        }
+        if (hintpoint == 1 && tid_score < forventet_tid){
+          score = 100;
+          score = score/2;
+        }
+        if (hintpoint == 1 && tid_score > forventet_tid){
+          score = 100;
+          score = score/4;
         }
       }
      
