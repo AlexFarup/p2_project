@@ -124,35 +124,35 @@ router.post('/sendA/:opgavenummer', function (req, res) {
 let data = [
     [100, 50, 15], // opgave 1
 
-    [10, 200, 2], // opgave 2
+    [50, 200, 2], // opgave 2
 
-    [30, 200, 9], // opgave 3
+    [100, 200, 9], // opgave 3
 
     [100, 10, 15], // opgave 4
 
-    [93, 48, 14], // opgave 5
+    [54, 48, 14], // opgave 5
 
-    [94, 50, 14], // opgave 6
+    [100, 50, 14], // opgave 6
 
-    [35, 420, 6], // opgave 7
+    [49, 420, 6], // opgave 7
 
-    [84, 220, 10], // opgave 8
+    [70, 220, 10], // opgave 8
 
-    [86, 200, 12], // opgave 9
+    [72, 200, 12], // opgave 9
 
-    [35, 420, 6], // opgave 10
+    [100, 420, 6], // opgave 10
 
-    [86, 200, 12], // opgave 11
+    [76, 200, 12], // opgave 11
     
-    [85, 100, 14], // opgave 12
+    [42, 100, 14], // opgave 12
 
-    [82, 20, 15], // opgave 13
+    [100, 20, 15], // opgave 13
 
-    [70, 200, 12], // opgave 14
+    [39, 200, 12], // opgave 14
 
-    [10, 150, 20], // opgave 15
+    [69, 150, 20], // opgave 15
 
-    [86, 100, 12] // opgave 16
+    [100, 100, 12] // opgave 16
 
 ];
 
