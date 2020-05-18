@@ -122,37 +122,37 @@ router.post('/sendA/:opgavenummer', function (req, res) {
 //--------------------------Alex
 
 let data = [
-    [100, 50, 15], // opgave 1
+    [100, 10, 15], // opgave 1
 
-    [50, 200, 2], // opgave 2
+    [25, 200, 3], // opgave 2
 
-    [100, 200, 9], // opgave 3
+    [60, 100, 9], // opgave 3
 
-    [100, 10, 15], // opgave 4
+    [100, 11, 14], // opgave 4
 
-    [54, 48, 14], // opgave 5
+    [100, 9, 15], // opgave 5
 
-    [100, 50, 14], // opgave 6
+    [100, 8, 14], // opgave 6
 
-    [49, 420, 6], // opgave 7
+    [100, 10, 15], // opgave 7
 
-    [70, 220, 10], // opgave 8
+    [55, 120, 8], // opgave 8
 
-    [72, 200, 12], // opgave 9
+    [22, 200, 5], // opgave 9
 
-    [100, 420, 6], // opgave 10
+    [45, 90, 9], // opgave 10
 
-    [76, 200, 12], // opgave 11
+    [20, 200, 4], // opgave 11
     
-    [42, 100, 14], // opgave 12
+    [95, 4, 14], // opgave 12
 
-    [100, 20, 15], // opgave 13
+    [100, 7, 15], // opgave 13
 
-    [39, 200, 12], // opgave 14
+    [49, 95, 7], // opgave 14
 
-    [69, 150, 20], // opgave 15
+    [100, 8, 15], // opgave 15
 
-    [100, 100, 12] // opgave 16
+    [15, 220, 4] // opgave 16
 
 ];
 
