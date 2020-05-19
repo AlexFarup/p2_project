@@ -93,8 +93,8 @@ router.get('/:elevnummer', function(req, res, next) {
                     });
 
 
+                    console.log("additions point = " + (grafpoint_add), "subtraktion point = " + (grafpoint_sub), "divisions point = " + (grafpoint_div), "multiplikation point = " + (grafpoint_mul));
                     console.log(result[0]);
-                    console.log("additions point" + (grafpoint_add), "subtraktion point" + (grafpoint_sub), "divisions point" + (grafpoint_div), "multiplikation point" + (grafpoint_mul))
                     res.render('oversigt', {  
                         elev_ID: result[0].Elev_ID,
                         elev_navn: result[0].Elev_navn,
