@@ -112,7 +112,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
 
         con.query(sql, function (err) {
             if (err) throw err;
-            console.log("hello");
+            console.log("score=" (score), "svar=" (svar), "hint brugt=" (hintpoint), "tid brugt=" (tid_score));
         });  
     });
 
