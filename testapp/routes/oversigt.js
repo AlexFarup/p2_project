@@ -94,6 +94,7 @@ router.get('/:elevnummer', function(req, res, next) {
 
 
                     console.log(result[0]);
+                    console.log("additions point" + gp_add, "subtraktion point" + gp_sub, "divisions point" + gp_div, "multiplikation point" + gp_mul)
                     res.render('oversigt', {  
                         elev_ID: result[0].Elev_ID,
                         elev_navn: result[0].Elev_navn,
