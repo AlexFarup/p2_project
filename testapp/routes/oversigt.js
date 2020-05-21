@@ -65,7 +65,7 @@ router.get('/:elevnummer', function(req, res, next) {
                             scoremultiplier = 3;
                         }
 
-
+console.log("scoremultiplier for hver opgave baseret på besvarelses-score" + (scoremultiplier));
                         if(element.opg_Forv_svaerhedsgrad == 1){
                             pointgraf += (5*scoremultiplier); 
                         
@@ -75,7 +75,7 @@ router.get('/:elevnummer', function(req, res, next) {
                         }else if(element.opg_Forv_svaerhedsgrad == 3){
                             pointgraf += (13.3*scoremultiplier); 
                         }        
-
+console.log("point for hver opgave baseret på scoremultiplier og sværhedsgraden af opgaven" + (pointgraf));
                         switch(element.opg_Type_ID){
                             case 1: 
                                 grafpoint_add += pointgraf;

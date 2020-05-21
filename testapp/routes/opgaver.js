@@ -385,6 +385,87 @@ function svaerhedsGrad(){
 
     for(let cluster = 0; cluster < kPlaceringer.length; cluster++){
 
+/* 
+jeg skal sammenligne mindsteafstand arrayet med cluster (cluster === mindsteafstand then push FORLOOOP)
+        if(count === 0){
+            for(var XYZ = 0; XYZ < 3; XYZ++){
+                if(XYZ === 0) {
+                    if(kPlaceringer[cluster][XYZ]/100 >= 0.8){
+                        x++;
+                    } 
+
+                }else if(XYZ === 1){
+                    if(kPlaceringer[cluster][XYZ]/100 < 3){
+                        y++;
+                    } 
+
+                }else if(XYZ === 2){
+                    if(kPlaceringer[cluster][XYZ]/100 >= 0.12){
+                        z++;
+                    }
+                    if(x + y + z >= 2){
+                        array.forEach(element => {
+                            
+                        
+                        samlingSvaerhedsGrader.push(1);
+                        count++;
+                        x = 0, y = 0, z = 0;
+                    });
+                    }
+                } 
+            }
+        } 
+
+        if(count === 0){
+            for(var XYZ = 0; XYZ < 3; XYZ++){
+                if(XYZ === 0) {
+                    if(data[opgaven][XYZ]/100 >= 0.4 && data[opgaven][XYZ]/100 <= 0.8){
+                        x++;
+                    } 
+
+                }else if(XYZ === 1){
+                    if(data[opgaven][XYZ]/100 >= 3 && data[opgaven][XYZ]/100 < 4.2){
+                        y++;
+                    } 
+
+                }else if(XYZ === 2){
+                    if(data[opgaven][XYZ]/100 >= 0.7 && data[opgaven][XYZ]/100 <= 0.12){
+                        z++;
+                    } 
+                    if(x + y + z >= 2){
+                        samlingSvaerhedsGrader.push(2);
+                        count++;
+                        x = 0, y = 0, z = 0;
+                    }
+                } 
+            }
+        }
+
+        if(count === 0){
+            for(var XYZ = 0; XYZ < 3; XYZ++){
+                if(XYZ === 0) {
+                    if(data[opgaven][XYZ]/100 <= 0.4){
+                        x++;
+                    } 
+
+                }else if(XYZ === 1){
+                    if(data[opgaven][XYZ]/100 > 4.2){
+                        y++;
+                    } 
+
+                }else if(XYZ === 2){
+                    if(data[opgaven][XYZ]/100 < 0.12){
+                        z++;
+                    } 
+                    if(x + y + z >= 2){
+                        samlingSvaerhedsGrader.push(3);
+                        count++;
+                        x = 0, y = 0, z = 0;
+                    }
+                } 
+            }
+        } */
+
         for(var opgaven = 0; opgaven < data.length; opgaven++){
             var count = 0;
 
