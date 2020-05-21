@@ -52,30 +52,22 @@ router.get('/:elevnummer', function(req, res, next) {
                         if( element.Besv_Score == 0 ){
                             scoremultiplier = 0;
                         
-                            console.log("scoremultiplier for hver opgave baseret på besvarelses-score" + (scoremultiplier));
+                            
                         }else if(element.Besv_Score == 25){
                             scoremultiplier = 1;
-                        
-                            console.log("scoremultiplier for hver opgave baseret på besvarelses-score" + (scoremultiplier));
                         }else if( element.Besv_Score == 50 ){
                             scoremultiplier = 2;
-                        
-                            console.log("scoremultiplier for hver opgave baseret på besvarelses-score" + (scoremultiplier));
                         }else if( element.Besv_Score == 100){
                             scoremultiplier = 3;
-                            console.log("scoremultiplier for hver opgave baseret på besvarelses-score" + (scoremultiplier));
                         }
 
 
                         if(element.opg_Forv_svaerhedsgrad == 1){
                             pointgraf += (5*scoremultiplier); 
-                            console.log("point for hver opgave baseret på scoremultiplier og sværhedsgraden af opgaven" + (pointgraf));
                         }else if(element.opg_Forv_svaerhedsgrad == 2){
                             pointgraf += (10*scoremultiplier); 
-                            console.log("point for hver opgave baseret på scoremultiplier og sværhedsgraden af opgaven" + (pointgraf));
                         }else if(element.opg_Forv_svaerhedsgrad == 3){
                             pointgraf += (13.3*scoremultiplier); 
-                            console.log("point for hver opgave baseret på scoremultiplier og sværhedsgraden af opgaven" + (pointgraf));
                         }        
 
                         switch(element.opg_Type_ID){
@@ -92,6 +84,8 @@ router.get('/:elevnummer', function(req, res, next) {
                                 grafpoint_mul += pointgraf;
                                 break;
                         }
+                        console.log("scoremultiplier for hver opgave baseret på besvarelses-score" + (scoremultiplier));
+                        console.log("point for hver opgave baseret på scoremultiplier og sværhedsgraden af opgaven" + (pointgraf));
                     });
 
 
