@@ -1,4 +1,4 @@
-                    console.log("<%= gp_add %>");
+               console.log("<%= gp_add %>");
                     console.log("<%= gp_sub %>");
                     console.log("<%= gp_div %>");
                     console.log("<%= gp_mul %>");
@@ -17,10 +17,10 @@
                                 label:'Rigtige Svar',
                                 data:[
                                    
-                                   "<%= gp_add %>",
-                                   "<%= gp_sub %>",
-                                   "<%= gp_div %>",
-                                   "<%= gp_mul %>",
+                                   10,
+                                   2,
+                                   3,
+                                   50,
                                    0,
                                    100
                                 ],
@@ -57,4 +57,4 @@
                             }
                           }
                       });
-             
+              
