@@ -402,25 +402,25 @@ function svaerhedsGrad() {
 
                 //Tjekker x-koordinatet
                 if(XYZ === 0){
-                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.8){
+                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.9){
                         x++;
                     } 
 
                 //Tjekker y-koordinatet
                 }else if(XYZ === 1){
-                    if(kPlaceringer[centralpunkt][XYZ]/100 < 3){
+                    if(kPlaceringer[centralpunkt][XYZ]/100 < 0.12){
                         y++;
                     }    
                 
                 //Tjekker z-koordinatet
                 }else if(XYZ ===2 ){
-                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.12){
+                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.13){
                         z++;
                     }
                 }
 
                 //Hvis har fundet 2 eller flere koordinater der passer
-                if(x + y + z >= 2){
+                if(x + y + z == 3){
                     
                     
                     //forløkken koerer saa laenge der er daatapunkter
@@ -452,24 +452,24 @@ function svaerhedsGrad() {
 
                 //Tjekker x-koordinatet
                 if(XYZ === 0){
-                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.4 && kPlaceringer[centralpunkt][XYZ]/100 <= 0.8){
+                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.25 && kPlaceringer[centralpunkt][XYZ]/100 <= 0.6){
                         x++;
                     } 
 
                 //Tjekker y-koordinatet
                 }else if(XYZ === 1){
-                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 3 && kPlaceringer[centralpunkt][XYZ]/100 < 4.2){
+                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.9 && kPlaceringer[centralpunkt][XYZ]/100 < 1.6){
                         y++;
                     }
 
                 //Tjekker z-koordinatet
                 }else if (XYZ === 2){
-                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.7 && kPlaceringer[centralpunkt][XYZ]/100 <= 0.12){
+                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.7 && kPlaceringer[centralpunkt][XYZ]/100 <= 1){
                         z++;
                     }
                 }
                 //Hvis har fundet 2 eller flere koordinater der passer
-                if(x + y + z >= 2){
+                if(x + y + z == 3){
 
                     //forløkken koerer saa laenge der er daatapunkter
                     for(let tilknyttetCentralpunk = 0; tilknyttetCentralpunk < data.length; tilknyttetCentralpunk++){
@@ -496,48 +496,24 @@ function svaerhedsGrad() {
             //Taeller svaerhedsgraden op, så der nu tjekkes for svarhedsgrad 3
             svaerhedsgrad++;
 
-            //Der koeres igennem x, y og z koordinaterne for hvert centralpunkt
-            for(let XYZ = 0; XYZ < antalKoordinater; XYZ++){
-                //Tjekker x-koordinatet
-                if(XYZ === 0) {
-                    if(kPlaceringer[centralpunkt][XYZ]/100 <= 0.4){
-                        x++;
-                    } 
+           
 
-                //Tjekker y-koordinatet
-                }else if(XYZ === 1) {
-                    if(kPlaceringer[centralpunkt][XYZ]/100 > 4.2){
-                        y++;
-                    } 
+            //forløkken koerer saa laenge der er daatapunkter
+            for(let tilknyttetCentralpunk = 0; tilknyttetCentralpunk < data.length; tilknyttetCentralpunk++){
+
+                //Tjekker om opgaven er associeret med centralunktet
+                if(mindsteAfstand[tilknyttetCentralpunk] === centralpunkt){
+
+                    //Skubber svarhedsgraden op, hvis ovenstaaende passer 
+                    samlingSvaerhedsGrader[tilknyttetCentralpunk] = svaerhedsgrad;
+
+                    //taeller taelles op, saa der ikke bliver tjekket for flere svaerhedsgrader
+                    taeller++;
                 }
-
-                //Tjekker z-koordinatet
-                else if(XYZ === 2){
-                    if(kPlaceringer[centralpunkt][XYZ]/100 < 0.12){
-                        z++;
-                    } 
-                } 
-
-                //Hvis har fundet 2 eller flere koordinater der passer
-                if(x + y + z >= 2){
-
-                    //forløkken koerer saa laenge der er daatapunkter
-                    for(let tilknyttetCentralpunk = 0; tilknyttetCentralpunk < data.length; tilknyttetCentralpunk++){
-
-                        //Tjekker om opgaven er associeret med centralunktet
-                        if(mindsteAfstand[tilknyttetCentralpunk] === centralpunkt){
-
-                            //Skubber svarhedsgraden op, hvis ovenstaaende passer 
-                            samlingSvaerhedsGrader[tilknyttetCentralpunk] = svaerhedsgrad;
-
-                            //taeller taelles op, saa der ikke bliver tjekket for flere svaerhedsgrader
-                            taeller++;
-                        }
-                    }
-                }
-            } 
+            }
         }
-    }
+    } 
+
     return samlingSvaerhedsGrader;
 }
 
