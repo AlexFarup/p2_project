@@ -1,25 +1,25 @@
 let tid = 0;
-let taellerTidOp = document.getElementById('Countdown');
-let tidErStartet = true;
+let tællerEL = document.getElementById('Countdown');
+let startStop = Boolean(true);
 
 //Kalder updateCountdown hvergang der går 1000 milisekunder(1 sekunder)
 let interval = setInterval(updaterTæller, 1000);
 
 //Sender svar til database
 $('#indsendSvar').click( () => { 
-    tidErStartetFunc();
+    startStopFunc();
     ikkehint(); 
 });
 
 
 //Start timeren
-function tidErStartetFunc(){
-    if (tidErStartet == true){
+function startStopFunc(){
+    if (startStop == true){
         gemTid();
-        tidErStartet = false;
+        startStop = false;
     
     }else{
-        tidErStartet = true;
+        startStop = true;
     }
 }
 
@@ -37,9 +37,9 @@ function formatterTid(x){
 function updaterTæller(){
 
     let sekunder = tid;
-    taellerTidOp.html() = +formatterTid(sekunder);
+    tællerEL.innerHTML = + formatterTid(sekunder);
 
-    if (tidErStartet == true){
+    if (startStop == true){
         //Gør så tiden kører så længe, at den ikke bliver stoppet
         if (tid != Infinity){
             tid++;
@@ -53,10 +53,12 @@ function updaterTæller(){
 
 
 function gemTid(){
-    let currentText = $("#currentTime").html();
-    currentTime = currentText + taellerTidOp.html() +  "<br/>";
-    $("input[name='forventet_svar']").val(tid);
+    let currentText = document.getElementById("currentTime").innerHTML;
+    currentTime = currentText + tællerEL.innerHTML +  "<br/>";
+    document.getElementById("currentTime").value = tid;
 }
+
+
 
 $('#hintKnappen').click( () => { 
     hentHint();              
@@ -64,9 +66,9 @@ $('#hintKnappen').click( () => {
     
     
 function hentHint(){
-    let x = $("#hintDiv");
-    if (x.css("display") === 'none'){
-        x.css("display", "block");
+    let x = document.getElementById("hintDiv");
+    if (x.style.display === "none"){
+        x.style.display = "block";
         ikkehint();
     }
 } 
@@ -75,15 +77,16 @@ function hentHint(){
     
 function ikkehint(){
     let hintklik = 0;
-    let x = $("#hintDiv");
+    let x = document.getElementById("hintDiv");
 
-    if (x.css("display") === 'none'){
+    if(x.style.display == "none"){
         hintklik = 0;
-        $("input[name='hint_point']").val(hintklik);
+        document.getElementById("hintID").value = hintklik;
    
     }else{
         hintklik = 1;
-        $("input[name='hint_point']").val(hintklik);
+        document.getElementById("hintID").value = hintklik;
     }
 }
+
 
