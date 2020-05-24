@@ -1,4 +1,4 @@
-               console.log("<%= gp_add %>");
+/*                     console.log("<%= gp_add %>");
                     console.log("<%= gp_sub %>");
                     console.log("<%= gp_div %>");
                     console.log("<%= gp_mul %>");
@@ -57,4 +57,4 @@
                             }
                           }
                       });
-              
+               */
