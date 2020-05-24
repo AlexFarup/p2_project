@@ -1,6 +1,5 @@
-
 let tid = 0;
-let taellerTidOp = $('.Countdown');
+let taellerTidOp = $('#Countdown');
 let tidErStartet = true;
 
 //Kalder updateCountdown hvergang der går 1000 milisekunder(1 sekunder)
@@ -38,7 +37,7 @@ function formatterTid(x){
 function updaterTæller(){
 
     let sekunder = tid;
-    taellerTidOp.HTML = + formatterTid(sekunder);
+    taellerTidOp.html() = +formatterTid(sekunder);
 
     if (tidErStartet == true){
         //Gør så tiden kører så længe, at den ikke bliver stoppet
@@ -54,18 +53,18 @@ function updaterTæller(){
 
 
 function gemTid(){
-    let currentText = $(".currentTime").HTML;
-    currentTime = currentText + taellerTidOp.HTML +  "<br/>";
+    let currentText = $("#currentTime").html();
+    currentTime = currentText + taellerTidOp.html() +  "<br/>";
     $("input[name='forventet_svar']").val(tid);
 }
 
-$('#hintKnappen').click( () =>jquest { 
+$('#hintKnappen').click( () => { 
     hentHint();              
 });
     
     
 function hentHint(){
-    let x = $(".hintDiv");
+    let x = $("#hintDiv");
     if (x.css("display") === 'none'){
         x.css("display", "block");
         ikkehint();
@@ -76,7 +75,7 @@ function hentHint(){
     
 function ikkehint(){
     let hintklik = 0;
-    let x = $(".hintDiv");
+    let x = $("#hintDiv");
 
     if (x.css("display") === 'none'){
         hintklik = 0;
@@ -87,3 +86,4 @@ function ikkehint(){
         $("input[name='hint_point']").val(hintklik);
     }
 }
+
