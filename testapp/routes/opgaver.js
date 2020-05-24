@@ -112,7 +112,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
 
         con.query(sql, function (err) {
             if (err) throw err;
-            console.log("hello");
+            console.log("score = " + score, "svar = " + svar, "tid brugt = " + tid_score + "sekunder", "disse variabler er sendt til databasen" );
         });  
     });
 
@@ -122,37 +122,37 @@ router.post('/sendA/:opgavenummer', function (req, res) {
 //--------------------------Alex
 
 let data = [
-    [100, 50, 15], // opgave 1
+    [100, 10, 15], // opgave 1 svg 1
 
-    [10, 200, 2], // opgave 2
+    [25, 200, 3], // opgave 2 svg 3
 
-    [30, 200, 9], // opgave 3
+    [60, 100, 9], // opgave 3 svg 2
 
-    [100, 10, 15], // opgave 4
+    [100, 11, 14], // opgave 4 svg 1
 
-    [93, 48, 14], // opgave 5
+    [100, 9, 15], // opgave 5 svg 1
 
-    [94, 50, 14], // opgave 6
+    [100, 8, 14], // opgave 6 svg 1
 
-    [35, 420, 6], // opgave 7
+    [100, 10, 15], // opgave 7 svg 1
 
-    [84, 220, 10], // opgave 8
+    [55, 120, 8], // opgave 8 svg 2
 
-    [86, 200, 12], // opgave 9
+    [22, 200, 5], // opgave 9 svg 3
 
-    [35, 420, 6], // opgave 10
+    [45, 90, 9], // opgave 10 svg 2 
 
-    [86, 200, 12], // opgave 11
+    [20, 200, 4], // opgave 11 svg 3
     
-    [85, 100, 14], // opgave 12
+    [95, 4, 14], // opgave 12 svg 1
 
-    [82, 20, 15], // opgave 13
+    [100, 7, 15], // opgave 13 svg 1
 
-    [70, 200, 12], // opgave 14
+    [49, 95, 7], // opgave 14 svg 2 
 
-    [10, 150, 20], // opgave 15
+    [100, 8, 15], // opgave 15 svg 1 
 
-    [86, 100, 12] // opgave 16
+    [15, 220, 4] // opgave 16 svg 3
 
 ];
 
@@ -172,7 +172,6 @@ let samlingSvaerhedsGrader = [];
 function main(){
 
     mindsteAfstand.length = 0;
-    samlingSvaerhedsGrader.length = 0;
     kPlaceringer.length = 0;
 
     dataExtremer = skafDataExtremer();
@@ -378,99 +377,145 @@ function koer(){
     }
 }
 
-function svaerhedsGrad(){
-    let x = 0;
-    let y = 0;
-    let z = 0;
+function svaerhedsGrad() { 
 
-    for(let cluster = 0; cluster < kPlaceringer.length; cluster++){
+      //nulstiller alle elementpladser i samlingSvaerhedsgrader, da vi ikke ved hvad der er paa pladserne  
+      for(let tilknyttetCentralpunk = 0; tilknyttetCentralpunk < data.length; tilknyttetCentralpunk++){
+        samlingSvaerhedsGrader[tilknyttetCentralpunk] = 0;
+    }
 
-        for(var opgaven = 0; opgaven < data.length; opgaven++){
-            var count = 0;
+    //Koerer igennem alle centralpunkterne
+    for(let centralpunkt = 0; centralpunkt  < kPlaceringer.length; centralpunkt++){
+        let x = 0;
+        let y = 0;
+        let z = 0;
+        let taeller = 0;
+        let antalKoordinater = 3;
+        let svaerhedsgrad = 1;
 
-            // Checker cluster
-            if(mindsteAfstand[opgaven] === cluster){
 
-                // Sværhedsgrad 1
-                if(count === 0){
-                    for(var XYZ = 0; XYZ < 3; XYZ++){
-                        if(XYZ === 0) {
-                            if(data[opgaven][XYZ]/100 >= 0.8){
-                                x++;
-                            } 
+        //Tjekker centralpunkterets x, y og z-værdi ved foeste svaerhedsgrad
+        if(taeller === 0){
 
-                        }else if(XYZ === 1){
-                            if(data[opgaven][XYZ]/100 < 3){
-                                y++;
-                            } 
+            //Der koeres igennem x, y og z koordinaterne for hvert centralpunkt
+            for(let XYZ = 0; XYZ < antalKoordinater; XYZ++){
 
-                        }else if(XYZ === 2){
-                            if(data[opgaven][XYZ]/100 >= 0.12){
-                                z++;
-                            }
-                            if(x + y + z >= 2){
-                                samlingSvaerhedsGrader.push(1);
-                                count++;
-                                x = 0, y = 0, z = 0;
-                            }
-                        } 
-                    }
-                }  
+                //Tjekker x-koordinatet
+                if(XYZ === 0){
+                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.9){
+                        x++;
+                    } 
 
-                //Sværhedsgrad 2
-                if(count === 0){
-                    for(var XYZ = 0; XYZ < 3; XYZ++){
-                        if(XYZ === 0) {
-                            if(data[opgaven][XYZ]/100 >= 0.4 && data[opgaven][XYZ]/100 <= 0.8){
-                                x++;
-                            } 
-
-                        }else if(XYZ === 1){
-                            if(data[opgaven][XYZ]/100 >= 3 && data[opgaven][XYZ]/100 < 4.2){
-                                y++;
-                            } 
-
-                        }else if(XYZ === 2){
-                            if(data[opgaven][XYZ]/100 >= 0.7 && data[opgaven][XYZ]/100 <= 0.12){
-                                z++;
-                            } 
-                            if(x + y + z >= 2){
-                                samlingSvaerhedsGrader.push(2);
-                                count++;
-                                x = 0, y = 0, z = 0;
-                            }
-                        } 
+                //Tjekker y-koordinatet
+                }else if(XYZ === 1){
+                    if(kPlaceringer[centralpunkt][XYZ]/100 < 0.12){
+                        y++;
+                    }    
+                
+                //Tjekker z-koordinatet
+                }else if(XYZ === 2 ){
+                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.13){
+                        z++;
                     }
                 }
-                
-                // Sværhedsgrad 3
-                if(count === 0){
-                    for(var XYZ = 0; XYZ < 3; XYZ++){
-                        if(XYZ === 0) {
-                            if(data[opgaven][XYZ]/100 <= 0.4){
-                                x++;
-                            } 
 
-                        }else if(XYZ === 1){
-                            if(data[opgaven][XYZ]/100 > 4.2){
-                                y++;
-                            } 
+                //Hvis har fundet 2 eller flere koordinater der passer
+                if((x + y + z) >= 2){
+                    
+                    
+                    //forløkken koerer saa laenge der er daatapunkter
+                    for(let tilknyttetCentralpunk = 0; tilknyttetCentralpunk < data.length; tilknyttetCentralpunk++){
 
-                        }else if(XYZ === 2){
-                            if(data[opgaven][XYZ]/100 < 0.12){
-                                z++;
-                            } 
-                            if(x + y + z >= 2){
-                                samlingSvaerhedsGrader.push(3);
-                                count++;
-                                x = 0, y = 0, z = 0;
-                            }
-                        } 
+                        //Tjekker om opgaven er associeret med centralunktet
+                        if(mindsteAfstand[tilknyttetCentralpunk] === centralpunkt){
+
+                            //Skubber svarhedsgraden op, hvis ovenstaaende passer 
+                            samlingSvaerhedsGrader[tilknyttetCentralpunk] = svaerhedsgrad;
+
+                            //taeller taelles op, saa der ikke bliver tjekket for flere svaerhedsgrader
+                            taeller++;
+                        }
+                    }
+                } 
+            }  
+        }
+
+     
+        //Tjekker centralpunkterets x, y og z-værdi ved naeste svaerhedsgrad
+        if(taeller === 0) {
+
+            //Taeller svaerhedsgraden op, så der nu tjekkes for svarhedsgrad 2
+            svaerhedsgrad++;
+
+            //Der koeres igennem x, y og z koordinaterne for hvert centralpunkt
+            for(let XYZ = 0; XYZ < antalKoordinater; XYZ++){
+
+                //Tjekker x-koordinatet
+                if(XYZ === 0){
+                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.25 && kPlaceringer[centralpunkt][XYZ]/100 <= 0.89){
+                        x++;
+                    } 
+
+                //Tjekker y-koordinatet
+                }else if(XYZ === 1){
+                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.12 && kPlaceringer[centralpunkt][XYZ]/100 < 1.6){
+                        y++;
+                    }
+
+                //Tjekker z-koordinatet
+                }else if (XYZ === 2){
+                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.13 && kPlaceringer[centralpunkt][XYZ]/100 <= 1){
+                        z++;
+                    }
+                }
+                //Hvis har fundet 2 eller flere koordinater der passer
+                if((x + y + z) >= 2){
+
+                    //forløkken koerer saa laenge der er daatapunkter
+                    for(let tilknyttetCentralpunk = 0; tilknyttetCentralpunk < data.length; tilknyttetCentralpunk++){
+
+                        //Tjekker om opgaven er associeret med centralunktet
+                        if(mindsteAfstand[tilknyttetCentralpunk] === centralpunkt){
+
+                            //Skubber svarhedsgraden op, hvis ovenstaaende passer 
+                            samlingSvaerhedsGrader[tilknyttetCentralpunk] = svaerhedsgrad;
+
+                            //taeller taelles op, saa der ikke bliver tjekket for flere svaerhedsgrader
+                            taeller++;
+                        }
                     }
                 }
             }    
         }
-    }
+                
+   
+      
+        //Tjekker centralpunkterets x, y og z-værdi ved naeste svaerhedsgrad
+        if(taeller === 0) {
+
+            //Taeller svaerhedsgraden op, så der nu tjekkes for svarhedsgrad 3
+            svaerhedsgrad++;
+
+           
+
+            //forløkken koerer saa laenge der er daatapunkter
+            for(let tilknyttetCentralpunk = 0; tilknyttetCentralpunk < data.length; tilknyttetCentralpunk++){
+
+                //Tjekker om opgaven er associeret med centralunktet
+                if(mindsteAfstand[tilknyttetCentralpunk] === centralpunkt){
+
+                    //Skubber svarhedsgraden op, hvis ovenstaaende passer 
+                    samlingSvaerhedsGrader[tilknyttetCentralpunk] = svaerhedsgrad;
+
+                    //taeller taelles op, saa der ikke bliver tjekket for flere svaerhedsgrader
+                    taeller++;
+                }
+            }
+        }
+    } 
+
+    return samlingSvaerhedsGrader;
 }
+
 
 module.exports = router;

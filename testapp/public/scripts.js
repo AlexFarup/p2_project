@@ -88,3 +88,5 @@ function ikkehint(){
         document.getElementById("hintID").value = hintklik;
     }
 }
+
+

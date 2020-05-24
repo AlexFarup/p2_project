@@ -52,28 +52,28 @@ router.get('/:elevnummer', function(req, res, next) {
                         if( element.Besv_Score == 0 ){
                             scoremultiplier = 0;
                         
-
+                            
                         }else if(element.Besv_Score == 25){
                             scoremultiplier = 1;
-                        
-
+                            
                         }else if( element.Besv_Score == 50 ){
                             scoremultiplier = 2;
-                        
 
                         }else if( element.Besv_Score == 100){
                             scoremultiplier = 3;
+
                         }
 
 
                         if(element.opg_Forv_svaerhedsgrad == 1){
                             pointgraf += (5*scoremultiplier); 
-                        
+
                         }else if(element.opg_Forv_svaerhedsgrad == 2){
                             pointgraf += (10*scoremultiplier); 
-                        
+
                         }else if(element.opg_Forv_svaerhedsgrad == 3){
                             pointgraf += (13.3*scoremultiplier); 
+
                         }        
 
                         switch(element.opg_Type_ID){
@@ -93,7 +93,9 @@ router.get('/:elevnummer', function(req, res, next) {
                     });
 
 
+                    
                     console.log(result[0]);
+                    console.log("additions point = " + (grafpoint_add), "subtraktion point = " + (grafpoint_sub), "divisions point = " + (grafpoint_div), "multiplikation point = " + (grafpoint_mul));
                     res.render('oversigt', {  
                         elev_ID: result[0].Elev_ID,
                         elev_navn: result[0].Elev_navn,

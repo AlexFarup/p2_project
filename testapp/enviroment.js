@@ -1,7 +1,7 @@
 const environmentObj = {
     host: "localhost",
     user: "root",
-    password: "",
+    password: "p2gruppe",
     database: "Allan",
     port: "3306"
 };
