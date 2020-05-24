@@ -413,7 +413,7 @@ function svaerhedsGrad() {
                     }    
                 
                 //Tjekker z-koordinatet
-                }else if(XYZ ===2 ){
+                }else if(XYZ === 2 ){
                     if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.13){
                         z++;
                     }
@@ -452,19 +452,19 @@ function svaerhedsGrad() {
 
                 //Tjekker x-koordinatet
                 if(XYZ === 0){
-                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.25 && kPlaceringer[centralpunkt][XYZ]/100 <= 0.6){
+                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.25 && kPlaceringer[centralpunkt][XYZ]/100 <= 0.89){
                         x++;
                     } 
 
                 //Tjekker y-koordinatet
                 }else if(XYZ === 1){
-                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.9 && kPlaceringer[centralpunkt][XYZ]/100 < 1.6){
+                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.12 && kPlaceringer[centralpunkt][XYZ]/100 < 1.6){
                         y++;
                     }
 
                 //Tjekker z-koordinatet
                 }else if (XYZ === 2){
-                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.7 && kPlaceringer[centralpunkt][XYZ]/100 <= 1){
+                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.13 && kPlaceringer[centralpunkt][XYZ]/100 <= 1){
                         z++;
                     }
                 }
