@@ -122,37 +122,37 @@ router.post('/sendA/:opgavenummer', function (req, res) {
 //--------------------------Alex
 
 let data = [
-    [100, 10, 15], // opgave 1
+    [100, 10, 15], // opgave 1 svg 1
 
-    [25, 200, 3], // opgave 2
+    [25, 200, 3], // opgave 2 svg 3
 
-    [60, 100, 9], // opgave 3
+    [60, 100, 9], // opgave 3 svg 2
 
-    [100, 11, 14], // opgave 4
+    [100, 11, 14], // opgave 4 svg 1
 
-    [100, 9, 15], // opgave 5
+    [100, 9, 15], // opgave 5 svg 1
 
-    [100, 8, 14], // opgave 6
+    [100, 8, 14], // opgave 6 svg 1
 
-    [100, 10, 15], // opgave 7
+    [100, 10, 15], // opgave 7 svg 1
 
-    [55, 120, 8], // opgave 8
+    [55, 120, 8], // opgave 8 svg 2
 
-    [22, 200, 5], // opgave 9
+    [22, 200, 5], // opgave 9 svg 3
 
-    [45, 90, 9], // opgave 10
+    [45, 90, 9], // opgave 10 svg 2 
 
-    [20, 200, 4], // opgave 11
+    [20, 200, 4], // opgave 11 svg 3
     
-    [95, 4, 14], // opgave 12
+    [95, 4, 14], // opgave 12 svg 1
 
-    [100, 7, 15], // opgave 13
+    [100, 7, 15], // opgave 13 svg 1
 
-    [49, 95, 7], // opgave 14
+    [49, 95, 7], // opgave 14 svg 2 
 
-    [100, 8, 15], // opgave 15
+    [100, 8, 15], // opgave 15 svg 1 
 
-    [15, 220, 4] // opgave 16
+    [15, 220, 4] // opgave 16 svg 3
 
 ];
 
@@ -420,7 +420,7 @@ function svaerhedsGrad() {
                 }
 
                 //Hvis har fundet 2 eller flere koordinater der passer
-                if(x + y + z == 3){
+                if((x + y + z) === 3){
                     
                     
                     //forløkken koerer saa laenge der er daatapunkter
@@ -469,7 +469,7 @@ function svaerhedsGrad() {
                     }
                 }
                 //Hvis har fundet 2 eller flere koordinater der passer
-                if(x + y + z == 3){
+                if((x + y + z) === 3){
 
                     //forløkken koerer saa laenge der er daatapunkter
                     for(let tilknyttetCentralpunk = 0; tilknyttetCentralpunk < data.length; tilknyttetCentralpunk++){
