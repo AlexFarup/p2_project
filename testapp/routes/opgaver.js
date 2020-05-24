@@ -420,7 +420,7 @@ function svaerhedsGrad() {
                 }
 
                 //Hvis har fundet 2 eller flere koordinater der passer
-                if((x + y + z) === 3){
+                if((x + y + z) >= 2){
                     
                     
                     //forløkken koerer saa laenge der er daatapunkter
@@ -469,7 +469,7 @@ function svaerhedsGrad() {
                     }
                 }
                 //Hvis har fundet 2 eller flere koordinater der passer
-                if((x + y + z) === 3){
+                if((x + y + z) >= 2){
 
                     //forløkken koerer saa laenge der er daatapunkter
                     for(let tilknyttetCentralpunk = 0; tilknyttetCentralpunk < data.length; tilknyttetCentralpunk++){
