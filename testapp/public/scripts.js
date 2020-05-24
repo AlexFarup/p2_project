@@ -1,5 +1,5 @@
 let tid = 0;
-let taellerTidOp = $('#Countdown');
+let taellerTidOp = document.getElementById('Countdown');
 let tidErStartet = true;
 
 //Kalder updateCountdown hvergang der går 1000 milisekunder(1 sekunder)
