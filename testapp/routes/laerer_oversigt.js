@@ -20,11 +20,11 @@ router.get('/:opgavenummer', function(req, res, next) {
   
     con.getConnection(function(err) {
         if (err) throw err;
-        console.log("Connected!");
+        console.log('Connected!');
 
         con.getConnection(function(err) {
             if (err) throw err;
-            console.log("Connected!");
+            console.log('Connected!');
 
             con.query(`SELECT * FROM \`Laerer\` INNER JOIN \`Klasse\` ON (\`Laerer_ID\` = \`Klasse_Laerer_ID\`)  WHERE \`Laerer_ID\` = ${opgavenummer}`, function (err, result, fields) {
                 if (err) throw err;

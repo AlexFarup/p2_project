@@ -18,7 +18,7 @@ router.get('/:opgavenummer', function(req, res, next) {
   
     con.connect(function(err){
         if (err) throw err;
-        console.log("Connected!");
+        console.log('Connected!');
         con.query(`SELECT * FROM \`Elev\` WHERE \`Elev_ID\` = ${opgavenummer}`, function (err, result, fields) {
             if (err) throw err;
             console.log(result[0]);
