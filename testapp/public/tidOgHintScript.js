@@ -37,7 +37,7 @@ function formatterTid(x){
 function updaterTæller(){
 
     let sekunder = tid;
-    tællerEL.innerHTML = + formatterTid(sekunder);
+    tællerEL.innerHTML += formatterTid(sekunder);
 
     if (startStop == true){
         //Gør så tiden kører så længe, at den ikke bliver stoppet
