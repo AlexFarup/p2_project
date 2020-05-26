@@ -21,6 +21,11 @@ document.getElementById('hisboks').onclick = function(){
 
 
 //-----------------------------------Hjælpemidler-------------------------------------
+let addition = document.getElementById('addition');
+let substraktion = document.getElementById('substraktion');
+let multiplikation = document.getElementById('multiplikation');
+let division = document.getElementById('division');
+
 let additionsknap = document.getElementById('skjul-addition');
 let substraktionsknap = document.getElementById('skjul-substraktion');
 let multiplikationsknap = document.getElementById('skjul-multiplikation');
