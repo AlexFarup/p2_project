@@ -6,10 +6,10 @@ let tidErStartet = Boolean(true);
 let interval = setInterval(updaterTæller, 1000);
 
 //Sender svar til database
-$('#indsendSvar').click( () => { 
+document.getElementById('insendsvar').onclick = function(){
     tidErStartetFunc();
     ikkehint(); 
-});
+};
 
 
 //Start timeren
@@ -26,7 +26,7 @@ function tidErStartetFunc(){
 //Skriver 00 foran, hvis tiden er mindre end 100
 function formatterTid(x){
     if(x < 100){
-        return '00' + x;
+        return "00" + x;
     
     }else{
         return x;
@@ -53,22 +53,21 @@ function updaterTæller(){
 
 
 function gemTid(){
-    let currentText = document.getElementById('currentTime').innerHTML;
-    currentTime = currentText + tællerEL.innerHTML +  '<br/>';
-    document.getElementById('currentTime').value = tid;
+    let currentText = document.getElementById("currentTime").innerHTML;
+    currentTime = currentText + tællerEL.innerHTML +  "<br/>";
+    document.getElementById("currentTime").value = tid;
 }
 
 
-
-$('#hintKnappen').click( () => { 
+document.getElementById('hintknappen').onclick = function(){
     hentHint();              
-});
+};
     
     
 function hentHint(){
-    let x = document.getElementById('hintDiv');
-    if (x.style.display === 'none'){
-        x.style.display = 'block';
+    let x = document.getElementById("hintDiv");
+    if (x.style.display === "none"){
+        x.style.display = "block";
         ikkehint();
     }
 } 
@@ -77,16 +76,17 @@ function hentHint(){
     
 function ikkehint(){
     let hintklik = 0;
-    let x = document.getElementById('hintDiv');
+    let x = document.getElementById("hintDiv");
 
-    if(x.style.display == 'none'){
+    if(x.style.display == "none"){
         hintklik = 0;
-        document.getElementById('hintID').value = hintklik;
+        document.getElementById("hintID").value = hintklik;
    
     }else{
         hintklik = 1;
-        document.getElementById('hintID').value = hintklik;
+        document.getElementById("hintID").value = hintklik;
     }
 }
+
 
 
