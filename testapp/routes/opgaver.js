@@ -111,7 +111,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
         /** K means algoritmen kører når man har indsendt sit svar */
         kMeansUdregning();
         /** Her bliver k means resultatet pushet til databasen */
-        sql += `; UPDATE \`Opgaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader} 
+        sql += `; UPDATE \`Opgaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgavenummer]} 
                   WHERE \`opg_Bes_ID\` = ${opgavenummer}`;
 
 
@@ -162,8 +162,7 @@ let data = [
   ];
   
   
-  
-  kMeansUdregning();
+  let samlingSvaerhedsGrader = kMeansUdregning();
   
   function kMeansUdregning(){
       
