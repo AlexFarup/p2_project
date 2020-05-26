@@ -110,6 +110,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
                    WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
         /** K means algoritmen kører når man har indsendt sit svar */
         let samlingSvaerhedsGrader = kMeansUdregning();
+        console.log(samlingSvaerhedsGrader);
         /** Her bliver k means resultatet pushet til databasen */
         sql += `; UPDATE \`Opgaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgavenummer]} 
                   WHERE \`opg_Bes_ID\` = ${opgavenummer}`;
