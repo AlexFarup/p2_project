@@ -122,37 +122,37 @@ router.post('/sendA/:opgavenummer', function (req, res) {
 //--------------------------Alex
 
 let data = [
-    [100, 10, 15], // opgave 1 svg 1
+    [100, 10, 100], // opgave 1 svg 1
 
-    [25, 200, 3], // opgave 2 svg 3
+    [25, 100, 30], // opgave 2 svg 3
 
-    [60, 100, 9], // opgave 3 svg 2
+    [60, 50, 75], // opgave 3 svg 2
 
-    [100, 11, 14], // opgave 4 svg 1
+    [100, 11, 100], // opgave 4 svg 1
 
-    [100, 9, 15], // opgave 5 svg 1
+    [100, 9, 95], // opgave 5 svg 1
 
-    [100, 8, 14], // opgave 6 svg 1
+    [100, 8, 100], // opgave 6 svg 1
 
-    [100, 10, 15], // opgave 7 svg 1
+    [100, 10, 100], // opgave 7 svg 1
 
-    [55, 120, 8], // opgave 8 svg 2
+    [55, 120, 70], // opgave 8 svg 2
 
-    [22, 200, 5], // opgave 9 svg 3
+    [22, 200, 25], // opgave 9 svg 3
 
-    [45, 90, 9], // opgave 10 svg 2 
+    [55, 90, 70], // opgave 10 svg 2 
 
-    [20, 200, 4], // opgave 11 svg 3
+    [20, 200, 25], // opgave 11 svg 3
     
-    [95, 4, 14], // opgave 12 svg 1
+    [95, 4, 95], // opgave 12 svg 1
 
-    [100, 7, 15], // opgave 13 svg 1
+    [100, 7, 100], // opgave 13 svg 1
 
-    [49, 95, 7], // opgave 14 svg 2 
+    [50, 95, 65], // opgave 14 svg 2 
 
-    [100, 8, 15], // opgave 15 svg 1 
+    [100, 8, 100], // opgave 15 svg 1 
 
-    [15, 220, 4] // opgave 16 svg 3
+    [15, 220, 20] // opgave 16 svg 3
 
 ];
 
@@ -402,19 +402,19 @@ function svaerhedsGrad() {
 
                 //Tjekker x-koordinatet
                 if(XYZ === 0){
-                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.9){
+                    if(kPlaceringer[centralpunkt][XYZ] >= 0.9){
                         x++;
                     } 
 
                 //Tjekker y-koordinatet
                 }else if(XYZ === 1){
-                    if(kPlaceringer[centralpunkt][XYZ]/100 < 0.12){
+                    if(kPlaceringer[centralpunkt][XYZ] < 0.12){
                         y++;
                     }    
                 
                 //Tjekker z-koordinatet
                 }else if(XYZ === 2 ){
-                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.13){
+                    if(kPlaceringer[centralpunkt][XYZ] >= 0.13){
                         z++;
                     }
                 }
@@ -452,19 +452,19 @@ function svaerhedsGrad() {
 
                 //Tjekker x-koordinatet
                 if(XYZ === 0){
-                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.25 && kPlaceringer[centralpunkt][XYZ]/100 <= 0.89){
+                    if(kPlaceringer[centralpunkt][XYZ] >= 0.25 && kPlaceringer[centralpunkt][XYZ]/100 <= 0.89){
                         x++;
                     } 
 
                 //Tjekker y-koordinatet
                 }else if(XYZ === 1){
-                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.12 && kPlaceringer[centralpunkt][XYZ]/100 < 1.6){
+                    if(kPlaceringer[centralpunkt][XYZ] >= 0.12 && kPlaceringer[centralpunkt][XYZ]/100 < 1.6){
                         y++;
                     }
 
                 //Tjekker z-koordinatet
                 }else if (XYZ === 2){
-                    if(kPlaceringer[centralpunkt][XYZ]/100 >= 0.13 && kPlaceringer[centralpunkt][XYZ]/100 <= 1){
+                    if(kPlaceringer[centralpunkt][XYZ] >= 0.13 && kPlaceringer[centralpunkt][XYZ]/100 <= 1){
                         z++;
                     }
                 }
