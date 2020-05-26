@@ -162,8 +162,7 @@ let data = [
   ];
   
   
-  let samlingSvaerhedsGrader = kMeansUdregning();
-  console.log(samlingSvaerhedsGrader);
+ 
   function kMeansUdregning(){
       
     
@@ -171,7 +170,7 @@ let data = [
     let dataRaekkevidde = skafDataRaekkevidde(dataExtremer);
     let kPlaceringer = initialiseringK(3, dataRaekkevidde, dataExtremer);
     
-    erPunktetFlyttet(kPlaceringer, dataExtremer, dataRaekkevidde);
+    return erPunktetFlyttet(kPlaceringer, dataExtremer, dataRaekkevidde);
     
     
   };
@@ -384,7 +383,7 @@ let data = [
     }
     // Den sidste if forhindre den rekursive funktion i at foresætte
     if(slutteligeVaerdier.flyttet === false) {
-        svaerhedsGrad(slutteligeVaerdier.kPlaceringer, slutteligeVaerdier.mindsteAfstand);
+       return svaerhedsGrad(slutteligeVaerdier.kPlaceringer, slutteligeVaerdier.mindsteAfstand);
         
     }
     
