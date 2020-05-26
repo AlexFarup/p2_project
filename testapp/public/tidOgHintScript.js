@@ -1,25 +1,25 @@
 let tid = 0;
 let tællerEL = document.getElementById('Countdown');
-let tidErStartet = Boolean(true);
+let startStop = Boolean(true);
 
 //Kalder updateCountdown hvergang der går 1000 milisekunder(1 sekunder)
 let interval = setInterval(updaterTæller, 1000);
 
 //Sender svar til database
-document.getElementById('insendsvar').onclick = function(){
-    tidErStartetFunc();
+$('#indsendSvar').click( () => { 
+    startStopFunc();
     ikkehint(); 
-};
+});
 
 
 //Start timeren
-function tidErStartetFunc(){
-    if (tidErStartet == true){
+function startStopFunc(){
+    if (startStop == true){
         gemTid();
-        tidErStartet = false;
+        startStop = false;
     
     }else{
-        tidErStartet = true;
+        startStop = true;
     }
 }
 
@@ -39,7 +39,7 @@ function updaterTæller(){
     let sekunder = tid;
     tællerEL.innerHTML = + formatterTid(sekunder);
 
-    if (tidErStartet == true){
+    if (startStop == true){
         //Gør så tiden kører så længe, at den ikke bliver stoppet
         if (tid != Infinity){
             tid++;
@@ -59,9 +59,10 @@ function gemTid(){
 }
 
 
-document.getElementById('hintknappen').onclick = function(){
+
+$('#hintKnappen').click( () => { 
     hentHint();              
-};
+});
     
     
 function hentHint(){
@@ -87,6 +88,5 @@ function ikkehint(){
         document.getElementById('hintID').value = hintklik;
     }
 }
-
 
 
