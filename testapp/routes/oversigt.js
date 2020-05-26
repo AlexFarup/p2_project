@@ -22,7 +22,7 @@ router.get('/:elevnummer', function(req, res, next) {
         multipleStatements: true,
     });
 
-
+/**Connecter og henter relevant data fra database */
     con.connect(function(err) {
         if (err) throw err;
         console.log('Connected!');
@@ -48,7 +48,7 @@ router.get('/:elevnummer', function(req, res, next) {
                     result.forEach(element => {
                         let scoremultiplier = 0;
                         let pointgraf = 0; 
-            
+            /** Her bliver en scoremultiplier udregnet ud fra besvarelses_score */ 
                         if( element.Besv_Score == 0 ){
                             scoremultiplier = 0;
                         
@@ -64,7 +64,7 @@ router.get('/:elevnummer', function(req, res, next) {
 
                         }
 
-
+            /**Her bliver de endelige point uddelt ud fra ens scoremultiplier og sværhedsgrad af opgave */
                         if(element.opg_Forv_svaerhedsgrad == 1){
                             pointgraf += (5*scoremultiplier); 
 
@@ -75,7 +75,7 @@ router.get('/:elevnummer', function(req, res, next) {
                             pointgraf += (13.3*scoremultiplier); 
 
                         }        
-
+            /** Her bliver pointene sorteret i forhold til type af opgave */
                         switch(element.opg_Type_ID){
                             case 1: 
                                 grafpoint_add += pointgraf;

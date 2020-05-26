@@ -17,7 +17,7 @@ router.get('/:opgavenummer', function(req, res, next) {
         port: environment.port,
         multipleStatements: true,
     });
-  
+  /** Connecter og henter data fra database */
     con.getConnection(function(err) {
         if (err) throw err;
         console.log('Connected!');

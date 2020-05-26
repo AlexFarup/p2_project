@@ -15,7 +15,7 @@ router.get('/:opgavenummer', function(req, res, next) {
         port: environment.port,
         multipleStatements: true
     });
-  
+  /** Connecter og henter data fra database */
     con.connect(function(err){
         if (err) throw err;
         console.log('Connected!');
@@ -76,10 +76,10 @@ router.post('/sendA/:opgavenummer', function (req, res) {
         if (err) throw err;
         console.log(tid_score, forventetTid);
 
-        
+        /** Her bliver en besvarelses score udregnet, den bliver = 100% når man har svaret rigtigt */
         if (parseInt(`${svar}`) == parseInt(forventetSvar)){
             score = 100;
-            
+        /** Scoren bliver herefter divideret alt efter om man er gået over tid, eller har benyttet sig af hint */
             if (hintPoint == 1 && parseInt(tid_score) < parseInt(forventetTid)){
             score = score/2;
             }
@@ -99,13 +99,13 @@ router.post('/sendA/:opgavenummer', function (req, res) {
         }else{
             score = 0;
         }
-
+        /** Når scoren er udregnet bliver svaret, tiden brugt, og en indikator for om man har brugt hint eller ej, sendt til databasen */
         let sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = ${score}, \`Besv_Svar\` = ${svar},
                   \`Besv_Besvaret\` = 1, \`Besv_Hint\` = ${hintPoint}, \`Besv_Tid\` = ${tid_score}
                    WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
-        
+        /** K means algoritmen kører når man har indsendt sit svar */
         kMeansUdregning();
-
+        /** Her bliver k means resultatet pushet til databasen */
         sql += `; UPDATE \`Opgaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgavenummer]} 
                   WHERE \`opg_Bes_ID\` = ${opgavenummer}`;
 
