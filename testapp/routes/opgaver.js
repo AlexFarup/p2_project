@@ -7,6 +7,7 @@ router.get('/:opgavenummer', function(req, res, next) {
     let opgavenummer = req.params.opgavenummer;
     let mysql = require('mysql');
 
+/** Connecter til database */
     let con = mysql.createConnection({
         host: environment.host,
         user: environment.user,
@@ -15,7 +16,8 @@ router.get('/:opgavenummer', function(req, res, next) {
         port: environment.port,
         multipleStatements: true
     });
-  /** Connecter og henter data fra database */
+
+/** Henter data fra database */
     con.connect(function(err){
         if (err) throw err;
         console.log('Connected!');
@@ -32,8 +34,11 @@ router.get('/:opgavenummer', function(req, res, next) {
                 opgaver.Opgave_ID = ${opgavenummer}`,
                 function (err, result, fields) {
 
+/** Opretter array med data fra databasen*/
                     if (err) throw err;
                     console.log(result[0]);
+
+/** Opretter array med data fra databasen og sender det til html-siden */
                     res.render('opgaver', {  
                         opgavebeskrivelse: result[0].opg_Opgave,
                         opgave_ID: result[0].Opgave_ID,

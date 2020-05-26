@@ -12,7 +12,7 @@ router.get('/:elevnummer', function(req, res, next) {
     let grafpoint_div = 0;
     let grafpoint_mul = 0;
 
-
+/** Connecter til database */
     let con = mysql.createConnection({
         host: environment.host,
         user: environment.user,
@@ -22,10 +22,12 @@ router.get('/:elevnummer', function(req, res, next) {
         multipleStatements: true,
     });
 
-/**Connecter og henter relevant data fra database */
+
     con.connect(function(err) {
         if (err) throw err;
         console.log('Connected!');
+
+/** Henter relevant data fra database */
         con.query(`SELECT *
         FROM \`Elev\` AS elev
             INNER JOIN
@@ -93,7 +95,7 @@ router.get('/:elevnummer', function(req, res, next) {
                     });
 
 
-                    
+            /** Opretter array med data fra databasen*/
                     console.log(result[0]);
                     console.log('additions point = ' + (grafpoint_add), 'subtraktion point = ' + (grafpoint_sub), 'divisions point = ' + (grafpoint_div), 'multiplikation point = ' + (grafpoint_mul));
                     res.render('oversigt', {  
