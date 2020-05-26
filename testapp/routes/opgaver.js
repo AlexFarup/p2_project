@@ -130,9 +130,9 @@ router.post('/sendA/:opgavenummer', function (req, res) {
 let data = [
     [1, 0.01, 1], // opgave 1 svg 1
   
-    [0.25, 1.5, 0.30], // opgave 2 svg 3
+    [0.30, 2.15, 0.26], // opgave 2 svg 3
   
-    [0.60, 0.50, 0.75], // opgave 3 svg 2
+    [0.46, 0.75, 0.75], // opgave 3 svg 2
   
     [1, 0.11, 1], // opgave 4 svg 1
   
