@@ -380,7 +380,7 @@ let data = [
     if (slutteligeVaerdier.flyttet !== false){
         kPlaceringer = slutteligeVaerdier.kPlaceringer;
         
-        erPunktetFlyttet(kPlaceringer, dataExtremer, dataRaekkevidde);    
+       return erPunktetFlyttet(kPlaceringer, dataExtremer, dataRaekkevidde);    
     }
     // Den sidste if forhindre den rekursive funktion i at foresætte
     if(slutteligeVaerdier.flyttet === false) {
