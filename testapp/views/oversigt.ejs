@@ -18,8 +18,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
+    <script defer src="../public/grafScript.js"></script>
     <script defer src="../js/bulma.js"></script>
-    <script defer src="../public/javascripts/scripts.js"></script>
+   
 </head>
 
 <body>
@@ -82,12 +83,12 @@
                 <div class="container">
                     <canvas id="myChart"></canvas>  
                   </div>
-                
-                  <script>
-                      console.log("<%= gp_add %>");
-                      console.log("<%= gp_sub %>");
-                      console.log("<%= gp_div %>");
-                      console.log("<%= gp_mul %>");
+
+                  <script>                    
+                    console.log('<%= gp_add %>');
+                    console.log('<%= gp_sub %>');
+                    console.log('<%= gp_div %>');
+                    console.log('<%= gp_mul %>');
                       
                       let myChart = document.getElementById('myChart').getContext('2d');
                 
@@ -103,10 +104,10 @@
                                 label:'Rigtige Svar',
                                 data:[
                                    
-                                   "<%= gp_add %>",
-                                   "<%= gp_sub %>",
-                                   "<%= gp_div %>",
-                                   "<%= gp_mul %>",
+                                '<%= gp_add %>',
+                                '<%= gp_sub %>',
+                                '<%= gp_div %>',
+                                '<%= gp_mul %>',
                                    0,
                                    100
                                 ],
@@ -143,8 +144,9 @@
                             }
                           }
                       });
-                  </script>
-
+              </script>
+                 
+               
             </div>
 
                 <div class="columns is-gapless is-multiline is-mobile">

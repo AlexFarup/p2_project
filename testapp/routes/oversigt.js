@@ -12,7 +12,7 @@ router.get('/:elevnummer', function(req, res, next) {
     let grafpoint_div = 0;
     let grafpoint_mul = 0;
 
-
+/** Connecter til database */
     let con = mysql.createConnection({
         host: environment.host,
         user: environment.user,
@@ -25,7 +25,9 @@ router.get('/:elevnummer', function(req, res, next) {
 
     con.connect(function(err) {
         if (err) throw err;
-        console.log("Connected!");
+        console.log('Connected!');
+
+/** Henter relevant data fra database */
         con.query(`SELECT *
         FROM \`Elev\` AS elev
             INNER JOIN
@@ -48,34 +50,35 @@ router.get('/:elevnummer', function(req, res, next) {
                     result.forEach(element => {
                         let scoremultiplier = 0;
                         let pointgraf = 0; 
-            
+
+/** Her bliver en scoremultiplier udregnet ud fra besvarelses_score */ 
                         if( element.Besv_Score == 0 ){
                             scoremultiplier = 0;
                         
                             
-                        }else if(element.Besv_Score == 25){
+                        }else if(element.Besv_Score > 0 && element.Besv_Score <= 25){
                             scoremultiplier = 1;
                             
-                        }else if( element.Besv_Score == 50 ){
+                        }else if( element.Besv_Score >= 26 && element.Besv_Score <= 50 ){
                             scoremultiplier = 2;
 
-                        }else if( element.Besv_Score == 100){
+                        }else if( element.Besv_Score >= 51 && element.Besv_Score <= 100){
                             scoremultiplier = 3;
 
                         }
 
-
-                        if(element.opg_Forv_svaerhedsgrad == 1){
+/**Her bliver de endelige point uddelt ud fra ens scoremultiplier og sværhedsgrad af opgave */
+                        if(element.opg_svaerhedsgrad == 1){
                             pointgraf += (5*scoremultiplier); 
 
-                        }else if(element.opg_Forv_svaerhedsgrad == 2){
+                        }else if(element.opg_svaerhedsgrad == 2){
                             pointgraf += (10*scoremultiplier); 
 
-                        }else if(element.opg_Forv_svaerhedsgrad == 3){
+                        }else if(element.opg_svaerhedsgrad == 3){
                             pointgraf += (13.3*scoremultiplier); 
 
                         }        
-
+/** Her bliver pointene sorteret i forhold til type af opgave */
                         switch(element.opg_Type_ID){
                             case 1: 
                                 grafpoint_add += pointgraf;
@@ -93,9 +96,9 @@ router.get('/:elevnummer', function(req, res, next) {
                     });
 
 
-                    
+/** Opretter array med data fra databasen*/
                     console.log(result[0]);
-                    console.log("additions point = " + (grafpoint_add), "subtraktion point = " + (grafpoint_sub), "divisions point = " + (grafpoint_div), "multiplikation point = " + (grafpoint_mul));
+                    console.log('additions point = ' + (grafpoint_add), 'subtraktion point = ' + (grafpoint_sub), 'divisions point = ' + (grafpoint_div), 'multiplikation point = ' + (grafpoint_mul));
                     res.render('oversigt', {  
                         elev_ID: result[0].Elev_ID,
                         elev_navn: result[0].Elev_navn,

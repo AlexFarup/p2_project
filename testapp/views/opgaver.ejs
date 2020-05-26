@@ -16,7 +16,7 @@
 
 <!--SCRIPTS-->    
     <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
-    <script defer src="..\scripts.js" ></script>
+    <script defer src="..\tidOgHintScript.js" ></script>
     <script defer src="../js/bulma.js"></script>
 </head>
 
@@ -37,16 +37,16 @@
 
                     <div class="content" >
                         <p>Opgave beskrivelse</p>
-                        <p><%= opgavebeskrivelse %> <%= forventet_svar %> </p> 
+                        <p><%= opgavebeskrivelse %> </p> 
 
                         <div class="content">
                             <div class="field columns is-centered" style="padding: 2rem ">
                                 <div class="control">
                                     <form method="POST" action=<%= "/opgaver/sendA/" + opgave_ID %>> 
                                         <input class="input is-primary" type="text" placeholder="Indtast dit svar" name="svar">
-                                        <input type="hidden" name="forventet_svar" value= <%= forventet_svar %> >
-                                        <input id="hintID" type="hidden" name="hint_point" value="hintklik" >
-                                        <input type="hidden" name="forventet_tid" value= <%= forventet_tid %> >
+                                        <input type="hidden" name="forventetSvar" value= <%= forventetSvar %> >
+                                        <input id="hintID" type="hidden" name="hintPoint" value="hintklik" >
+                                        <input type="hidden" name="forventetTid" value= <%= forventetTid %> >
                                         <input id="currentTime" type="hidden" name="tidbrugt" value="tid" >
                                     
                                 </div>
@@ -66,7 +66,7 @@
 
                     <div class="column is-half is-offset-one-quarter is-size-2" >
                         <p id="Countdown" style="display: inline;"> </p> 
-                        <p style="display: inline;">/ <%= forventet_tid %></p> 
+                        <p style="display: inline;">/ <%= forventetTid %></p> 
                     </div> 
 
                     <p id = "currentTime"> </p>
@@ -93,7 +93,7 @@
                 </button>
                    
                <div id="hintDiv" style="display:none" >
-                    <p><%= hintforklaring %> </p>          
+                    <p><%= hintForklaring %> </p>          
                </div>
 
             </div>
