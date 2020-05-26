@@ -163,7 +163,7 @@ let data = [
   
   
   let samlingSvaerhedsGrader = kMeansUdregning();
-  
+  console.log(samlingSvaerhedsGrader);
   function kMeansUdregning(){
       
     
