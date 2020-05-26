@@ -1,4 +1,4 @@
-/* Hjælpemidler */
+/*-----------------------Hjælpemidler-----------------------*/
 .bokse {
     padding: 5% 5%;
 }
@@ -10,8 +10,24 @@
     padding: 0 7% 0 7%;
 }
 
+#skjul-addition {
+    visibility: hidden;
+}  
 
-/* Opgaver-oversigt*/
+#skjul-substraktion {
+    visibility: hidden;
+}  
+
+#skjul-multiplikation {
+    visibility: hidden;
+}  
+
+#skjul-division {
+    visibility: hidden;
+}  
+
+
+/*-----------------------Opgaver-oversigt-----------------------*/
 .fagknapper {
     margin: 5%;
 }
@@ -23,3 +39,11 @@
 .centered-text {
     margin-top: 13%;
 }
+
+#kasse-hoejer{
+    visibility: hidden;
+}
+
+
+
+
