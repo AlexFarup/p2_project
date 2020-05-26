@@ -1,46 +1,57 @@
 //----------------------------------Oversigt opgaver----------------------------------
 
-//Hides the right side of the page until a button is clicked
-$('.container-right').hide();
+let matboks = document.getElementById('matboks');
+let datboks = document.getElementById('datboks');
+let hisboks = document.getElementById('hisboks');
+let opgavesaet = document.getElementById('kasse-hoejer');
 
-
-//Shows the hidden concent, when selectec button is clicked
-$('.matbox').click( () => { 
-    $('.container-right').fadeIn();
-});
+//Viser opgavesaettet, hvis matematikboksen bliver trykket på
+document.getElementById('matboks').onclick = function(){
+    opgavesaet.style.visibility = 'visible';
+};
+//Skjuler opgavesaettet. hvis danskboksen bliver trykket på
+document.getElementById('datboks').onclick = function(){
+    opgavesaet.style.visibility = 'hidden';
+};
+//Skjuler opgavesaettet. hvis historieboksen bliver trykket på
+document.getElementById('hisboks').onclick = function(){
+    opgavesaet.style.visibility = 'hidden';
+};
 
 
 
 //-----------------------------------Hjælpemidler-------------------------------------
+let additionsknap = document.getElementById('skjul-addition');
+let substraktionsknap = document.getElementById('skjul-substraktion');
+let multiplikationsknap = document.getElementById('skjul-multiplikation');
+let divisionsknap = document.getElementById('skjul-division');
 
-$('.skjul').hide();
+//Hvis plusknappen bliver trykket på
+document.getElementById('addition').onclick = function(){
+    console.log('clicked');
+    additionsknap.style.visibility = 'visible';
+    substraktionsknap.style.visibility = 'hidden';
+    multiplikationsknap.style.visibility = 'hidden';
+    divisionsknap.style.visibility = 'hidden';
+};
 
-$('.addition').click( () => { 
-    $('.skjul-addition').fadeIn();
-    $('.skjul-division').hide();
-    $('.skjul-substraktion').hide();
-    $('.skjul-multiplikation').hide();
-});
+document.getElementById('substraktion').onclick = function(){
+    additionsknap.style.visibility = 'hidden';
+    substraktionsknap.style.visibility = 'visible';
+    multiplikationsknap.style.visibility = 'hidden';
+    divisionsknap.style.visibility = 'hidden';
+};
 
+document.getElementById('multiplikation').onclick = function(){
+    additionsknap.style.visibility = 'hidden';
+    substraktionsknap.style.visibility = 'hidden';
+    multiplikationsknap.style.visibility = 'visible';
+    divisionsknap.style.visibility = 'hidden';
+};
 
-$('.substraktion').click( () => { 
-    $('.skjul-substraktion').fadeIn();
-    $('.skjul-division').hide();
-    $('.skjul-addition').hide();
-    $('.skjul-multiplikation').hide();
-});
-
-$('.multiplikation').click( () => { 
-    $('.skjul-multiplikation').fadeIn();
-    $('.skjul-division').hide();
-    $('.skjul-addition').hide();
-    $('.skjul-substraktion').hide();
-});
-
-$('.division').click( () => { 
-    $('.skjul-division').fadeIn();
-    $('.skjul-multiplikation').hide();
-    $('.skjul-addition').hide();
-    $('.skjul-substraktion').hide();
-});
-
+document.getElementById('division').onclick = function(){
+    additionsknap.style.visibility = 'hidden';
+    substraktionsknap.style.visibility = 'hidden';
+    multiplikationsknap.style.visibility = 'hidden';
+    divisionsknap.style.visibility = 'visible';
+};

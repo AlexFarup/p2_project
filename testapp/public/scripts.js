@@ -6,10 +6,10 @@ let startStop = Boolean(true);
 let interval = setInterval(updaterTæller, 1000);
 
 //Sender svar til database
-$('#indsendSvar').click( () => { 
+document.getElementById('insendsvar').onclick = function(){
     startStopFunc();
     ikkehint(); 
-});
+};
 
 
 //Start timeren
@@ -59,10 +59,9 @@ function gemTid(){
 }
 
 
-
-$('#hintKnappen').click( () => { 
+document.getElementById('hintknappen').onclick = function(){
     hentHint();              
-});
+};
     
     
 function hentHint(){
