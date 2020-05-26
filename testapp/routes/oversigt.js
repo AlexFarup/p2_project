@@ -53,13 +53,13 @@ router.get('/:elevnummer', function(req, res, next) {
                             scoremultiplier = 0;
                         
                             
-                        }else if(element.Besv_Score == 25){
+                        }else if(element.Besv_Score > 0 && element.Besv_Score <= 25){
                             scoremultiplier = 1;
                             
-                        }else if( element.Besv_Score == 50 ){
+                        }else if( element.Besv_Score >= 26 && element.Besv_Score <= 50 ){
                             scoremultiplier = 2;
 
-                        }else if( element.Besv_Score == 100){
+                        }else if( element.Besv_Score >= 51 && element.Besv_Score <= 100){
                             scoremultiplier = 3;
 
                         }

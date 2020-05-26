@@ -104,7 +104,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
                   \`Besv_Besvaret\` = 1, \`Besv_Hint\` = ${hintPoint}, \`Besv_Tid\` = ${tid_score}
                    WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
         
-        main();
+        kMeansUdregning();
 
         sql += `; UPDATE \`Opgaver\` SET \`opg_svaerhedsgrad\` = ${samlingSvaerhedsGrader[opgavenummer]} 
                   WHERE \`opg_Bes_ID\` = ${opgavenummer}`;
@@ -169,7 +169,7 @@ let dataRaekkevidde;
 
 let samlingSvaerhedsGrader = [];
 
-function main(){
+function kMeansUdregning(){
 
     mindsteAfstand.length = 0;
     kPlaceringer.length = 0;
