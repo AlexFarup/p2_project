@@ -529,6 +529,6 @@ let data = [
             }
         }
     } 
-    console.log(samlingSvaerhedsGrader);
+   
     return samlingSvaerhedsGrader;
   }
