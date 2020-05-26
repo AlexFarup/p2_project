@@ -379,9 +379,9 @@ function koer(){
 
 function svaerhedsGrad() { 
 
-      //nulstiller alle elementpladser i samlingSvaerhedsgrader, da vi ikke ved hvad der er paa pladserne  
-      for(let tilknyttetCentralpunk = 0; tilknyttetCentralpunk < data.length; tilknyttetCentralpunk++){
-        samlingSvaerhedsGrader[tilknyttetCentralpunk] = 0;
+    //nulstiller alle elementpladser i samlingSvaerhedsgrader, da vi ikke ved hvad der er paa pladserne  
+    for(let tilknyttetCentralpunkt = 0; tilknyttetCentralpunkt < data.length; tilknyttetCentralpunkt++){
+        samlingSvaerhedsGrader[tilknyttetCentralpunkt] = 0;
     }
 
     //Koerer igennem alle centralpunkterne
@@ -424,13 +424,13 @@ function svaerhedsGrad() {
                     
                     
                     //forløkken koerer saa laenge der er daatapunkter
-                    for(let tilknyttetCentralpunk = 0; tilknyttetCentralpunk < data.length; tilknyttetCentralpunk++){
+                    for(let tilknyttetCentralpunkt = 0; tilknyttetCentralpunkt < data.length; tilknyttetCentralpunkt++){
 
                         //Tjekker om opgaven er associeret med centralunktet
-                        if(mindsteAfstand[tilknyttetCentralpunk] === centralpunkt){
+                        if(mindsteAfstand[tilknyttetCentralpunkt] === centralpunkt){
 
                             //Skubber svarhedsgraden op, hvis ovenstaaende passer 
-                            samlingSvaerhedsGrader[tilknyttetCentralpunk] = svaerhedsgrad;
+                            samlingSvaerhedsGrader[tilknyttetCentralpunkt] = svaerhedsgrad;
 
                             //taeller taelles op, saa der ikke bliver tjekket for flere svaerhedsgrader
                             taeller++;
@@ -499,7 +499,7 @@ function svaerhedsGrad() {
            
 
             //forløkken koerer saa laenge der er daatapunkter
-            for(let tilknyttetCentralpunk = 0; tilknyttetCentralpunk < data.length; tilknyttetCentralpunk++){
+            for(let tilknyttetCentralpunkt = 0; tilknyttetCentralpunkt < data.length; tilknyttetCentralpunkt++){
 
                 //Tjekker om opgaven er associeret med centralunktet
                 if(mindsteAfstand[tilknyttetCentralpunk] === centralpunkt){
