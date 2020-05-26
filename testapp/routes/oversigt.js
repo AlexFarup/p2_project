@@ -50,7 +50,8 @@ router.get('/:elevnummer', function(req, res, next) {
                     result.forEach(element => {
                         let scoremultiplier = 0;
                         let pointgraf = 0; 
-            /** Her bliver en scoremultiplier udregnet ud fra besvarelses_score */ 
+
+/** Her bliver en scoremultiplier udregnet ud fra besvarelses_score */ 
                         if( element.Besv_Score == 0 ){
                             scoremultiplier = 0;
                         
@@ -66,7 +67,7 @@ router.get('/:elevnummer', function(req, res, next) {
 
                         }
 
-            /**Her bliver de endelige point uddelt ud fra ens scoremultiplier og sværhedsgrad af opgave */
+/**Her bliver de endelige point uddelt ud fra ens scoremultiplier og sværhedsgrad af opgave */
                         if(element.opg_Forv_svaerhedsgrad == 1){
                             pointgraf += (5*scoremultiplier); 
 
@@ -77,7 +78,7 @@ router.get('/:elevnummer', function(req, res, next) {
                             pointgraf += (13.3*scoremultiplier); 
 
                         }        
-            /** Her bliver pointene sorteret i forhold til type af opgave */
+/** Her bliver pointene sorteret i forhold til type af opgave */
                         switch(element.opg_Type_ID){
                             case 1: 
                                 grafpoint_add += pointgraf;
@@ -95,7 +96,7 @@ router.get('/:elevnummer', function(req, res, next) {
                     });
 
 
-            /** Opretter array med data fra databasen*/
+/** Opretter array med data fra databasen*/
                     console.log(result[0]);
                     console.log('additions point = ' + (grafpoint_add), 'subtraktion point = ' + (grafpoint_sub), 'divisions point = ' + (grafpoint_div), 'multiplikation point = ' + (grafpoint_mul));
                     res.render('oversigt', {  
