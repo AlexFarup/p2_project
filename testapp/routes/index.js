@@ -23,8 +23,8 @@ router.get('/:opgavenummer', function(req, res, next) {
         con.query(`SELECT * FROM \`Elev\` WHERE \`Elev_ID\` = ${opgavenummer}`, function (err, result, fields) {
             if (err) throw err;
             console.log(result[0]);
-            
-/** Opretter array med data fra databasen*/
+
+/** Opretter array med data fra databasen og sender det til html-siden */
             res.render('index', {  
                 elev_ID: result[0].Elev_ID,
                 navn: result[0].Elev_navn,

@@ -14,7 +14,7 @@ router.get('/:opgavenummer', function(req, res, next) {
         database: environment.database,
         port: environment.port
     });
-    
+
 /** Henter data fra database */
   con.connect(function(err) {
       if (err) throw err;
@@ -22,6 +22,8 @@ router.get('/:opgavenummer', function(req, res, next) {
       con.query(`SELECT * FROM \`Elev\` WHERE \`Elev_ID\` = ${opgavenummer}`, function (err, result, fields) {
           if (err) throw err;
           console.log(result[0]);
+
+/** Opretter array med data fra databasen og sender det til html-siden */
           res.render('hjaelpemidler', {  
               elev_ID: result[0].Elev_ID,
               navn: result[0].Elev_navn,
