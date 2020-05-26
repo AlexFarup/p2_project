@@ -82,22 +82,22 @@ router.post('/sendA/:opgavenummer', function (req, res) {
         console.log(tid_score, forventetTid);
 
         /** Her bliver en besvarelses score udregnet, den bliver = 100% når man har svaret rigtigt */
-        if (parseInt(`${svar}`) == parseInt(forventetSvar)){
+        if (parseInt(`${svar}`) === parseInt(forventetSvar)){
             score = 100;
         /** Scoren bliver herefter divideret alt efter om man er gået over tid, eller har benyttet sig af hint */
-            if (hintPoint == 1 && parseInt(tid_score) < parseInt(forventetTid)){
+            if (hintPoint === 1 && parseInt(tid_score) < parseInt(forventetTid)){
             score = score/2;
             }
 
-            if (hintPoint == 1 && parseInt(tid_score) > parseInt(forventetTid)){
+            if (hintPoint === 1 && parseInt(tid_score) > parseInt(forventetTid)){
             score = score/4;
             }
 
-            if (hintPoint == 0 && parseInt(tid_score) > parseInt(forventetTid)){
+            if (hintPoint === 0 && parseInt(tid_score) > parseInt(forventetTid)){
             score = score/2;
             }
 
-            if (hintPoint == 0 && parseInt(tid_score) < parseInt(forventetTid)){
+            if (hintPoint === 0 && parseInt(tid_score) < parseInt(forventetTid)){
             score = 100;
             }
         
@@ -532,3 +532,4 @@ let data = [
    
     return samlingSvaerhedsGrader;
   }
+  module.exports = router;
