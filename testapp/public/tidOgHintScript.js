@@ -1,25 +1,25 @@
 let tid = 0;
 let tællerEL = document.getElementById('Countdown');
-let startStop = Boolean(true);
+let tidErStartet = Boolean(true);
 
 //Kalder updateCountdown hvergang der går 1000 milisekunder(1 sekunder)
 let interval = setInterval(updaterTæller, 1000);
 
 //Sender svar til database
 $('#indsendSvar').click( () => { 
-    startStopFunc();
+    tidErStartetFunc();
     ikkehint(); 
 });
 
 
 //Start timeren
-function startStopFunc(){
-    if (startStop == true){
+function tidErStartetFunc(){
+    if (tidErStartet == true){
         gemTid();
-        startStop = false;
+        tidErStartet = false;
     
     }else{
-        startStop = true;
+        tidErStartet = true;
     }
 }
 
@@ -39,7 +39,7 @@ function updaterTæller(){
     let sekunder = tid;
     tællerEL.innerHTML = + formatterTid(sekunder);
 
-    if (startStop == true){
+    if (tidErStartet == true){
         //Gør så tiden kører så længe, at den ikke bliver stoppet
         if (tid != Infinity){
             tid++;
