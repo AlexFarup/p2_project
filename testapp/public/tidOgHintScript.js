@@ -92,4 +92,4 @@ function ikkehint(){
 }
 
 
-window.onload = tidErStartet;
+window.onload = hentHint;
