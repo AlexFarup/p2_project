@@ -52,7 +52,7 @@ router.get('/:elevnummer', function(req, res, next) {
                         let pointgraf = 0; 
 
 /** Her bliver en scoremultiplier udregnet ud fra besvarelses_score */ 
-                        if( element.Besv_Score == 0 ){
+                        if( element.Besv_Score === 0 ){
                             scoremultiplier = 0;
                         
                             
