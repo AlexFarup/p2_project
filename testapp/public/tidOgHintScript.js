@@ -66,7 +66,7 @@ document.getElementById('hintKnappen').onclick = function(){
     
 function hentHint(){
     let x = document.getElementById("hintDiv");
-    if (x.style.display === "none"){
+    if (x.style.display == "none"){
         x.style.display = "block";
         ikkehint();
     }
