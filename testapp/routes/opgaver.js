@@ -63,7 +63,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
     let mysql = require('mysql');
     let forventetSvar = req.body.forventetSvar;
     let hintPoint = req.body.hintPoint;
-    let tid_score = req.body.tidbrugt;
+    let tidScore = req.body.tidbrugt;
     let forventetTid = req.body.forventetTid;
 
 
@@ -79,25 +79,25 @@ router.post('/sendA/:opgavenummer', function (req, res) {
  
     con.connect(function (err) {
         if (err) throw err;
-        console.log(tid_score, forventetTid);
+        console.log(tidScore, forventetTid);
 
         /** Her bliver en besvarelses score udregnet, den bliver = 100% når man har svaret rigtigt */
         if (parseInt(`${svar}`) === parseInt(forventetSvar)){
             score = 100;
         /** Scoren bliver herefter divideret alt efter om man er gået over tid, eller har benyttet sig af hint */
-            if (hintPoint === 1 && parseInt(tid_score) < parseInt(forventetTid)){
+            if (hintPoint === 1 && parseInt(tidScore) < parseInt(forventetTid)){
             score = score/2;
             }
 
-            if (hintPoint === 1 && parseInt(tid_score) > parseInt(forventetTid)){
+            if (hintPoint === 1 && parseInt(tidScore) > parseInt(forventetTid)){
             score = score/4;
             }
 
-            if (hintPoint === 0 && parseInt(tid_score) > parseInt(forventetTid)){
+            if (hintPoint === 0 && parseInt(tidScore) > parseInt(forventetTid)){
             score = score/2;
             }
 
-            if (hintPoint === 0 && parseInt(tid_score) < parseInt(forventetTid)){
+            if (hintPoint === 0 && parseInt(tidScore) < parseInt(forventetTid)){
             score = 100;
             }
         
@@ -106,7 +106,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
         }
         /** Når scoren er udregnet bliver svaret, tiden brugt, og en indikator for om man har brugt hint eller ej, sendt til databasen */
         let sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = ${score}, \`Besv_Svar\` = ${svar},
-                  \`Besv_Besvaret\` = 1, \`Besv_Hint\` = ${hintPoint}, \`Besv_Tid\` = ${tid_score}
+                  \`Besv_Besvaret\` = 1, \`Besv_Hint\` = ${hintPoint}, \`Besv_Tid\` = ${tidScore}
                    WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
         /** K means algoritmen kører når man har indsendt sit svar */
         let samlingSvaerhedsGrader = kMeansUdregning();
@@ -118,7 +118,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
 
         con.query(sql, function (err) {
             if (err) throw err;
-            console.log('score = ' + score, 'svar = ' + svar, 'tid brugt = ' + tid_score + 'sekunder', 'disse variabler er sendt til databasen' );
+            console.log('score = ' + score, 'svar = ' + svar, 'tid brugt = ' + tidScore + 'sekunder', 'disse variabler er sendt til databasen' );
         });  
     });
 
