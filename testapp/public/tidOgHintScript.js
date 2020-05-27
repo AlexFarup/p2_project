@@ -55,9 +55,9 @@ function updaterTæller(){
 
 
 function gemTid(){
-    let currentText = document.getElementById("currentTime").innerHTML;
-    currentTime = currentText + tællerEL.innerHTML +  "<br/>";
-    document.getElementById("currentTime").value = tid;
+    let currentText = document.getElementById('currentTime').innerHTML;
+    currentTime = currentText + tællerEL.innerHTML +  '<br/>';
+    document.getElementById('currentTime').value = tid;
 }
 
 
@@ -67,9 +67,9 @@ document.getElementById('hintKnappen').onclick = function(){
     
     
 function hentHint(){
-    let x = document.getElementById("hintDiv");
-    if (x.style.display === "none"){
-        x.style.display = "block";
+    let x = document.getElementById('hintDiv');
+    if (x.style.display === 'none'){
+        x.style.display = 'block';
         ikkehint();
     }
 } 
@@ -78,15 +78,15 @@ function hentHint(){
     
 function ikkehint(){
     let hintklik = 0;
-    let x = document.getElementById("hintDiv");
+    let x = document.getElementById('hintDiv');
 
-    if(x.style.display === "none"){
+    if(x.style.display === 'none'){
         hintklik = 0;
-        document.getElementById("hintID").value = hintklik;
+        document.getElementById('hintID').value = hintklik;
    
     }else{
         hintklik = 1;
-        document.getElementById("hintID").value = hintklik;
+        document.getElementById('hintID').value = hintklik;
     }
 }
 
