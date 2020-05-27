@@ -27,7 +27,7 @@ router.get('/:opgavenummer', function(req, res, next) {
           res.render('hjaelpemidler', {  
               elev_ID: result[0].Elev_ID,
               navn: result[0].Elev_navn,
-              elev_efternavn: result[0].Elev_efternavn
+              elevEfternavn: result[0].Elev_efternavn
           });
       });  
   });

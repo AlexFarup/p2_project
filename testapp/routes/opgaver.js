@@ -287,14 +287,14 @@ let data = [
     // Vi tager means arrayets længde og laver sums om til et array med samme længde (Means indeholder alle de tilfældige X, Y og Z værdier for centralpunkterne)
     let summer = Array(kPlaceringer.length);
     // Vi tager means arrayets længde og laver sums om til et array med samme længde (Means indeholder alle de tilfældige X, Y og Z værdier for centralpunkterne)
-    let counter = Array(kPlaceringer.length);
+    let taeller = Array(kPlaceringer.length);
     let flyttet = false;
   
     //Vi forbereder summer til at kunne blive til et to-dimensionelt array
     //Det bliver lavet til et array med et array inden i
     for (let kKoordinater = 0; kKoordinater < kPlaceringer.length; kKoordinater++){
         
-        counter[kKoordinater] = 0;
+        taeller[kKoordinater] = 0;
   
         // Her laves der plads til et X og et Y koordinat på hvert felt i
         // summer arrayet eksempel summer[[X, Y, Z], [X, Y, Z], [X, Y, Z]]
@@ -315,9 +315,9 @@ let data = [
         let k_index = mindsteAfstand[punkt_index];
         //Han vælger et k punkt af gangen og flytter over i en varibel
         let kPlads = kPlaceringer[k_index];
-        //Distancen (fra datapunkt til k = mindsteAfstand = mean_index) bruges til at vælge et punkt i counts arrayet som han tæller op
+        //Distancen (fra datapunkt til k = mindsteAfstand = mean_index) bruges til at vælge et punkt i counts arrayet som han taeller op
         //Counts sørger for at skubbe k punkterne *****
-        counter[k_index]++;
+        taeller[k_index]++;
   
     
         //I første iteration er mean index første k punkt og dimension er X værdien
@@ -329,7 +329,7 @@ let data = [
   
     for (let k_index = 0; k_index < summer.length; k_index++){
         //Kontrollere at alle k punkter har et datapunkt associeret med det
-        if (0 === counter[k_index]){
+        if (0 === taeller[k_index]){
             summer[k_index] = kPlaceringer[k_index];
   
             // Hvis det viser sig at et k punkt ikke har nogle datapunkter findes der en ny tilfældig placering
@@ -349,7 +349,7 @@ let data = [
         //  [x, y, z]
         // ]
         for (let XYZ = 0; XYZ < summer[k_index].length; XYZ++){
-            summer[k_index][XYZ] /= counter[k_index];
+            summer[k_index][XYZ] /= taeller[k_index];
         }
     }
   
