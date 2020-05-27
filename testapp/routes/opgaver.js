@@ -125,7 +125,6 @@ router.post('/sendA/:opgavenummer', function (req, res) {
   res.redirect(`back`);
 });
 
-//--------------------------Alex
 
 let data = [
     [1, 0.01, 1], // opgave 1 svg 1
@@ -309,14 +308,14 @@ let data = [
     }
   
     for (let punktIndeks = 0; punktIndeks < mindsteAfstand.length; punktIndeks++){
-        //Han flytter datapunkterne over i en varibel enkeltvis ligesom ovenstående
+        //Flytter datapunkterne over i en varibel enkeltvis ligesom ovenstående
         let punkt = data[punktIndeks];
-        //Han flytter indholdet fra mindsteAfstand (distancen fra datapunkt til k) over i en variabel på iterativ vis
+        //Flytter indholdet fra mindsteAfstand (distancen fra datapunkt til k) over i en variabel på iterativ vis
         let kIndeks = mindsteAfstand[punktIndeks];
-        //Han vælger et k punkt af gangen og flytter over i en varibel
+        //Vælger et k punkt af gangen og flytter over i en varibel
         let kPlads = kPlaceringer[kIndeks];
-        //Distancen (fra datapunkt til k = mindsteAfstand = meanIndeks) bruges til at vælge et punkt i counts arrayet som han taeller op
-        //Counts sørger for at skubbe k punkterne *****
+        //Distancen (fra datapunkt til k = mindsteAfstand = meanIndeks) bruges til at vælge et punkt i taeller arrayet som taeller op
+        //Taeller sørger for at skubbe k punkterne *****
         taeller[kIndeks]++;
   
     
