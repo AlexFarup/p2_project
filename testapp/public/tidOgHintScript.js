@@ -6,7 +6,7 @@ let tidErStartet = Boolean(true);
 let interval = setInterval(updaterTæller, 1000);
 
 //Sender svar til database
-document.getElementById('insendsvar').onclick = function(){
+document.getElementById('insendSvar').onclick = function(){
     tidErStartetFunc();
     ikkehint(); 
 };
