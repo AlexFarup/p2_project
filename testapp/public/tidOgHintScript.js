@@ -1,3 +1,4 @@
+
 let tid = 0;
 let tællerEL = document.getElementById('Countdown');
 let tidErStartet = Boolean(true);
@@ -6,10 +7,12 @@ let tidErStartet = Boolean(true);
 let interval = setInterval(updaterTæller, 1000);
 
 //Sender svar til database
-document.getElementById('insendSvar').onclick = function(){
+document.getElementById('indsendSvar').onclick = function(){
+    consol.log("hej")
     tidErStartetFunc();
     ikkehint(); 
 };
+
 
 
 //Start timeren
@@ -59,18 +62,15 @@ function gemTid(){
 }
 
 
-
-
 document.getElementById('hintKnappen').onclick = function(){
-    console.log("hello");
     hentHint();              
 };
     
     
 function hentHint(){
     let x = document.getElementById("hintDiv");
-    if (x.style.display === 'none'){
-        x.style.display = 'block';
+    if (x.style.display === "none"){
+        x.style.display = "block";
         ikkehint();
     }
 } 
@@ -81,7 +81,7 @@ function ikkehint(){
     let hintklik = 0;
     let x = document.getElementById("hintDiv");
 
-    if(x.style.display === 'none'){
+    if(x.style.display == "none"){
         hintklik = 0;
         document.getElementById("hintID").value = hintklik;
    
