@@ -80,13 +80,12 @@ function ikkehint(){
 
     if(x.style.display == "none"){
         hintklik = 0;
-        document.getElementById("hintID").value = hintklik;
+        document.getElementById("hintID").value = 0;
    
     }else{
         hintklik = 1;
-        document.getElementById("hintID").value = hintklik;
+        document.getElementById("hintID").value = 1;
     }
-    return hintklik;
 }
 
 
