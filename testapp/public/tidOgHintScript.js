@@ -60,6 +60,7 @@ function gemTid(){
 
 
 document.getElementById('hintKnappen').onclick = function(){
+    console.log("hello");
     hentHint();              
 };
     
