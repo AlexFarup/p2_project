@@ -1,3 +1,4 @@
+
 let tid = 0;
 let tællerEL = document.getElementById('Countdown');
 let tidErStartet = Boolean(true);
@@ -6,15 +7,16 @@ let tidErStartet = Boolean(true);
 let interval = setInterval(updaterTæller, 1000);
 
 //Sender svar til database
-document.getElementById('insendsvar').onclick = function(){
+document.getElementById('indsendSvar').onclick = function(){
     tidErStartetFunc();
     ikkehint(); 
 };
 
 
+
 //Start timeren
 function tidErStartetFunc(){
-    if (tidErStartet == true){
+    if (tidErStartet === true){
         gemTid();
         tidErStartet = false;
     
@@ -53,21 +55,21 @@ function updaterTæller(){
 
 
 function gemTid(){
-    let currentText = document.getElementById("currentTime").innerHTML;
-    currentTime = currentText + tællerEL.innerHTML +  "<br/>";
-    document.getElementById("currentTime").value = tid;
+    let currentText = document.getElementById('currentTime').innerHTML;
+    currentTime = currentText + tællerEL.innerHTML +  '<br/>';
+    document.getElementById('currentTime').value = tid;
 }
 
 
-document.getElementById('hintknappen').onclick = function(){
+document.getElementById('hintKnappen').onclick = function(){
     hentHint();              
 };
     
     
 function hentHint(){
-    let x = document.getElementById("hintDiv");
-    if (x.style.display === "none"){
-        x.style.display = "block";
+    let x = document.getElementById('hintDiv');
+    if (x.style.display === 'none'){
+        x.style.display = 'block';
         ikkehint();
     }
 } 
@@ -76,15 +78,15 @@ function hentHint(){
     
 function ikkehint(){
     let hintklik = 0;
-    let x = document.getElementById("hintDiv");
+    let x = document.getElementById('hintDiv');
 
-    if(x.style.display == "none"){
+    if(x.style.display === 'none'){
         hintklik = 0;
-        document.getElementById("hintID").value = hintklik;
+        document.getElementById('hintID').value = hintklik;
    
     }else{
         hintklik = 1;
-        document.getElementById("hintID").value = hintklik;
+        document.getElementById('hintID').value = hintklik;
     }
 }
 

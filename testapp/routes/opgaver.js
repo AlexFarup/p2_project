@@ -63,7 +63,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
     let mysql = require('mysql');
     let forventetSvar = req.body.forventetSvar;
     let hintPoint = req.body.hintPoint;
-    let tid_score = req.body.tidbrugt;
+    let tidScore = req.body.tidbrugt;
     let forventetTid = req.body.forventetTid;
 
 
@@ -79,25 +79,25 @@ router.post('/sendA/:opgavenummer', function (req, res) {
  
     con.connect(function (err) {
         if (err) throw err;
-        console.log(tid_score, forventetTid);
+        console.log(tidScore, forventetTid);
 
         /** Her bliver en besvarelses score udregnet, den bliver = 100% når man har svaret rigtigt */
         if (parseInt(`${svar}`) === parseInt(forventetSvar)){
             score = 100;
         /** Scoren bliver herefter divideret alt efter om man er gået over tid, eller har benyttet sig af hint */
-            if (hintPoint === 1 && parseInt(tid_score) < parseInt(forventetTid)){
+            if (hintPoint === 1 && parseInt(tidScore) < parseInt(forventetTid)){
             score = score/2;
             }
 
-            if (hintPoint === 1 && parseInt(tid_score) > parseInt(forventetTid)){
+            if (hintPoint === 1 && parseInt(tidScore) > parseInt(forventetTid)){
             score = score/4;
             }
 
-            if (hintPoint === 0 && parseInt(tid_score) > parseInt(forventetTid)){
+            if (hintPoint === 0 && parseInt(tidScore) > parseInt(forventetTid)){
             score = score/2;
             }
 
-            if (hintPoint === 0 && parseInt(tid_score) < parseInt(forventetTid)){
+            if (hintPoint === 0 && parseInt(tidScore) < parseInt(forventetTid)){
             score = 100;
             }
         
@@ -106,7 +106,7 @@ router.post('/sendA/:opgavenummer', function (req, res) {
         }
         /** Når scoren er udregnet bliver svaret, tiden brugt, og en indikator for om man har brugt hint eller ej, sendt til databasen */
         let sql = `UPDATE \`Besvarelser\` SET \`Besv_Score\` = ${score}, \`Besv_Svar\` = ${svar},
-                  \`Besv_Besvaret\` = 1, \`Besv_Hint\` = ${hintPoint}, \`Besv_Tid\` = ${tid_score}
+                  \`Besv_Besvaret\` = 1, \`Besv_Hint\` = ${hintPoint}, \`Besv_Tid\` = ${tidScore}
                    WHERE \`Besvarelse_ID\` = ${opgavenummer}`;
         /** K means algoritmen kører når man har indsendt sit svar */
         let samlingSvaerhedsGrader = kMeansUdregning();
@@ -118,14 +118,13 @@ router.post('/sendA/:opgavenummer', function (req, res) {
 
         con.query(sql, function (err) {
             if (err) throw err;
-            console.log('score = ' + score, 'svar = ' + svar, 'tid brugt = ' + tid_score + 'sekunder', 'disse variabler er sendt til databasen' );
+            console.log('score = ' + score, 'svar = ' + svar, 'tid brugt = ' + tidScore + 'sekunder', 'disse variabler er sendt til databasen' );
         });  
     });
 
   res.redirect(`back`);
 });
 
-//--------------------------Alex
 
 let data = [
     [1, 0.01, 1], // opgave 1 svg 1
@@ -287,14 +286,14 @@ let data = [
     // Vi tager means arrayets længde og laver sums om til et array med samme længde (Means indeholder alle de tilfældige X, Y og Z værdier for centralpunkterne)
     let summer = Array(kPlaceringer.length);
     // Vi tager means arrayets længde og laver sums om til et array med samme længde (Means indeholder alle de tilfældige X, Y og Z værdier for centralpunkterne)
-    let counter = Array(kPlaceringer.length);
+    let taeller = Array(kPlaceringer.length);
     let flyttet = false;
   
     //Vi forbereder summer til at kunne blive til et to-dimensionelt array
     //Det bliver lavet til et array med et array inden i
     for (let kKoordinater = 0; kKoordinater < kPlaceringer.length; kKoordinater++){
         
-        counter[kKoordinater] = 0;
+        taeller[kKoordinater] = 0;
   
         // Her laves der plads til et X og et Y koordinat på hvert felt i
         // summer arrayet eksempel summer[[X, Y, Z], [X, Y, Z], [X, Y, Z]]
@@ -308,33 +307,33 @@ let data = [
         }
     }
   
-    for (let punkt_index = 0; punkt_index < mindsteAfstand.length; punkt_index++){
-        //Han flytter datapunkterne over i en varibel enkeltvis ligesom ovenstående
-        let punkt = data[punkt_index];
-        //Han flytter indholdet fra mindsteAfstand (distancen fra datapunkt til k) over i en variabel på iterativ vis
-        let k_index = mindsteAfstand[punkt_index];
-        //Han vælger et k punkt af gangen og flytter over i en varibel
-        let kPlads = kPlaceringer[k_index];
-        //Distancen (fra datapunkt til k = mindsteAfstand = mean_index) bruges til at vælge et punkt i counts arrayet som han tæller op
-        //Counts sørger for at skubbe k punkterne *****
-        counter[k_index]++;
+    for (let punktIndeks = 0; punktIndeks < mindsteAfstand.length; punktIndeks++){
+        //Flytter datapunkterne over i en varibel enkeltvis ligesom ovenstående
+        let punkt = data[punktIndeks];
+        //Flytter indholdet fra mindsteAfstand (distancen fra datapunkt til k) over i en variabel på iterativ vis
+        let kIndeks = mindsteAfstand[punktIndeks];
+        //Vælger et k punkt af gangen og flytter over i en varibel
+        let kPlads = kPlaceringer[kIndeks];
+        //Distancen (fra datapunkt til k = mindsteAfstand = meanIndeks) bruges til at vælge et punkt i taeller arrayet som taeller op
+        //Taeller sørger for at skubbe k punkterne *****
+        taeller[kIndeks]++;
   
     
-        //I første iteration er mean index første k punkt og dimension er X værdien
+        //I første iteration er mean Indeks første k punkt og dimension er X værdien
         //Lægger XYZ værdien fra datapunktet (point[dimension]) over i summer som i første iteration er 0
         for (let XYZ = 0; XYZ < kPlads.length; XYZ++){
-            summer[k_index][XYZ] += punkt[XYZ];
+            summer[kIndeks][XYZ] += punkt[XYZ];
         }
     } 
   
-    for (let k_index = 0; k_index < summer.length; k_index++){
+    for (let kIndeks = 0; kIndeks < summer.length; kIndeks++){
         //Kontrollere at alle k punkter har et datapunkt associeret med det
-        if (0 === counter[k_index]){
-            summer[k_index] = kPlaceringer[k_index];
+        if (0 === taeller[kIndeks]){
+            summer[kIndeks] = kPlaceringer[kIndeks];
   
             // Hvis det viser sig at et k punkt ikke har nogle datapunkter findes der en ny tilfældig placering
             for (let XYZ = 0; XYZ < dataExtremer.length; XYZ++){
-                summer[k_index][XYZ] =
+                summer[kIndeks][XYZ] =
                 dataExtremer[XYZ].min + Math.random() * dataRaekkevidde[XYZ];
             }
             continue;
@@ -348,8 +347,8 @@ let data = [
         //  [x, y, z]
         //  [x, y, z]
         // ]
-        for (let XYZ = 0; XYZ < summer[k_index].length; XYZ++){
-            summer[k_index][XYZ] /= counter[k_index];
+        for (let XYZ = 0; XYZ < summer[kIndeks].length; XYZ++){
+            summer[kIndeks][XYZ] /= taeller[kIndeks];
         }
     }
   

@@ -30,10 +30,10 @@ router.get('/:opgavenummer', function(req, res, next) {
     
 /** Opretter array med data fra databasen og sender det til html-siden */
                 res.render('laerer_oversigt', {  
-                    laerer_navn: result[0].Laerer_navn,
-                    laerer_efternavn: result[0].Laerer_efternavn,
-                    laerer_telefonnummer: result[0].Laerer_telefonnummer,
-                    laerer_email: result[0].Laerer_email,
+                    laererNavn: result[0].Laerer_navn,
+                    laererEfternavn: result[0].Laerer_efternavn,
+                    laererTelefonnummer: result[0].Laerer_telefonnummer,
+                    laererEmail: result[0].Laerer_email,
                 });
             });
         });
