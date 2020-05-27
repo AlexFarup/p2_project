@@ -308,33 +308,33 @@ let data = [
         }
     }
   
-    for (let punkt_index = 0; punkt_index < mindsteAfstand.length; punkt_index++){
+    for (let punktIndeks = 0; punktIndeks < mindsteAfstand.length; punktIndeks++){
         //Han flytter datapunkterne over i en varibel enkeltvis ligesom ovenstående
-        let punkt = data[punkt_index];
+        let punkt = data[punktIndeks];
         //Han flytter indholdet fra mindsteAfstand (distancen fra datapunkt til k) over i en variabel på iterativ vis
-        let k_index = mindsteAfstand[punkt_index];
+        let kIndeks = mindsteAfstand[punktIndeks];
         //Han vælger et k punkt af gangen og flytter over i en varibel
-        let kPlads = kPlaceringer[k_index];
-        //Distancen (fra datapunkt til k = mindsteAfstand = mean_index) bruges til at vælge et punkt i counts arrayet som han taeller op
+        let kPlads = kPlaceringer[kIndeks];
+        //Distancen (fra datapunkt til k = mindsteAfstand = meanIndeks) bruges til at vælge et punkt i counts arrayet som han taeller op
         //Counts sørger for at skubbe k punkterne *****
-        taeller[k_index]++;
+        taeller[kIndeks]++;
   
     
-        //I første iteration er mean index første k punkt og dimension er X værdien
+        //I første iteration er mean Indeks første k punkt og dimension er X værdien
         //Lægger XYZ værdien fra datapunktet (point[dimension]) over i summer som i første iteration er 0
         for (let XYZ = 0; XYZ < kPlads.length; XYZ++){
-            summer[k_index][XYZ] += punkt[XYZ];
+            summer[kIndeks][XYZ] += punkt[XYZ];
         }
     } 
   
-    for (let k_index = 0; k_index < summer.length; k_index++){
+    for (let kIndeks = 0; kIndeks < summer.length; kIndeks++){
         //Kontrollere at alle k punkter har et datapunkt associeret med det
-        if (0 === taeller[k_index]){
-            summer[k_index] = kPlaceringer[k_index];
+        if (0 === taeller[kIndeks]){
+            summer[kIndeks] = kPlaceringer[kIndeks];
   
             // Hvis det viser sig at et k punkt ikke har nogle datapunkter findes der en ny tilfældig placering
             for (let XYZ = 0; XYZ < dataExtremer.length; XYZ++){
-                summer[k_index][XYZ] =
+                summer[kIndeks][XYZ] =
                 dataExtremer[XYZ].min + Math.random() * dataRaekkevidde[XYZ];
             }
             continue;
@@ -348,8 +348,8 @@ let data = [
         //  [x, y, z]
         //  [x, y, z]
         // ]
-        for (let XYZ = 0; XYZ < summer[k_index].length; XYZ++){
-            summer[k_index][XYZ] /= taeller[k_index];
+        for (let XYZ = 0; XYZ < summer[kIndeks].length; XYZ++){
+            summer[kIndeks][XYZ] /= taeller[kIndeks];
         }
     }
   
