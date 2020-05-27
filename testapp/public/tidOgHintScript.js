@@ -86,6 +86,7 @@ function ikkehint(){
         hintklik = 1;
         document.getElementById("hintID").value = hintklik;
     }
+    return hintklik;
 }
 
 
