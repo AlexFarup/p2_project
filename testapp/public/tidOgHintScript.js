@@ -59,7 +59,7 @@ function gemTid(){
 }
 
 
-let hintKnappen = document.getElementById(hintKnappen);
+
 
 document.getElementById('hintKnappen').onclick = function(){
     console.log("hello");
