@@ -8,7 +8,6 @@ let interval = setInterval(updaterTæller, 1000);
 
 //Sender svar til database
 document.getElementById('indsendSvar').onclick = function(){
-    consol.log("hej")
     tidErStartetFunc();
     ikkehint(); 
 };
@@ -17,7 +16,7 @@ document.getElementById('indsendSvar').onclick = function(){
 
 //Start timeren
 function tidErStartetFunc(){
-    if (tidErStartet == true){
+    if (tidErStartet === true){
         gemTid();
         tidErStartet = false;
     
@@ -81,7 +80,7 @@ function ikkehint(){
     let hintklik = 0;
     let x = document.getElementById("hintDiv");
 
-    if(x.style.display == "none"){
+    if(x.style.display === "none"){
         hintklik = 0;
         document.getElementById("hintID").value = hintklik;
    
