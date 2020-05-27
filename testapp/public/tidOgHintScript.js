@@ -68,7 +68,7 @@ document.getElementById('hintKnappen').onclick = function(){
     
     
 function hentHint(){
-    let x = document.getElementById("hintDiv");
+    let x = document.getElementById("hintDiv").innerHTML;
     if (x.style.visibility === 'hidden'){
         x.style.visibility = 'visible';
         ikkehint();
@@ -79,7 +79,7 @@ function hentHint(){
     
 function ikkehint(){
     let hintklik = 0;
-    let x = document.getElementById("hintDiv");
+    let x = document.getElementById("hintDiv").innerHTML;
 
     if(x.style.visibility === 'hidden'){
         hintklik = 0;
@@ -92,4 +92,4 @@ function ikkehint(){
 }
 
 
-window.onload = hentHint;
+
